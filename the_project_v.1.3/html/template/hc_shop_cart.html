@@ -156,46 +156,8 @@
 									
 									<!-- header dropdown buttons -->
 									<div class="header-dropdown-buttons visible-xs">
-										<div class="btn-group dropdown">
-											<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-basket-1"></i><span class="cart-count default-bg">8</span></button>
-											<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
-												<li>
-													<table class="table table-hover">
-														<thead>
-															<tr>
-																<th class="quantity">QTY</th>
-																<th class="product">Product</th>
-																<th class="amount">Subtotal</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<td class="quantity">2 x</td>
-																<td class="product"><a href="shop-product.html">Android 4.4 Smartphone</a><span class="small">4.7" Dual Core 1GB</span></td>
-																<td class="amount">$199.00</td>
-															</tr>
-															<tr>
-																<td class="quantity">3 x</td>
-																<td class="product"><a href="shop-product.html">Android 4.2 Tablet</a><span class="small">7.3" Quad Core 2GB</span></td>
-																<td class="amount">$299.00</td>
-															</tr>
-															<tr>
-																<td class="quantity">3 x</td>
-																<td class="product"><a href="shop-product.html">Desktop PC</a><span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span></td>
-																<td class="amount">$1499.00</td>
-															</tr>
-															<tr>
-																<td class="total-quantity" colspan="2">Total 8 Items</td>
-																<td class="total-amount">$1997.00</td>
-															</tr>
-														</tbody>
-													</table>
-													<div class="panel-body text-right">
-														<a href="shop-cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
-														<a href="shop-checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
-													</div>
-												</li>
-											</ul>
+										<div class="btn-group open">
+											<button type="button" class="btn"><i class="icon-basket-1"></i></button>
 										</div>
 									</div>
 									<!-- header dropdown buttons end-->
@@ -272,46 +234,8 @@
 												
 												<!-- header dropdown buttons -->
 												<div class="header-dropdown-buttons hidden-xs ">
-													<div class="btn-group dropdown">
-														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-basket-1"></i><span class="cart-count default-bg">8</span></button>
-														<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
-															<li>
-																<table class="table table-hover">
-																	<thead>
-																		<tr>
-																			<th class="quantity">QTY</th>
-																			<th class="product">Product</th>
-																			<th class="amount">Subtotal</th>
-																		</tr>
-																	</thead>
-																	<tbody>
-																		<tr>
-																			<td class="quantity">2 x</td>
-																			<td class="product"><a href="shop-product.html">Android 4.4 Smartphone</a><span class="small">4.7" Dual Core 1GB</span></td>
-																			<td class="amount">$199.00</td>
-																		</tr>
-																		<tr>
-																			<td class="quantity">3 x</td>
-																			<td class="product"><a href="shop-product.html">Android 4.2 Tablet</a><span class="small">7.3" Quad Core 2GB</span></td>
-																			<td class="amount">$299.00</td>
-																		</tr>
-																		<tr>
-																			<td class="quantity">3 x</td>
-																			<td class="product"><a href="shop-product.html">Desktop PC</a><span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span></td>
-																			<td class="amount">$1499.00</td>
-																		</tr>
-																		<tr>
-																			<td class="total-quantity" colspan="2">Total 8 Items</td>
-																			<td class="total-amount">$1997.00</td>
-																		</tr>
-																	</tbody>
-																</table>
-																<div class="panel-body text-right">
-																	<a href="shop-cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
-																	<a href="shop-checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
-																</div>
-															</li>
-														</ul>
+													<div class="btn-group open">
+														<button type="button" class="btn"><i class="icon-basket-1"></i></button>
 													</div>
 												</div>
 												<!-- header dropdown buttons end-->
@@ -469,7 +393,90 @@
 
 
 
-			<!-- PUT CONTENT HERE -->
+			<section class="main-container">
+
+				<div class="container">
+					<div class="row">
+
+						<!-- main start -->
+						<!-- ================ -->
+						<div class="main col-md-12">
+
+							<!-- page-title start -->
+							<!-- ================ -->
+							<h1 class="page-title">Shopping Cart</h1>
+							<div class="separator-2"></div>
+							<!-- page-title end -->
+
+							<table class="table cart table-hover table-colored">
+								<thead>
+									<tr>
+										<th>Product </th>
+										<th>Price </th>
+										<th>Quantity</th>
+										<th>Remove </th>
+										<th class="amount">Total </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="remove-data">
+										<td class="product"><a href="shop-product.html">Product Title 1</a> <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.</small></td>
+										<td class="price">$99.50 </td>
+										<td class="quantity">
+											<div class="form-group">
+												<input type="text" class="form-control" value="2">
+											</div>											
+										</td>
+										<td class="remove"><a class="btn btn-remove btn-sm btn-default">Remove</a></td>
+										<td class="amount">$199.00 </td>
+									</tr>
+									<tr class="remove-data">
+										<td class="product"><a href="shop-product.html">Product Title 2</a> <small>Quas inventore modi</small></td>
+										<td class="price"> $99.66 </td>
+										<td class="quantity">
+											<div class="form-group">
+												<input type="text" class="form-control" value="3">
+											</div>											
+										</td>
+										<td class="remove"><a class="btn btn-remove btn-sm btn-default">Remove</a></td>
+										<td class="amount">$299.00 </td>
+									</tr>
+									<tr class="remove-data">
+										<td class="product"><a href="shop-product.html">Product Title 3</a> <small>Fugiat nemo enim officiis repellendus</small></td>
+										<td class="price"> $499.66 </td>
+										<td class="quantity">
+											<div class="form-group">
+												<input type="text" class="form-control" value="3">
+											</div>											
+										</td>
+										<td class="remove"><a class="btn btn-remove btn-sm btn-default">Remove</a></td>
+										<td class="amount">$1499.00 </td>
+									</tr>
+									<tr>
+										<td colspan="3">Discount Coupon</td>
+										<td colspan="2">
+											<div class="form-group">
+												<input type="text" class="form-control">
+											</div>											
+										</td>
+									</tr>
+									<tr>
+										<td class="total-quantity" colspan="4">Total 8 Items</td>
+										<td class="total-amount">$1997.00</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="text-right">	
+								<a href="hc_shop_cart.html" class="btn btn-group btn-default">Update Cart</a>
+								<a href="hc_shop_checkout.html" class="btn btn-group btn-default">Checkout</a>
+							</div>
+
+						</div>
+						<!-- main end -->
+
+					</div>
+				</div>
+			</section>
 
 
 
