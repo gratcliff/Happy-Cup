@@ -272,8 +272,46 @@
 												
 												<!-- header dropdown buttons -->
 												<div class="header-dropdown-buttons hidden-xs ">
-													<div class="btn-group open">
-														<button type="button" class="btn"><i class="icon-basket-1"></i></button>
+													<div class="btn-group dropdown">
+														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-basket-1"></i><span class="cart-count default-bg">8</span></button>
+														<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
+															<li>
+																<table class="table table-hover">
+																	<thead>
+																		<tr>
+																			<th class="quantity">QTY</th>
+																			<th class="product">Product</th>
+																			<th class="amount">Subtotal</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		<tr>
+																			<td class="quantity">2 x</td>
+																			<td class="product"><a href="shop-product.html">Android 4.4 Smartphone</a><span class="small">4.7" Dual Core 1GB</span></td>
+																			<td class="amount">$199.00</td>
+																		</tr>
+																		<tr>
+																			<td class="quantity">3 x</td>
+																			<td class="product"><a href="shop-product.html">Android 4.2 Tablet</a><span class="small">7.3" Quad Core 2GB</span></td>
+																			<td class="amount">$299.00</td>
+																		</tr>
+																		<tr>
+																			<td class="quantity">3 x</td>
+																			<td class="product"><a href="shop-product.html">Desktop PC</a><span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span></td>
+																			<td class="amount">$1499.00</td>
+																		</tr>
+																		<tr>
+																			<td class="total-quantity" colspan="2">Total 8 Items</td>
+																			<td class="total-amount">$1997.00</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<div class="panel-body text-right">
+																	<a href="hc_shop_cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
+																	<a href="hc_shop_checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
+																</div>
+															</li>
+														</ul>
 													</div>
 												</div>
 												<!-- header dropdown buttons end-->
@@ -297,7 +335,144 @@
 				<!-- header end -->
 			</div>
 			<!-- header-container end -->
-		
+			<!-- User Registration Modal Start -->
+			<div class="modal fade" id="user-reg-modal" tabindex="-1" role="dialog" aria-labelledby="user-reg-modalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title" id="user-reg-modalLabel">Sign Up</h4>
+						</div>
+						<div class="modal-body">
+							<span class="text-danger small">* Required</span>
+							<form class="form-horizontal" role="form">
+								<div class="form-group has-feedback">
+									<label for="first_name" class="col-sm-3 control-label">First Name <span class="text-danger small">*</span></label>
+									<div class="col-sm-8">
+										<input type="email" class="form-control" name="first_name" id="inputName" placeholder="First Name" required>
+										<i class="fa fa-pencil form-control-feedback"></i>
+										<!-- <span class="text-danger">Errors placeholder</span> -->
+									</div>
+
+								</div>
+								<div class="form-group has-feedback">
+									<label for="last_name" class="col-sm-3 control-label">Last Name <span class="text-danger small">*</span></label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" name="last_name" id="inputLastName" placeholder="Last Name" required>
+										<i class="fa fa-pencil form-control-feedback"></i>
+										<!-- <span class="text-danger">Errors placeholder</span> -->
+									</div>
+								</div>
+								<div class="form-group has-feedback">
+									<label for="username" class="col-sm-3 control-label">Username <span class="text-danger small">*</span></label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" name="username" id="inputUserName" placeholder="Username" required>
+										<i class="fa fa-user form-control-feedback"></i>
+										<!-- <span class="text-danger">Errors placeholder</span> -->
+									</div>
+								</div>
+								<div class="form-group has-feedback">
+									<label for="email" class="col-sm-3 control-label">Email <span class="text-danger small">*</span></label>
+									<div class="col-sm-8">
+										<input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email" required>
+										<i class="fa fa-envelope form-control-feedback"></i>
+										<!-- <span class="text-danger">Errors placeholder</span> -->
+									</div>
+								</div>
+								<div class="form-group has-feedback">
+									<label for="inputPassword" class="col-sm-3 control-label">Password <span class="text-danger small">*</span></label>
+									<div class="col-sm-8">
+										<input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password" required>
+										<i class="fa fa-lock form-control-feedback"></i>
+										<!-- <span class="text-danger">Errors placeholder</span> -->
+									</div>
+								</div>
+								<div class="form-group has-feedback">
+									<label for="confirmPassword" class="col-sm-3 control-label">Confirm PW <span class="text-danger small">*</span></label>
+									<div class="col-sm-8">
+										<input type="password" class="form-control" name="confirmPassword" id="inputConfirmPassword" placeholder="Confirm Password" required>
+										<i class="fa fa-lock form-control-feedback"></i>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-8">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" required> Accept our <a href="#">privacy policy</a> and <a href="#">customer agreement</a>
+												<!-- <span class="text-danger">Errors placeholder</span> -->
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-8">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" checked>
+												Subscribe to our mailing list
+												<!-- <span class="text-danger">Errors placeholder</span> -->
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-8">
+										<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
+										<button type="submit" class="btn btn-group btn-default btn-animated">Sign Up <i class="fa fa-check"></i></button>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- User Registration Modal End -->
+			<!-- User Login Modal Start -->
+			<div class="modal fade" id="user-login-modal" tabindex="-1" role="dialog" aria-labelledby="user-login-modalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title" id="user-login-modalLabel">Login</h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" role="form">
+								<div class="form-group has-feedback">
+									<label for="email_username" class="col-sm-3 control-label">Email/Username</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" name="email_username" id="loginName" placeholder="Email or Username" required>
+										<i class="fa fa-pencil form-control-feedback"></i>
+									</div>
+								</div>
+								<div class="form-group has-feedback">
+									<label for="password" class="col-sm-3 control-label">Password</label>
+									<div class="col-sm-8">
+										<input type="password" class="form-control" name="password" id="loginPassword" placeholder="Password" required>
+										<i class="fa fa-lock form-control-feedback"></i>
+										<!-- <span class="text-danger">Errors placeholder</span> -->
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-8">
+										<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
+										<button type="submit" class="btn btn-group btn-default btn-animated">Login<i class="fa fa-check"></i></button>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-8"><a href="#">Forgot your password?</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- User Login Modal End -->
+
+
+
 			<!-- banner start -->
 			<!-- ================ -->
 			<div class="banner video-background-banner pv-10 dark-translucent-bg hovered">
@@ -327,7 +502,7 @@
 							<div class="row">
 								<div class="col-md-4 ">
 									<div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-										<span class="icon without-bg"><i class="fa fa-diamond"></i></span>
+										<span class="icon without-bg"><i class="fa fa-users"></i></span>
 										<div class="body">
 											<h4 class="title">People with Potential</h4>
 											<p>We offer employment, a competitive wage and a full life to adults with disabilities in our local community.</p>
@@ -337,20 +512,20 @@
 								</div>
 								<div class="col-md-4 ">
 									<div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="150">
-										<span class="icon without-bg"><i class="fa fa-connectdevelop"></i></span>
+										<span class="icon without-bg"><i class="fa fa-heart"></i></span>
 										<div class="body">
 											<h4 class="title">Supporting Local Communities</h4>
-											<p>We help create a better future for the disabled by donating a percentage of our profits to vocational and recreational programming for this community.</p>
+											<p>We help create a better future for the disabled by donating a percentage of our profits to vocational and recreational programming in the local community.</p>
 											<!-- <a href="page-services.html">Read More<i class="pl-5 fa fa-angle-double-right"></i></a> -->
 										</div>
 									</div>
 								</div>
 								<div class="col-md-4 ">
 									<div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="200">
-										<span class="icon without-bg"><i class="fa icon-snow"></i></span>
+										<span class="icon without-bg"><i class="fa fa-coffee"></i></span>
 										<div class="body">
 											<h4 class="title">Quality</h4>
-											<p>We deliver a responsible, great-tasting cup of coffee.</p>
+											<p>We strive to deliver a responsible, great-tasting cup of coffee.</p>
 											<!-- <a href="page-services.html">Read More<i class="pl-5 fa fa-angle-double-right"></i></a> -->
 										</div>
 									</div>
