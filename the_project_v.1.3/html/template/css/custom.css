@@ -8,6 +8,7 @@ License URI:http://support.wrapbootstrap.com/
 File Description: Place here your custom CSS styles
 */
 
+
 .header_text {
 	display: inline-block;
 	font-size: 5em;
@@ -36,4 +37,77 @@ body, h1, h2, h3, h4, h5, p{
   display: inline-block;
   text-align: left;
   vertical-align: middle;
+
+.page-wrapper {
+	background-color: #F0EBD2;
+}
+
+.header {
+	background-color: #F0EBD2;
+	border: 0px;
+}
+
+.navbar {
+	border: 0px;
+}
+
+.navbar-default .navbar-toggle {
+	background-color: #69321f;
+	border-color: #69321f;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+	border-color: #69321f;
+	color:  #69321f;
+}
+.navbar-default .navbar-toggle:hover .icon-bar,
+.navbar-default .navbar-toggle:focus .icon-bar {
+  background-color: #69321f;
+
+}
+
+.navbar-header {
+	background-color: #F0EBD2;
+}
+
+header.header.fixed.clearfix.animated.object-visible.fadeInDown {
+	background-color: #F0EBD2;
+	border: 0px;
+}
+
+.header-top.dark {
+	background-color: #69321f;
+}
+
+.panel-body {
+	background-color: #F0EBD2;
+}
+
+.footer, .subfooter {
+	background-color: #F0EBD2;
+}
+
+.table tbody {
+	background-color: #F0EBD2;
+}
+
+.table thead tr th {
+	background-color: #69321f;
+	color: #f3f3f3;
+}
+
+.close {
+	color: #f3f3f3;
+}
+
+fieldset {
+	background-color: inherit;
+	border-color: #69321f;
+}
+
+fieldset legend {
+	background-color: #69321f;
+	color: #f3f3f3;
+	border-color: #69321f;
+
 }

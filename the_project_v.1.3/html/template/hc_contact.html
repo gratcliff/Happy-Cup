@@ -45,14 +45,13 @@
 		<!-- Used font for body: Roboto -->
 		<!-- Used font for headings: Raleway -->
 		<link href="css/typography-default.css" rel="stylesheet" >
-		<!-- Print Invoice CSS -->
-		<link href="css/print-invoice.css" rel="stylesheet" media="print">
 		<!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
 		<link href="css/skins/brown.css" rel="stylesheet">
 		
 
 		<!-- Custom css --> 
 		<link href="css/custom.css" rel="stylesheet">
+
 	</head>
 
 	<!-- body classes:  -->
@@ -158,8 +157,46 @@
 									
 									<!-- header dropdown buttons -->
 									<div class="header-dropdown-buttons visible-xs">
-										<div class="btn-group open">
-											<button type="button" class="btn"><i class="icon-basket-1"></i></button>
+										<div class="btn-group dropdown">
+											<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-basket-1"></i><span class="cart-count default-bg">8</span></button>
+											<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
+												<li>
+													<table class="table table-hover">
+														<thead>
+															<tr>
+																<th class="quantity">QTY</th>
+																<th class="product">Product</th>
+																<th class="amount">Subtotal</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td class="quantity">2 x</td>
+																<td class="product"><a href="shop-product.html">Android 4.4 Smartphone</a><span class="small">4.7" Dual Core 1GB</span></td>
+																<td class="amount">$199.00</td>
+															</tr>
+															<tr>
+																<td class="quantity">3 x</td>
+																<td class="product"><a href="shop-product.html">Android 4.2 Tablet</a><span class="small">7.3" Quad Core 2GB</span></td>
+																<td class="amount">$299.00</td>
+															</tr>
+															<tr>
+																<td class="quantity">3 x</td>
+																<td class="product"><a href="shop-product.html">Desktop PC</a><span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span></td>
+																<td class="amount">$1499.00</td>
+															</tr>
+															<tr>
+																<td class="total-quantity" colspan="2">Total 8 Items</td>
+																<td class="total-amount">$1997.00</td>
+															</tr>
+														</tbody>
+													</table>
+													<div class="panel-body text-right">
+														<a href="hc_shop_cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
+														<a href="hc_shop_checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
+													</div>
+												</li>
+											</ul>
 										</div>
 									</div>
 									<!-- header dropdown buttons end-->
@@ -236,8 +273,46 @@
 												
 												<!-- header dropdown buttons -->
 												<div class="header-dropdown-buttons hidden-xs ">
-													<div class="btn-group open">
-														<button type="button" class="btn"><i class="icon-basket-1"></i></button>
+													<div class="btn-group dropdown">
+														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-basket-1"></i><span class="cart-count default-bg">8</span></button>
+														<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
+															<li>
+																<table class="table table-hover">
+																	<thead>
+																		<tr>
+																			<th class="quantity">QTY</th>
+																			<th class="product">Product</th>
+																			<th class="amount">Subtotal</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		<tr>
+																			<td class="quantity">2 x</td>
+																			<td class="product"><a href="shop-product.html">Android 4.4 Smartphone</a><span class="small">4.7" Dual Core 1GB</span></td>
+																			<td class="amount">$199.00</td>
+																		</tr>
+																		<tr>
+																			<td class="quantity">3 x</td>
+																			<td class="product"><a href="shop-product.html">Android 4.2 Tablet</a><span class="small">7.3" Quad Core 2GB</span></td>
+																			<td class="amount">$299.00</td>
+																		</tr>
+																		<tr>
+																			<td class="quantity">3 x</td>
+																			<td class="product"><a href="shop-product.html">Desktop PC</a><span class="small">Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk</span></td>
+																			<td class="amount">$1499.00</td>
+																		</tr>
+																		<tr>
+																			<td class="total-quantity" colspan="2">Total 8 Items</td>
+																			<td class="total-amount">$1997.00</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<div class="panel-body text-right">
+																	<a href="hc_shop_cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
+																	<a href="hc_shop_checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
+																</div>
+															</li>
+														</ul>
 													</div>
 												</div>
 												<!-- header dropdown buttons end-->
@@ -332,6 +407,17 @@
 								</div>
 								<div class="form-group">
 									<div class="col-sm-offset-3 col-sm-8">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" checked>
+												Subscribe to our mailing list
+												<!-- <span class="text-danger">Errors placeholder</span> -->
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-8">
 										<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
 										<button type="submit" class="btn btn-group btn-default btn-animated">Sign Up <i class="fa fa-check"></i></button>
 									</div>
@@ -388,8 +474,21 @@
 
 
 
-			<!-- main-container start -->
+			<!-- banner start -->
+			<div class="banner dark-translucent-bg" style="background-image:url('images/hc_beans_banner.jpg'); background-position: 50% 30%;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 text-center col-md-offset-2 pv-20">
+							<h2 class="title">Contact Us</h2>
+							<div class="separator mt-10"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- banner end -->
 
+			<!-- main-container start -->
+			<!-- ================ -->
 			<section class="main-container">
 
 				<div class="container">
@@ -397,104 +496,88 @@
 
 						<!-- main start -->
 						<!-- ================ -->
-						<div class="main col-md-12">
+						<div class="main col-md-8 space-bottom">
+							<p class="lead">Thank you for your interest.</p>
+							<p>
+								Account Questions &amp; Re-orders<br>
+								<strong>Adam Bray</strong><br>
+								<a href="mailto:adamBray@happycup.com">adamBray@happycup.com</a><br>
+								503-544-7052
+							</p>
 
-							<!-- page-title start -->
-							<!-- ================ -->
-							<h1 class="page-title">Invoice: Order #001 - May, 15 2016</h1>
-							<div class="separator-2"></div>
-							<!-- page-title end -->
-
-							<div id="invoice-container" class="invoice-container">
-								<div class="row">
-									<div class="col-sm-6">
-										<h5 class="page-title">Happy Cup Coffee Company</h5>
-										<address class="small">
-											2850 NE Sandy Blvd.<br>
-											Portland, OR 97232<br>
-											Billing: 971-302-7461<br>
-											Ordering: 503-544-7052<br>
-											E-mail: <a href="mailto:adamBray@happycup.com">adamBray@happycup.com</a>
-										</address>
-									</div>
-
-									<div class="col-sm-offset-3 col-sm-3">
-										<h5 class="text-right page-title">Client</h5>
-										<p class="text-right small">
-											John Doe <br>
-											795 Folsom Ave, Suite 600 <br>
-											San Francisco, CA 99999 <br>
-											123-456-789 <br>
-											john.doe@gmail.com
-										</p>
-									</div>
-								</div>
-								<p class="small"><strong>Comments/PO:</strong> Lorem ipsum dolor sit amet, consectetur.</p>
-								<table class="table cart table-bordered">
-									<thead>
-										<tr>
-											<th>Description </th>
-											<th>Price </th>
-											<th>Quantity</th>
-											<th class="amount">Total </th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td class="product"><a href="shop-product.html">Product Title 1</a> <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.</small></td>
-											<td class="price">$99.50 </td>
-											<td class="quantity">2 </td>
-											<td class="amount">$199.00 </td>
-										</tr>
-										<tr>
-											<td class="product"><a href="shop-product.html">Product Title 2</a> <small>Quas inventore modi</small></td>
-											<td class="price"> $99.66 </td>
-											<td class="quantity">3 </td>
-											<td class="amount">$299.00 </td>
-										</tr>
-										<tr>
-											<td class="product"><a href="shop-product.html">Product Title 3</a> <small>Fugiat nemo enim officiis repellendus</small></td>
-											<td class="price"> $499.66 </td>
-											<td class="quantity">3 </td>
-											<td class="amount">$1499.00 </td>
-										</tr>
-										<tr>
-											<td class="total-quantity" colspan="3">Subtotal</td>
-											<td class="amount">$1997.00</td>
-										</tr>
-										<tr>
-											<td class="total-quantity" colspan="1">Discount Coupon</td>
-											<td class="price">TheProject25672</td>
-											<td class="price">-20%</td>
-											<td class="amount">-$399.40</td>
-										</tr>
-										<tr>
-											<td class="total-quantity" colspan="2">Sales Tax</td>
-											<td class="price">+10%</td>
-											<td class="amount">$159.76</td>
-										</tr>
-										<tr>										
-											<td class="total-quantity" colspan="3">Shipping</td>
-											<td class="amount">$12.00</td>
-										</tr>
-										<tr>
-											<td class="total-quantity" colspan="3">Total 8 Items</td>
-											<td class="total-amount">$1769.36</td>
-										</tr>
-									</tbody>
-								</table>
-								<p class="small">If you have any questions concerning this invoice, contact <strong>Cheryl Yeats</strong>, tel: <strong>971-302-7461</strong>, email: <strong><a href="mailto:cherylyeats@happycup.com"> cherylyeats@happycup.com</strong></a> <br> Thank you for your business!</p>
-								<hr>
+							<p>
+								Billing &amp; Payments<br>
+								<strong>Cheryl Yeats</strong><br>
+								<a href="mailto:cherylyeats@happycup.com">cherylyeats@happycup.com</a><br>
+								971-302-7461
+							</p>
+							<a href="./images/HC_Media-Kit.pdf">View Media Kit</a>
+							<br>
+							<br>
+							<div class="alert alert-success hidden" id="MessageSent">
+								We have received your message, we will contact you very soon.
 							</div>
-							<div class="text-right">	
-								<button onclick="print_window();" class="btn btn-print btn-default-transparent btn-hvr hvr-shutter-out-horizontal">Print <i class="fa fa-print pl-10"></i></button>
+							<div class="alert alert-danger hidden" id="MessageNotSent">
+								Oops! Something went wrong, please verify that you are not a robot or refresh the page and try again.
+							</div>
+							<p class="lead">You can also send us a message using the form below.</p>
+							<div class="contact-form">
+								<form id="contact-form-with-recaptcha" class="margin-clear" role="form">
+									<div class="form-group has-feedback">
+										<label for="name">Name<span class="text-danger">*</span></label>
+										<input type="text" class="form-control" id="name" name="name" placeholder="">
+										<i class="fa fa-user form-control-feedback"></i>
+									</div>
+									<div class="form-group has-feedback">
+										<label for="email">Email<span class="text-danger">*</span></label>
+										<input type="email" class="form-control" id="email" name="email" placeholder="">
+										<i class="fa fa-envelope form-control-feedback"></i>
+									</div>
+									<div class="form-group has-feedback">
+										<label for="subject">Subject<span class="text-danger">*</span></label>
+										<input type="text" class="form-control" id="subject" name="subject" placeholder="">
+										<i class="fa fa-navicon form-control-feedback"></i>
+									</div>
+									<div class="form-group has-feedback">
+										<label for="message">Message<span class="text-danger">*</span></label>
+										<textarea class="form-control" rows="6" id="message" name="message" placeholder=""></textarea>
+										<i class="fa fa-pencil form-control-feedback"></i>
+									</div>
+									<div class="g-recaptcha" data-sitekey="your_site_key"></div>
+									<input type="submit" value="Submit" class="submit-button btn btn-default">
+								</form>
 							</div>
 						</div>
 						<!-- main end -->
 
+						<!-- sidebar start -->
+						<!-- ================ -->
+						<aside class="col-md-3 col-lg-offset-1">
+							<div class="sidebar">
+								<div class="side vertical-divider-left">
+									<h3 class="title">Happy Cup Roaster</h3>
+									<div class="separator-2 mt-20"></div>
+									<p class="small"><strong>(CALL FOR APPOINTMENT)</strong></p>
+									<ul class="list">
+										<li><i class="fa fa-home pr-10"></i>2850 NE Sandy Blvd. <br><span class="pl-20">Portland, OR 97232</span></li>
+										<li><i class="fa fa-phone pr-10"></i>503-238-4604</li>
+									</ul>
+									<!-- <div class="separator-2 mt-20 "></div>
+									<a class="btn btn-gray collapsed map-show btn-animated" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">Show Map <i class="fa fa-plus"></i></a>
+								</div> -->
+							</div>
+						</aside>
+						<!-- sidebar end -->
 					</div>
 				</div>
 			</section>
+			<!-- main-container end -->
+
+			<!-- section start -->
+			<!-- ================ -->
+			<!-- <section id="collapseMap">
+				<div id="map-canvas"></div>
+			</section> -->
 
 			<!-- main-container end -->
 			
@@ -570,6 +653,10 @@
 		<script src="plugins/jquery.parallax-1.1.3.js"></script>
 		<!-- Contact form -->
 		<script src="plugins/jquery.validate.js"></script>
+		<!-- Google Maps javascript -->
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=your_google_map_key"></script>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<script type="text/javascript" src="js/google.map.config.js"></script>
 		<!-- Owl carousel javascript -->
 		<script type="text/javascript" src="plugins/owl-carousel/owl.carousel.js"></script>
 		<!-- SmoothScroll javascript -->
