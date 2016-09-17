@@ -7,3 +7,73 @@ Created:December 2014
 License URI:http://support.wrapbootstrap.com/
 File Description: Place here your custom CSS styles
 */
+
+.page-wrapper {
+	background-color: #EAD2AC;
+}
+
+.header {
+	background-color: #EAD2AC;
+	border: 0px;
+}
+
+.navbar {
+	border: 0px;
+}
+
+.navbar-default .navbar-toggle {
+	background-color: #69321f;
+	border-color: #69321f;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+	border-color: #69321f;
+	color:  #69321f;
+}
+.navbar-default .navbar-toggle:hover .icon-bar,
+.navbar-default .navbar-toggle:focus .icon-bar {
+  background-color: #69321f;
+
+}
+
+.navbar-header {
+	background-color: #EAD2AC;
+}
+
+header.header.fixed.clearfix.animated.object-visible.fadeInDown {
+	background-color: #EAD2AC;
+	border: 0px;
+}
+
+.header-top.dark {
+	background-color: #69321f;
+}
+
+.footer, .subfooter {
+	background-color: #EAD2AC;
+}
+
+.table tbody {
+	background-color: #EAD2AC;
+}
+
+.table thead tr th {
+	background-color: #69321f;
+	color: #f3f3f3;
+}
+
+.close {
+	color: #f3f3f3;
+}
+
+fieldset {
+	background-color: inherit;
+	border-color: #69321f;
+}
+
+fieldset legend {
+	background-color: #69321f;
+	color: #f3f3f3;
+	border-color: #69321f;
+
+}
