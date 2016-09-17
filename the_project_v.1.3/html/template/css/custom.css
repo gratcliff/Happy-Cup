@@ -9,11 +9,11 @@ File Description: Place here your custom CSS styles
 */
 
 .page-wrapper {
-	background-color: #EAD2AC;
+	background-color: #F0EBD2;
 }
 
 .header {
-	background-color: #EAD2AC;
+	background-color: #F0EBD2;
 	border: 0px;
 }
 
@@ -37,11 +37,11 @@ File Description: Place here your custom CSS styles
 }
 
 .navbar-header {
-	background-color: #EAD2AC;
+	background-color: #F0EBD2;
 }
 
 header.header.fixed.clearfix.animated.object-visible.fadeInDown {
-	background-color: #EAD2AC;
+	background-color: #F0EBD2;
 	border: 0px;
 }
 
@@ -49,12 +49,16 @@ header.header.fixed.clearfix.animated.object-visible.fadeInDown {
 	background-color: #69321f;
 }
 
+.panel-body {
+	background-color: #F0EBD2;
+}
+
 .footer, .subfooter {
-	background-color: #EAD2AC;
+	background-color: #F0EBD2;
 }
 
 .table tbody {
-	background-color: #EAD2AC;
+	background-color: #F0EBD2;
 }
 
 .table thead tr th {
