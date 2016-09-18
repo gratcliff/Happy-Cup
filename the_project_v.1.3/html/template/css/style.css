@@ -7568,7 +7568,7 @@ h6.media-heading {
     right: 0%;
     width: 50%;
     height: 90%;
-    background-color: rgba(55, 55, 55, 0.6);
+    background-color: rgba(55, 55, 55, 0.3);
     opacity: 0;
     filter: alpha(opacity=0);
     -webkit-transition: all 0.3s ease-in-out;
