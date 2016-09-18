@@ -179,7 +179,7 @@ tbody {
 /* 2 Layout
 ----------------------------------------------------------------------------- */
 .page-wrapper {
-  background-color: #F0EBD2;
+  background-color: #ffffff;
 }
 
 .header-top:not(.banner) {
@@ -199,9 +199,9 @@ tbody {
 }
 
 .header {
-  border-top: 1px solid #F0EBD2;
-  border-bottom: 2px solid #F0EBD2;
-  background-color: #F0EBD2;
+  border-top: 1px solid #ffffff;
+  border-bottom: 2px solid #f1f1f1;
+  background-color: #fcfcfc;
 }
 
 .header.dark {
@@ -321,7 +321,7 @@ tbody {
 
 .footer {
   padding: 40px 0;
-  background-color: #F0EBD2;
+  background-color: #fafafa;
 }
 
 .footer-content {
@@ -329,9 +329,9 @@ tbody {
 }
 
 .subfooter {
-  background-color: #F0EBD2;
+  background-color: #f5f5f5;
   padding: 25px 0;
-  border-top: 1px solid #F0EBD2;
+  border-top: 1px solid #eaeaea;
 }
 
 .full-page .subfooter {
@@ -609,9 +609,9 @@ tbody {
 }
 
 .light-gray-bg {
-  background-color: #F0EBD2;
-  border-top: 1px solid #F0EBD2;
-  border-bottom: 1px solid #F0EBD2;
+  background-color: #fafafa;
+  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
 }
 
 .footer-top.light-gray-bg {
@@ -7564,18 +7564,18 @@ h6.media-heading {
   .full-image-container:before {
     content: '';
     position: absolute;
-    /*top: 5%;*/
+    top: 5%;
     right: 0%;
     width: 50%;
-    height: 100%;
+    height: 90%;
     background-color: rgba(55, 55, 55, 0.3);
     opacity: 0;
     filter: alpha(opacity=0);
-    -webkit-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
-    -webkit-transition-delay: 0.1s;
-    transition-delay: 0.1s;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
   }
 
   .full-text-container + .full-image-container:before {
@@ -7585,8 +7585,8 @@ h6.media-heading {
 
   .full-width-section:hover .full-image-container:before,
   .full-width-section .full-image-container.hovered:before {
-    width: 100%;
-    /*right: 5%;*/
+    width: 90%;
+    right: 5%;
     opacity: 1;
     filter: alpha(opacity=100);
     -webkit-transition-delay: 0s;
