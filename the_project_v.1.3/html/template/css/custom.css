@@ -38,6 +38,9 @@ body, h1, h2, h3, h4, h5, p{
   vertical-align: middle;
 
 }
+.modal-dialog img {
+	display: inline-block;
+}
 
 .page-wrapper {
 	background-color: #F0EBD2;
