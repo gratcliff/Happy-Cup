@@ -269,7 +269,7 @@
                         selected += label + delimiter;
                     });
 
-                    return selected.substr(0, selected.length - this.delimiterText.length);
+                    return options.length + ' ' + this.nSelectedText;
                 }
             },
             /**

@@ -61,8 +61,35 @@
 		<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
 		<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
 		<script type="text/javascript">
-		    $(document).ready(function() {
-		        $('#three_coffee_select').multiselect();
+			$(document).ready(function() {
+		        $('#three_coffee_select').multiselect({
+		            // onChange: function(option, checked) {
+		            //     // Get selected options.
+		            //     var selectedOptions = $('#three_coffee_select:selected');
+		            //     console.log(selectedOptions);
+		 
+		            //     if (selectedOptions.length >= 3) {
+		            //         // Disable all other checkboxes.
+		            //         var nonSelectedOptions = $('#three_coffee_select option').filter(function() {
+		            //             return !$(this).is(':selected');
+		            //         });
+		 
+		            //         nonSelectedOptions.each(function() {
+		            //             var input = $('input[value="' + $(this).val() + '"]');
+		            //             input.prop('disabled', true);
+		            //             input.parent('li').addClass('disabled');
+		            //         });
+		            //     }
+		            //     else {
+		            //         // Enable all checkboxes.
+		            //         $('#three_coffee_select option').each(function() {
+		            //             var input = $('input[value="' + $(this).val() + '"]');
+		            //             input.prop('disabled', false);
+		            //             input.parent('li').addClass('disabled');
+		            //         });
+		            //     }
+		            // }
+		        });
 		    });
 		</script>
 	</head>
