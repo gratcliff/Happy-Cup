@@ -47,7 +47,7 @@
 		<!-- Used font for headings: Raleway -->
 		<link href="css/typography-default.css" rel="stylesheet" >
 		<!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
-		<link href="css/skins/light_blue.css" rel="stylesheet">
+		<link href="css/skins/brown.css" rel="stylesheet">
 		
 
 		<!-- Custom css --> 
@@ -502,7 +502,7 @@
 
 								<!-- Coffee -->
 								<div class="tab-pane active" id="pill-1">
-									<div class="row masonry-grid-fitrows grid-space-10">
+									<div class="row masonry-grid grid-space-10">
 
 										<!-- ROASTS -->
 										<!-- The Buzz -->
@@ -514,6 +514,7 @@
 												</div>
 												<div class="body">
 													<h3><a href="shop-product.html">The Buzz</a></h3>
+													<p class = 'small'>Espresso Roast</p>
 													<p class = 'small'>12 oz </p>
 													<div class="elements-list clearfix">
 														<span class="price">$12.99</span>
@@ -533,11 +534,11 @@
 													<div class="modal-body">
 														<div class = 'container-fluid'>
 															<div class = 'row'>
-																<div class="col-md-4 text-center">
+																<div class="col-md-5 text-center">
 																	<img src="images/products/the_buzz.jpg" alt="The Buzz Blend">
 																</div>
-																<div class = 'col-md-8'>
-																	<h3>The Buzz</h3>
+																<div class = 'col-md-7'>
+																	<h3>The Buzz Medium Roast</h3>
 																	<p>A sweet coffee with notes of ripe blueberries and rich dark chocolate. Pleasantly complex with a smooth silky body and a clean brisk finish.</p>
 																	<form class = 'form-horizontal' role = 'form'>
 																		<div class = 'form-group has-feedback'>
@@ -581,90 +582,369 @@
 											<div class="listing-item white-bg bordered mb-20">
 												<div class="overlay-container">
 													<img src="images/products/boomboom.jpg" alt="Boom Boom Coffee Bag">
-													<a class="overlay-link popup-img-single" href="images/products/boomboom.jpg"><i class = 'glyphicon-plus'></i></a>
+													<a class="overlay-link" data-toggle = 'modal' data-target = '#boomboom_modal'><i class = 'glyphicon-plus'></i></a>
 												</div>
 												<div class="body">
-													<h3><a href="shop-product.html">Boom! Boom! Coffee</a></h3>
+													<h3><a href="shop-product.html">Boom! Boom!</a></h3>
+													<p class = 'small'>Dark Roast</p>
 													<p class = 'small'>12 oz </p>
-													<p class="small">The rich, nutty, smoky, bold flavors of our Dark Roast are a classic blend for the dark coffee enthusiast.</p>
 													<div class="elements-list clearfix">
 														<span class="price">$12.99</span>
-														<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class = 'glyphicon-plus'></i></a>
+														<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class="fa fa-shopping-cart"></i></a>
 													</div>
 												</div>
 											</div>
 										</div>
+
+										<!-- Boom Boom Modal -->
+										<div class="modal fade" id="boomboom_modal" tabindex="-1" role="dialog" aria-labelledby="boomboom_modal_label" aria-hidden="true">
+											<div class="modal-dialog modal-lg">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+													</div>
+													<div class="modal-body">
+														<div class = 'container-fluid'>
+															<div class = 'row'>
+																<div class="col-md-5 text-center">
+																	<img src="images/products/boomboom.jpg" alt="Boom Boom Coffee Bag">
+																</div>
+																<div class = 'col-md-7'>
+																	<h3>Boom! Boom! Dark Roast</h3>
+																	<p>The rich, nutty, smoky, bold flavors of our Dark Roast are a classic blend for the dark coffee enthusiast.</p>
+																	<form class = 'form-horizontal' role = 'form'>
+																		<div class = 'form-group has-feedback'>
+																			<label for = 'grind' class = 'col-sm-2 control-label'>Grind:</label>
+																			<div class = 'col-sm-8'>  
+																				<select class="form-control">
+																					<option value = 'Whole Bean'>Whole Bean </option>
+																					<option value = 'Espresso'>Espresso </option>
+																					<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+																					<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+																					<option value = 'Chemex'>Chemex </option>
+																					<option value = 'French Press'>French Press </option>
+																				</select>
+																			</div>
+																		</div>
+																		<div class = 'form-group has-feedback'>
+																			<label for ='size' class = 'col-sm-2 control-label'> Size:</label>
+																			<div class = 'col-sm-4'> 
+																			 	<select class="form-control">
+																					<option value = '12oz'> 12 oz </option>
+																					<option value = '2lbs'> 2 lbs </option>
+																					<option value = '5lbs'> 5 lbs </option>
+																				</select>
+																			</div>
+																		</div>
+																		<div class="form-group text-center">
+																				<button type="submit" class="btn btn-group btn-default btn-animated">Add to cart<i class="fa fa-shopping-cart"></i></button>
+																				<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
+																		</div>
+																	</form>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<!-- Morning Madness -->
 										<div class="col-md-3 col-sm-6 masonry-grid-item">
 											<div class="listing-item white-bg bordered mb-20">
 												<div class="overlay-container">
-													<img src="images/products/morning_madness.jpg" alt="Morning Madness">
-													<a class="overlay-link popup-img-single" href="images/products/morning_madness.jpg"><i class = 'glyphicon-plus'></i></a>
+													<img src="images/products/morning_madness.jpg" alt="Morning Madness Espresso Roast">
+													<a class="overlay-link" data-toggle = 'modal' data-target = '#morningMadness_modal'><i class = 'glyphicon-plus'></i></a>
 												</div>
 												<div class="body">
 													<h3><a href="shop-product.html">Morning Madness</a></h3>
+													<p class = 'small'>Espresso Roast</p>
 													<p class = 'small'>12 oz </p>
-													<p class="small">A blend of Organic, Rainforest Alliance and Direct Trade coffees that combine to produce a smooth and luxurious coffee. Rich chocolate and a hint of roasted nuts lead by a touch of clean citrus.</p>
 													<div class="elements-list clearfix">
 														<span class="price">$12.99</span>
-														<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class = 'glyphicon-plus'></i></a>
+														<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class="fa fa-shopping-cart"></i></a>
 													</div>
 												</div>
 											</div>
 										</div>
+
+										<!-- Morning Madness Modal -->
+										<div class="modal fade" id="morningMadness_modal" tabindex="-1" role="dialog" aria-labelledby="morningMadness_modal_label" aria-hidden="true">
+											<div class="modal-dialog modal-lg">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+													</div>
+													<div class="modal-body">
+														<div class = 'container-fluid'>
+															<div class = 'row'>
+																<div class="col-md-5 text-center">
+																	<img src="images/products/morning_madness.jpg" alt="Morning Madness Espresso Roast">
+																</div>
+																<div class = 'col-md-7'>
+																	<h3>Morning Madness Espresso Roast</h3>
+																	<p>A blend of Organic, Rainforest Alliance and Direct Trade coffees that combine to produce a smooth and luxurious coffee. Rich chocolate and a hint of roasted nuts lead by a touch of clean citrus.</p>
+																	<form class = 'form-horizontal' role = 'form'>
+																		<div class = 'form-group has-feedback'>
+																			<label for = 'grind' class = 'col-sm-2 control-label'>Grind:</label>
+																			<div class = 'col-sm-8'>  
+																				<select class="form-control">
+																					<option value = 'Whole Bean'>Whole Bean </option>
+																					<option value = 'Espresso'>Espresso </option>
+																					<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+																					<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+																					<option value = 'Chemex'>Chemex </option>
+																					<option value = 'French Press'>French Press </option>
+																				</select>
+																			</div>
+																		</div>
+																		<div class = 'form-group has-feedback'>
+																			<label for ='size' class = 'col-sm-2 control-label'> Size:</label>
+																			<div class = 'col-sm-4'> 
+																			 	<select class="form-control">
+																					<option value = '12oz'> 12 oz </option>
+																					<option value = '2lbs'> 2 lbs </option>
+																					<option value = '5lbs'> 5 lbs </option>
+																				</select>
+																			</div>
+																		</div>
+																		<div class="form-group text-center">
+																				<button type="submit" class="btn btn-group btn-default btn-animated">Add to cart<i class="fa fa-shopping-cart"></i></button>
+																				<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
+																		</div>
+																	</form>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<!-- Decaffeination -->
 										<div class="col-md-3 col-sm-6 masonry-grid-item">
 											<div class="listing-item white-bg bordered mb-20">
 												<div class="overlay-container">
-													<img src="images/products/decaf.jpg" alt="Decaffeination">
-													<a class="overlay-link popup-img-single" href="images/products/decaf.jpg"><i class = 'glyphicon-plus'></i></a>
+													<img src="images/products/decaf.jpg" alt="Decaffeination Blend">
+													<a class="overlay-link" data-toggle = 'modal' data-target = '#decaffeination_modal'><i class = 'glyphicon-plus'></i></a>
 												</div>
 												<div class="body">
 													<h3><a href="shop-product.html">Decaffeination</a></h3>
+													<p class = 'small'>Decaffeinated</p>
 													<p class = 'small'>12 oz </p>
-													<p class="small">Crisp and sweet with hints of bakers chocolate and roasted nuts. A well balanced taste, not your typical decaf.</p>
 													<div class="elements-list clearfix">
 														<span class="price">$12.99</span>
-														<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class = 'glyphicon-plus'></i></a>
+														<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class="fa fa-shopping-cart"></i></a>
 													</div>
 												</div>
 											</div>
 										</div>
+
+										<!-- Decaffeination Modal-->
+										<div class="modal fade" id="decaffeination_modal" tabindex="-1" role="dialog" aria-labelledby="decaffeination_modal_label" aria-hidden="true">
+											<div class="modal-dialog modal-lg">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+													</div>
+													<div class="modal-body">
+														<div class = 'container-fluid'>
+															<div class = 'row'>
+																<div class="col-md-5 text-center">
+																	<img src="images/products/decaf.jpg" alt="Decaffeination Blend">
+																</div>
+																<div class = 'col-md-7'>
+																	<h3>Decaffeination</h3>
+																	<p>Crisp and sweet with hints of bakers chocolate and roasted nuts. A well balanced taste, not your typical decaf.</p>
+																	<form class = 'form-horizontal' role = 'form'>
+																		<div class = 'form-group has-feedback'>
+																			<label for = 'grind' class = 'col-sm-2 control-label'>Grind:</label>
+																			<div class = 'col-sm-8'>  
+																				<select class="form-control">
+																					<option value = 'Whole Bean'>Whole Bean </option>
+																					<option value = 'Espresso'>Espresso </option>
+																					<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+																					<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+																					<option value = 'Chemex'>Chemex </option>
+																					<option value = 'French Press'>French Press </option>
+																				</select>
+																			</div>
+																		</div>
+																		<div class = 'form-group has-feedback'>
+																			<label for ='size' class = 'col-sm-2 control-label'> Size:</label>
+																			<div class = 'col-sm-4'> 
+																			 	<select class="form-control">
+																					<option value = '12oz'> 12 oz </option>
+																					<option value = '2lbs'> 2 lbs </option>
+																					<option value = '5lbs'> 5 lbs </option>
+																				</select>
+																			</div>
+																		</div>
+																		<div class="form-group text-center">
+																				<button type="submit" class="btn btn-group btn-default btn-animated">Add to cart<i class="fa fa-shopping-cart"></i></button>
+																				<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
+																		</div>
+																	</form>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
 									<!--Single Origin -->
-										<div class="col-md-3 col-sm-6 masonry-grid-item">
-											<div class="listing-item white-bg bordered mb-20">
-												<div class="overlay-container">
-													<img src="images/products/happy_heart.jpg" alt="Happy Heart">
-													<a class="overlay-link popup-img-single" href="images/products/happy_heart.jpg"><i class = 'glyphicon-plus'></i></a>
-												</div>
-												<div class="body">
-													<h3><a href="shop-product.html">Happy Heart</a></h3>
-													<p class = 'small'>12 oz </p>
-													<p class="small">Kossa Geshe is a vibrant Ethiopian natural from a single farm in the Limmu Kossa District near the Kebena Forest. A fruit-forward, creamy, full-bodied coffee. Honey-sweetness and juicy berries give way to a floral, tea-like finish.</p>
-													<div class="elements-list clearfix">
-														<span class="price">$12.99</span>
-														<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class = 'glyphicon-plus'></i></a>
-													</div>
+
+									<!-- Happy Heart -->
+									<div class="col-md-3 col-sm-6 masonry-grid-item">
+										<div class="listing-item white-bg bordered mb-20">
+											<div class="overlay-container">
+												<img src="images/products/happy_heart.jpg" alt="Happy Heart">
+												<a class="overlay-link" data-toggle = 'modal' data-target = '#happy_heart_modal'><i class = 'glyphicon-plus'></i></a>
+											</div>
+											<div class="body">
+												<h3><a href="shop-product.html">Happy Heart</a></h3>
+												<p class = 'small'>Single Origin - Ethiopia</p>
+												<p class = 'small'>12 oz </p>
+												<div class="elements-list clearfix">
+													<span class="price">$12.99</span>
+													<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class="fa fa-shopping-cart"></i></a>
 												</div>
 											</div>
 										</div>
-										<div class="col-md-3 col-sm-6 masonry-grid-item">
-											<div class="listing-item white-bg bordered mb-20">
-												<div class="overlay-container">
-													<img src="images/products/pondok_baru.png" alt="Pondok Baru">
-													<a class="overlay-link popup-img-single" href="images/products/pondok_baru.png"><i class = 'glyphicon-plus'></i></a>
+									</div>
+
+									<!-- Happy Heart Modal -->
+									<div class="modal fade" id="happy_heart_modal" tabindex="-1" role="dialog" aria-labelledby="happy_heart_modal_label" aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 												</div>
-												<div class="body">
-													<h3><a href="shop-product.html">Pondok Baru</a></h3>
-													<p class = 'small'>12 oz </p>
-													<p class="small">Produced in the Aceh district of northern Sumatra by a group of 80 farming families. Full bodied with a syrupy mouthfeel. Strong, rich, and earthy, with a hint of bakers chocolate.</p>
-													<div class="elements-list clearfix">
-														<span class="price">$12.99</span>
-														<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class = 'glyphicon-plus'></i></a>
+												<div class="modal-body">
+													<div class = 'container-fluid'>
+														<div class = 'row'>
+															<div class="col-md-5 text-center">
+																<img src="images/products/happy_heart.jpg" alt="Happy Heart">
+															</div>
+															<div class = 'col-md-7'>
+																<h3>Happy Heart</h3>
+																<p>Kossa Geshe is a vibrant Ethiopian natural from a single farm in the Limmu Kossa District near the Kebena Forest. A fruit-forward, creamy, full-bodied coffee. Honey-sweetness and juicy berries give way to a floral, tea-like finish.</p>
+																<form class = 'form-horizontal' role = 'form'>
+																	<div class = 'form-group has-feedback'>
+																		<label for = 'grind' class = 'col-sm-2 control-label'>Grind:</label>
+																		<div class = 'col-sm-8'>  
+																			<select class="form-control">
+																				<option value = 'Whole Bean'>Whole Bean </option>
+																				<option value = 'Espresso'>Espresso </option>
+																				<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+																				<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+																				<option value = 'Chemex'>Chemex </option>
+																				<option value = 'French Press'>French Press </option>
+																			</select>
+																		</div>
+																	</div>
+																	<div class = 'form-group has-feedback'>
+																		<label for ='size' class = 'col-sm-2 control-label'> Size:</label>
+																		<div class = 'col-sm-4'> 
+																		 	<select class="form-control">
+																				<option value = '12oz'> 12 oz </option>
+																				<option value = '2lbs'> 2 lbs </option>
+																				<option value = '5lbs'> 5 lbs </option>
+																			</select>
+																		</div>
+																	</div>
+																	<div class="form-group text-center">
+																			<button type="submit" class="btn btn-group btn-default btn-animated">Add to cart<i class="fa fa-shopping-cart"></i></button>
+																			<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
+																	</div>
+																</form>
+															</div>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
+
+										<!-- Pondok Baru -->
+										<div class="col-md-3 col-sm-6 masonry-grid-item">
+											<div class="listing-item white-bg bordered mb-20">
+												<div class="overlay-container">
+													<img src="images/products/pondok_baru.png" alt="Pondok Baru">
+													<a class="overlay-link" data-toggle = 'modal' data-target = '#pondok_baru_modal'><i class = 'glyphicon-plus'></i></a>
+												</div>
+												<div class="body">
+													<h3><a href="shop-product.html">Pondok Baru</a></h3>
+													<p class = 'small'>Single Origin - Sumatra</p>
+													<p class = 'small'>12 oz </p>
+													<div class="elements-list clearfix">
+														<span class="price">$12.99</span>
+														<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Pondok Baru Modal-->
+										<div class="modal fade" id="pondok_baru_modal" tabindex="-1" role="dialog" aria-labelledby="pondok_baru_modal_label" aria-hidden="true">
+											<div class="modal-dialog modal-lg">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+													</div>
+													<div class="modal-body">
+														<div class = 'container-fluid'>
+															<div class = 'row'>
+																<div class="col-md-5 text-center">
+																	<img src="images/products/pondok_baru.png" alt="Pondok Baru">
+																</div>
+																<div class = 'col-md-7'>
+																	<h3>Pondok Baru</h3>
+																	<p>Produced in the Aceh district of northern Sumatra by a group of 80 farming families. Full bodied with a syrupy mouthfeel. Strong, rich, and earthy, with a hint of bakers chocolate.</p>
+																	<form class = 'form-horizontal' role = 'form'>
+																		<div class = 'form-group has-feedback'>
+																			<label for = 'grind' class = 'col-sm-2 control-label'>Grind:</label>
+																			<div class = 'col-sm-8'>  
+																				<select class="form-control">
+																					<option value = 'Whole Bean'>Whole Bean </option>
+																					<option value = 'Espresso'>Espresso </option>
+																					<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+																					<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+																					<option value = 'Chemex'>Chemex </option>
+																					<option value = 'French Press'>French Press </option>
+																				</select>
+																			</div>
+																		</div>
+																		<div class = 'form-group has-feedback'>
+																			<label for ='size' class = 'col-sm-2 control-label'> Size:</label>
+																			<div class = 'col-sm-4'> 
+																			 	<select class="form-control">
+																					<option value = '12oz'> 12 oz </option>
+																					<option value = '2lbs'> 2 lbs </option>
+																					<option value = '5lbs'> 5 lbs </option>
+																				</select>
+																			</div>
+																		</div>
+																		<div class="form-group text-center">
+																				<button type="submit" class="btn btn-group btn-default btn-animated">Add to cart<i class="fa fa-shopping-cart"></i></button>
+																				<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
+																		</div>
+																	</form>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+									</div>
 								</div>
+
 								<!-- Merch -->
 								<div class="tab-pane" id="pill-2">
 									<div class="row masonry-grid-fitrows grid-space-10">
