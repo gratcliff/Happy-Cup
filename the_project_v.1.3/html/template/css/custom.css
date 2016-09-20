@@ -53,6 +53,10 @@ body, h1, h2, h3, h4, h5, p{
 	background-color: #F0EBD2;
 }
 
+.fixed-header-on .header .logo img {
+	max-height: 50px;
+}
+
 .navbar {
 	border: 0px;
 }
@@ -79,6 +83,16 @@ body, h1, h2, h3, h4, h5, p{
 header.header.fixed.clearfix.animated.object-visible.fadeInDown {
 	background-color: #F0EBD2;
 	border: 0px;
+	max-height: 63px;
+}
+
+div.header-right.clearfix {
+	padding-top: 30px;
+}
+
+
+header.header.fixed.clearfix.animated.object-visible.fadeInDown div.header-right.clearfix {
+	margin-top: -30px;
 }
 
 .header-top.dark {
