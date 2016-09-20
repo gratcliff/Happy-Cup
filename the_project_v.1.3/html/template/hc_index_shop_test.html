@@ -61,8 +61,9 @@
 		<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
 		<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
 		<script type="text/javascript">
-			$(document).ready(function() {
-		        $('#three_coffee_select').multiselect({
+
+			// $(document).ready(function() {
+		        // $('#three_coffee_select').multiselect({
 		            // onChange: function(option, checked) {
 		            //     // Get selected options.
 		            //     var selectedOptions = $('#three_coffee_select:selected');
@@ -89,8 +90,8 @@
 		            //         });
 		            //     }
 		            // }
-		        });
-		    });
+		        // });
+		    // });
 		</script>
 	</head>
 
@@ -1178,9 +1179,57 @@
 																	<form class = 'form-horizontal' role = 'form'>
 																		<div class = 'form-group has-feedback'>
 																			<label for ='size' class = 'col-sm-2 control-label'> Coffee:</label>
-																			<div class = 'col-sm-8'> 
-																			 	<select id = 'three_coffee_select' class="form-control" multiple ='multiple' data-max-options="3">
-																			 		<optgroup label="Roasts">
+																			<div class = 'col-sm-8 dropdown'> 
+																			 	<button id="three_coffee_select_btn" class="form-control dropdown-toggle text-left" data-toggle="dropdown">&nbsp;&nbsp;None Selected
+																			 	</button>
+																			 	<ul id="three_cup_gift_options" class="dropdown-menu col-xs-12">
+																			 	<li>
+																				 	<table id="three_cup_gift_table" class="table">
+																				 		<thead>
+																							<th>Roasts</th>
+																						</thead>
+																						<tbody>
+																							<tr>
+																								<td>
+																								<input type="number" name="gift_buzz" placeholder="0" min="0" max="3">
+																								 The Buzz Medium Roast
+																								</td>
+																							</tr>
+																							<tr >
+																								<td>
+																								<input type="number" name="gift_boomboom" placeholder="0" min="0" max="3"> Boom! Boom! Dark Roast
+																								</td>
+																							</tr>
+																							<tr>
+																								<td>
+																								<input type="number" name="gift_morning_madness" placeholder="0" min="0" max="3"> Morning Madness Espresso Roast
+																								</td>
+																							</tr>
+																							<tr >
+																								<td>
+																								<input type="number" name="gift_decaf" placeholder="0" min="0" max="3"> Decaffeination Decaf
+																								</td>
+																							</tr>
+																						</tbody>
+																						<thead>
+																							<th>Single Origin</th>
+																						</thead>
+																						<tbody>
+																							<tr>
+																								<td>
+																								<input type="number" name="gift_happy_heart" placeholder="0" min="0" max="3"> Happy Heart - Ethiopia
+																								</td>
+																							</tr>
+																							<tr >
+																								<td>
+																								<input type="number" name="gift_pondok" placeholder="0" min="0" max="3"> Pondok Baru - Sumatra
+																								</td>
+																							</tr>
+																						</tbody>
+																					</table>
+																			 	</li>
+																			 	</ul>
+																			 		<!-- <optgroup label="Roasts">
 																						<option value = 'gift_buzz'> The Buzz Medium Roast</option>
 																						<option value = 'gift_boomboom'> Boom! Boom! Dark Roast</option>
 																						<option value = 'gift_morning_madness'> Morning Madness Espresso Roast</option>
@@ -1190,7 +1239,7 @@
 																						<option value = 'gift_happy_heart'> Happy Heart - Ethiopia</option>
 																						<option value = 'gift_pondok'> Pondok Baru - Sumatra</option>
 																					</optgroup>
-																				</select>
+																				 -->
 																			</div>
 																		</div>
 																		<div class = 'form-group has-feedback'>
@@ -1403,6 +1452,11 @@
 		<script type="text/javascript" src="js/template.js"></script>
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="js/custom.js"></script>
-
+		<script type="text/javascript">
+			$('.dropdown-menu').on('click', function(e) {
+				console.log('test')
+			e.stopPropagation();
+			});
+		</script>
 	</body>
 </html>
