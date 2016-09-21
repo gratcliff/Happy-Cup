@@ -48,14 +48,14 @@
 					<!-- ================ -->
 					<!-- Nav tabs -->
 					<ul class="nav nav-pills" role="tablist">
-						<li class="active"><a href="#pill-1" role="tab" data-toggle="tab" title="Current Coffee"> <span class = 'tab_text'>Current Roasts</span></a></li>
-						<li><a href="#pill-2" role="tab" data-toggle="tab" title="Merchandise"><span class = 'tab_text'>Merchandise</span></a></li>
+						<li ng-class="{active: productDisplay.showCoffee === true}"><a ng-click = 'showCoffee()' title="Current Coffee"> <span class = 'tab_text'>Current Roasts</span></a></li>
+						<li ng-class="{active: productDisplay.showMerch === true}"><a ng-click = 'showMerch()' title="Merchandise"><span class = 'tab_text'>Merchandise</span></a></li>
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content clear-style">
 
 						<!-- Coffee -->
-						<div class="tab-pane active" id="coffee_products">
+						<div ng-if = 'productDisplay.showCoffee === true' id="coffee_products">
 							<div class="row masonry-grid grid-space-10">
 
 								<!-- ROASTS -->
@@ -500,7 +500,8 @@
 						</div>
 
 						<!-- Merch -->
-						<div class="tab-pane" id="pill-2">
+
+						<div ng-if = 'productDisplay.showMerch === true'>
 							<div class="row masonry-grid-fitrows grid-space-10">
 
 								<!-- Gift Mug -->
