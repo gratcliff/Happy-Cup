@@ -9,7 +9,7 @@
 		 <!-- Meta Info -->
 		<meta charset="utf-8">
         <title>Happy Cup Coffee Company - Portland, OR - Coffee Roasted by People with Potential</title>
-        <meta name="description" content="Coffee Company - Portland, OR - Coffee Roasted by People with Potential">
+        <meta name="description" content="Happy Cup Coffee Company - Portland, OR - Coffee Roasted by People with Potential">
         <meta name="author" content="happycup.com">
 
         <!-- Mobile Meta -->
@@ -63,10 +63,12 @@
         <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
 
         <!-- Angular App -->
-		<script type = 'text/javascript' src="./js/bower_components/angular/angular.js"></script>
-	    <script type = 'text/javascript' src="./js/bower_components/angular-route/angular-route.js"></script>
+		<script type = 'text/javascript' src="js/bower_components/angular/angular.js"></script>
+	    <script type = 'text/javascript' src="js/bower_components/angular-route/angular-route.js"></script>
 		<script type="text/javascript">
-
+		var happy_cup = angular.module('happy_cup', ['ngRoute']);
+		
+			//Multiselect plug in
 			// $(document).ready(function() {
 		        // $('#three_coffee_select').multiselect({
 		            // onChange: function(option, checked) {
@@ -97,14 +99,9 @@
 		            // }
 		        // });
 		    // });
-		    var happy_cup = angular.module('happy_cup', ['ngRoute']);
-		    happy_cup.config(function($routeProvider){
-		    	$routeProvider
-		    		.when('/',{
-		    			templateUrl: 'partials/hc_index.html',
-		    		})
-		    });
 		</script>
+		<script type = 'text/javascript' src = 'js/Angular/config/routes.js'></script>
+		<script type = 'text/javascript' src = 'js/Angular/controllers/shop_controller.js'></script>
 	</head>
 
 	<!-- body classes:  -->
@@ -242,25 +239,25 @@
 												<!-- main-menu -->
 												<ul class="nav navbar-nav ">
 													<li>
-														<a href="#">Home</a>
+														<a href="#/">Home</a>
 													</li>
 													<li>
-														<a href="#">About Us</a>
+														<a href="#/about">About Us</a>
 													</li>
 													<li>
-														<a href="#">News</a>
+														<a href="#/blog">News</a>
 													</li>
 													<li>
-														<a href="#">Where to Buy</a>
+														<a href="#/locations">Where to Buy</a>
 													</li>
 													<li>
-														<a href="#">Cafe</a>
+														<a href="#/cafe">Cafe</a>
 													</li>
 													<li>
-														<a href="#">Contact</a>
+														<a href="#/contact">Contact</a>
 													</li>
 													<li class="visible-xs">
-														<a href="#">Cart - 3 items</a>
+														<a href="#/cart">Cart - 3 items</a>
 													</li>
 													<li class="hidden-xs">
 														<a data-toggle="modal" data-target="#user-reg-modal">Sign Up</a>
@@ -302,8 +299,8 @@
 																	</tbody>
 																</table>
 																<div class="panel-body text-right">
-																	<a href="hc_shop_cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
-																	<a href="hc_shop_checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
+																	<a href="#/cart" class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">View Cart</a>
+																	<a href="#/checkout" class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">Checkout</a>
 																</div>
 															</li>
 														</ul>
@@ -452,9 +449,16 @@
 				</div>
 			</div>
 			<!-- User Login Modal End -->
+
+
 			<div id="ngview-div" ng-view=''>
 
 			</div>
+
+
+
+
+
 			<!-- UNECESSARY FOOTER USE PARTIALS -->
 			<footer id="footer" class="clearfix ">
 
@@ -527,6 +531,9 @@
 		<script src="plugins/jquery.parallax-1.1.3.js"></script>
 		<!-- Contact form -->
 		<script src="plugins/jquery.validate.js"></script>
+		<!-- Google Maps javascript -->
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=your_google_map_key"></script>
+		<script type="text/javascript" src=""></script>
 		<!-- Background Video -->
 		<script src="plugins/vide/jquery.vide.js"></script>
 		<!-- Owl carousel javascript -->
@@ -538,11 +545,5 @@
 		<script type="text/javascript" src="js/template.js"></script>
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="js/custom.js"></script>
-		<script type="text/javascript">
-			$('.dropdown-menu').on('click', function(e) {
-				console.log('test')
-			e.stopPropagation();
-			});
-		</script>
 	</body>
 </html>
