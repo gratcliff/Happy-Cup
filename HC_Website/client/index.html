@@ -63,8 +63,8 @@
         <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
 
         <!-- Angular App -->
-		<script type = 'text/javascript' src="./js/bower_components/angular/angular.js"></script>
-	    <script type = 'text/javascript' src="./js/bower_components/angular-route/angular-route.js"></script>
+		<script type = 'text/javascript' src="js/bower_components/angular/angular.js"></script>
+	    <script type = 'text/javascript' src="js/bower_components/angular-route/angular-route.js"></script>
 		<script type="text/javascript">
 		var happy_cup = angular.module('happy_cup', ['ngRoute']);
 		
@@ -100,8 +100,8 @@
 		        // });
 		    // });
 		</script>
-		<script type = 'text/javascript' src = './js/Angular/config/routes.js'></script>
-		<script type = 'text/javascript' src = './js/Angular/controllers/shop_controller.js'></script>
+		<script type = 'text/javascript' src = 'js/Angular/config/routes.js'></script>
+		<script type = 'text/javascript' src = 'js/Angular/controllers/shop_controller.js'></script>
 	</head>
 
 	<!-- body classes:  -->
@@ -239,25 +239,25 @@
 												<!-- main-menu -->
 												<ul class="nav navbar-nav ">
 													<li>
-														<a href="#">Home</a>
+														<a href="#/">Home</a>
 													</li>
 													<li>
-														<a href="#">About Us</a>
+														<a href="#/about">About Us</a>
 													</li>
 													<li>
-														<a href="#">News</a>
+														<a href="#/blog">News</a>
 													</li>
 													<li>
-														<a href="#">Where to Buy</a>
+														<a href="#/locations">Where to Buy</a>
 													</li>
 													<li>
-														<a href="#">Cafe</a>
+														<a href="#/cafe">Cafe</a>
 													</li>
 													<li>
-														<a href="#">Contact</a>
+														<a href="#/contact">Contact</a>
 													</li>
 													<li class="visible-xs">
-														<a href="#">Cart - 3 items</a>
+														<a href="#/cart">Cart - 3 items</a>
 													</li>
 													<li class="hidden-xs">
 														<a data-toggle="modal" data-target="#user-reg-modal">Sign Up</a>
@@ -299,8 +299,8 @@
 																	</tbody>
 																</table>
 																<div class="panel-body text-right">
-																	<a href="hc_shop_cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
-																	<a href="hc_shop_checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
+																	<a href="#/cart" class="btn btn-group btn-gray btn-sm">View Cart</a>
+																	<a href="#/checkout" class="btn btn-group btn-gray btn-sm">Checkout</a>
 																</div>
 															</li>
 														</ul>
