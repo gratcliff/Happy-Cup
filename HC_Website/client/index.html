@@ -66,7 +66,9 @@
 		<script type = 'text/javascript' src="./js/bower_components/angular/angular.js"></script>
 	    <script type = 'text/javascript' src="./js/bower_components/angular-route/angular-route.js"></script>
 		<script type="text/javascript">
-
+		var happy_cup = angular.module('happy_cup', ['ngRoute']);
+		
+			//Multiselect plug in
 			// $(document).ready(function() {
 		        // $('#three_coffee_select').multiselect({
 		            // onChange: function(option, checked) {
@@ -97,14 +99,9 @@
 		            // }
 		        // });
 		    // });
-		    var happy_cup = angular.module('happy_cup', ['ngRoute']);
-		    happy_cup.config(function($routeProvider){
-		    	$routeProvider
-		    		.when('/',{
-		    			templateUrl: 'partials/hc_index.html',
-		    		})
-		    });
 		</script>
+		<script type = 'text/javascript' src = './js/Angular/config/routes.js'></script>
+		<script type = 'text/javascript' src = './js/Angular/controllers/shop_controller.js'></script>
 	</head>
 
 	<!-- body classes:  -->
@@ -452,9 +449,16 @@
 				</div>
 			</div>
 			<!-- User Login Modal End -->
+
+
 			<div id="ngview-div" ng-view=''>
 
 			</div>
+
+
+
+
+
 			<!-- UNECESSARY FOOTER USE PARTIALS -->
 			<footer id="footer" class="clearfix ">
 

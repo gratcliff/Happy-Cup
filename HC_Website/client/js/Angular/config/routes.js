@@ -1,9 +1,6 @@
-happy_cup.config(function ($routeProvider){
+happy_cup.config(function($routeProvider){
 	$routeProvider
-	.when('/', {
-		templateUrl: 'partials/hc_index.html'
-	})
-	.otherwise({
-		redirectTo: '/'
-	})
+		.when('/',{
+			templateUrl: 'partials/hc_index.html',
+		})
 });
