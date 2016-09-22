@@ -32,15 +32,15 @@
 							</div>
 							<!-- <div class="block clearfix"> -->
 								<v-accordion class="vAccordion--default">
-									<v-pane id="{{location.address}}" ng-repeat="location in locations">
-										<v-pane-header id="{{location.address}]">
-											<h4>{{location.name}}</h4>
+									<v-pane id="[[location.address]]" ng-repeat="location in locations">
+										<v-pane-header id="[[location.address}]">
+											<h4>[[location.name]]</h4>
 										</v-pane-header>
 
-										<v-pane-content id="{{location.address}}">
+										<v-pane-content id="[[location.address]]">
 											<div class="col-md-6">
-												<p>{{location.address}}</p>
-												<p>{{location.number}}</p>
+												<p>[[location.address]]</p>
+												<p>[[location.number]]</p>
 											</div>
 										</v-pane-content>
 									</v-pane>
