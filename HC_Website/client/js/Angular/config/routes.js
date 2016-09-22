@@ -1,4 +1,9 @@
-happy_cup.config(function($routeProvider){
+happy_cup.config(function($routeProvider, $interpolateProvider){
+	$interpolateProvider.startSymbol('[[');
+  $interpolateProvider.endSymbol(']]');
+
+  
+
 	$routeProvider
 		.when('/',{
 			templateUrl: 'partials/hc_index.html',
@@ -7,7 +12,7 @@ happy_cup.config(function($routeProvider){
 			templateUrl: 'partials/hc_about_main.html',
 		})
 		.when('/blog',{
-			templateUrl: 'partials/hc_blog_post.html',
+			templateUrl: 'partials/hc_blog_main.html',
 		})
 		.when('/locations',{
 			templateUrl: 'partials/hc_locations.html',
@@ -21,22 +26,34 @@ happy_cup.config(function($routeProvider){
 		.when('/cart',{
 			templateUrl: 'partials/hc_shop_cart.html',
 		})
-		.when('/checkout',{
+		.when('/cart/checkout',{
 			templateUrl: 'partials/hc_shop_checkout.html',
 		})
-		.when('/payment',{
+		.when('/cart/payment',{
 			templateUrl: 'partials/hc_shop_checkout_payment.html',
 		})
-		.when('/review',{
+		.when('/cart/review',{
 			templateUrl: 'partials/hc_shop_checkout_review.html',
 		})
-		.when('/completed',{
+		.when('/cart/completed',{
 			templateUrl: 'partials/hc_shop_checkout_completed.html',
 		})
-		.when('/invoice',{
+		.when('/cart/invoice',{
 			templateUrl: 'partials/hc_shop_invoice.html',
 		})
 		.otherwise({
 			redirectTo: '/'
 		})
+});
+
+
+happy_cup.directive('moveToTop', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, $elm) {
+			$elm.on('click', function(){
+				$("body").scrollTop(0);
+			});
+		}
+	}
 });

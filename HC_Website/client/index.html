@@ -107,6 +107,7 @@
 		<!-- v-accordion scripts end -->
 		<script type = 'text/javascript' src = 'js/Angular/config/routes.js'></script>
 		<script type = 'text/javascript' src = 'js/Angular/controllers/shop_controller.js'></script>
+		<script type = 'text/javascript' src = 'js/Angular/controllers/nav_controller.js'></script>
 		<script type = "text/javascript" src = 'js/Angular/controllers/locations_controller.js'></script>
 	</head>
 
@@ -124,7 +125,7 @@
 		
 		<!-- page wrapper start -->
 		<!-- ================ -->
-		<div class="page-wrapper">
+		<div class="page-wrapper" ng-controller='nav_controller'>
 
 			<div class="header-top dark visible-xs">
 					<div class="container">
@@ -203,7 +204,7 @@
 									
 									<!-- logo -->
 									<div id="logo" class="logo">
-										<a href="#"><img id="logo_img" style = 'height: 125px;' src="resources/images/Banners/HC_Logo.png" alt="Happy Cup Coffee Company"></a>
+										<a href="#/" move-to-top ng-click="currentView = 'home' "><img id="logo_img" style = 'height: 125px;' src="resources/images/Banners/HC_Logo.png" alt="Happy Cup Coffee Company"></a>
 									</div>
 
 								</div>
@@ -245,31 +246,31 @@
 												<!-- main-menu -->
 												<ul class="nav navbar-nav ">
 													<li>
-														<a href="#/">Home</a>
+														<a href="#/" move-to-top ng-click="currentView = 'home'" ng-style="currentView === 'home' ? {'color' : '#914E38'} : null ">Home</a>
 													</li>
 													<li>
-														<a href="#/about">About Us</a>
+														<a href="#/about" move-to-top ng-click="currentView = 'about'" ng-style="currentView === 'about' ? {'color' : '#914E38'} : null">About Us</a>
 													</li>
 													<li>
-														<a href="#/blog">News</a>
+														<a href="#/blog" move-to-top ng-click="currentView = 'blog'" ng-style="currentView === 'blog' ? {'color' : '#914E38'} : null">News</a>
 													</li>
 													<li>
-														<a href="#/locations">Where to Buy</a>
+														<a href="#/locations" move-to-top ng-click="currentView = 'locations'" ng-style="currentView === 'locations' ? {'color' : '#914E38'} : null">Where to Buy</a>
 													</li>
 													<li>
-														<a href="#/cafe">Cafe</a>
+														<a href="#/cafe" move-to-top ng-click="currentView = 'cafe'" ng-style="currentView === 'cafe' ? {'color' : '#914E38'} : null">Cafe</a>
 													</li>
 													<li>
-														<a href="#/contact">Contact</a>
+														<a href="#/contact" move-to-top ng-click="currentView = 'contact'" ng-style="currentView === 'contact' ? {'color' : '#914E38'} : null">Contact</a>
 													</li>
 													<li class="visible-xs">
 														<a href="#/cart">Cart - 3 items</a>
 													</li>
 													<li class="hidden-xs">
-														<a data-toggle="modal" data-target="#user-reg-modal">Sign Up</a>
+														<a href="" data-toggle="modal" data-target="#user-reg-modal">Sign Up</a>
 													</li>
 													<li class="hidden-xs">
-														<a data-toggle="modal" data-target="#user-login-modal">Login</a>
+														<a href="" data-toggle="modal" data-target="#user-login-modal">Login</a>
 													</li>
 												</ul>
 												<!-- main-menu end -->
@@ -279,7 +280,7 @@
 													<div class="btn-group dropdown">
 
 														<!-- Cart Counter -->
-														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-basket-1"></i><span class="cart-count default-bg">3</span></button>
+														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" ng-style="currentView === 'cart' ? {'background-color' : '#69321f', 'color' : 'white'} : null"><i class="icon-basket-1"></i><span ng-if="currentView != 'cart' " class="cart-count default-bg">[[shoppingCart]]</span></button>
 														<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
 															<li>
 																<table class="table table-hover">
@@ -305,8 +306,8 @@
 																	</tbody>
 																</table>
 																<div class="panel-body text-right">
-																	<a href="#/cart" class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">View Cart</a>
-																	<a href="#/checkout" class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">Checkout</a>
+																	<a href="#/cart" move-to-top ng-click="currentView = 'cart' " class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">View Cart</a>
+																	<a href="#/cart/checkout" move-to-top ng-click="currentView = 'cart' "class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">Checkout</a>
 																</div>
 															</li>
 														</ul>
