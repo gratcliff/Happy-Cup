@@ -42,6 +42,6 @@ happy_cup.config(function($routeProvider, $interpolateProvider){
 			templateUrl: 'partials/hc_shop_invoice.html',
 		})
 		.otherwise({
-			redirectTo: '/'
+			templateUrl: 'partials/page-404.html'
 		})
 });
