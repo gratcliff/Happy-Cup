@@ -40,25 +40,62 @@
 	<!-- section start SHOP START-->
 	<!-- ================ -->
 	<section class="section light-gray-bg clearfix">
-		<div class="container">
+		<div class="container-fluid">
+
+			<!-- Nav tabs -->
 			<div class="row">
 				<div class="col-md-12">
-
-					<!-- pills start -->
-					<!-- ================ -->
-					<!-- Nav tabs -->
 					<ul class="nav nav-pills" role="tablist">
 						<li ng-class="{active: productDisplay.showCoffee === true}"><a ng-click = 'showCoffee()' title="Current Coffee"> <span class = 'tab_text'>Current Roasts</span></a></li>
 						<li ng-class="{active: productDisplay.showMerch === true}"><a ng-click = 'showMerch()' title="Merchandise"><span class = 'tab_text'>Merchandise</span></a></li>
 					</ul>
-					<!-- Tab panes -->
-					<div class="tab-content clear-style">
+				</div>
+			</div>
+			<!-- Nav Tab End -->
+			<div class = 'row row-centered'>
+				
+					<!-- The Buzz -->
+					<div class="col-md-4 col-sm-8 col-centered semi-opaque">
+						<div class="overlay-container">
+							<img src="resources/images/products/the_buzz.png" alt="The Buzz Blend">
+							<a class="overlay-link" data-toggle = 'modal' data-target = '#buzz_modal'><i class = 'glyphicon-plus'></i></a>
+						</div>
+						<div>
+							<h3>The Buzz <span class = 'small'> &nbsp Medium Roast</span></h3>
+							<p class = 'small'>12 oz</p>
+							<div class="elements-list clearfix">
+								<span class="price">$12.99</span>
+								<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+							</div>
+						</div>
+					</div>
 
-						<!-- Coffee -->
+					<!-- Boom Boom -->
+					<div class="col-md-4 col-sm-8 col-centered semi-opaque">
+						<div class="overlay-container">
+							<img src="resources/images/products/boomboom.png" alt="Boom Boom Coffee Bag">
+							<a class="overlay-link" data-toggle = 'modal' data-target = '#boomboom_modal'><i class = 'glyphicon-plus'></i></a>
+						</div>
+						<div>
+							<h3>Boom! Boom! <span class = 'small'> &nbsp Dark Roast</span></h3>
+							<p class = 'small'>12 oz </p>
+							<div class="elements-list clearfix">
+								<span class="price">$12.99</span>
+								<a href="#" class="pull-right margin-clear btn btn-sm btn-default-transparent btn-animated">Add To Cart<i class="fa fa-shopping-cart"></i></a>
+							</div>
+						</div>
+					</div>
+				
+			</div>
+
+
+			<!-- Coffee -->
+			<div class="row">
+				<div class="col-md-12">
 						<div ng-if = 'productDisplay.showCoffee === true' id="coffee_products">
 							<div class="row masonry-grid grid-space-10">
 
-								<!-- ROASTS -->
+						
 								<!-- The Buzz -->
 								<div class="col-md-3 col-sm-6 masonry-grid-item">
 									<div class="listing-item white-bg bordered mb-20">
@@ -498,6 +535,7 @@
 
 							</div>
 						</div>
+						<!-- End Coffee -->
 
 						<!-- Merch -->
 
@@ -1060,15 +1098,12 @@
 										</div>
 									</div>
 								</div>
-
-
 							</div>
 						</div>
-					</div>
-					<!-- pills end -->
-
+						<!-- End Merch -->
 				</div>
 			</div>
+
 		</div>
 	</section>
 	<!-- section end -->
