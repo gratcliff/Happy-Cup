@@ -21,19 +21,19 @@ happy_cup.config(function($routeProvider){
 		.when('/cart',{
 			templateUrl: 'partials/hc_shop_cart.html',
 		})
-		.when('/checkout',{
+		.when('/cart/checkout',{
 			templateUrl: 'partials/hc_shop_checkout.html',
 		})
-		.when('/payment',{
+		.when('/cart/payment',{
 			templateUrl: 'partials/hc_shop_checkout_payment.html',
 		})
-		.when('/review',{
+		.when('/cart/review',{
 			templateUrl: 'partials/hc_shop_checkout_review.html',
 		})
-		.when('/completed',{
+		.when('/cart/completed',{
 			templateUrl: 'partials/hc_shop_checkout_completed.html',
 		})
-		.when('/invoice',{
+		.when('/cart/invoice',{
 			templateUrl: 'partials/hc_shop_invoice.html',
 		})
 		.otherwise({
