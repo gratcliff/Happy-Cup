@@ -66,7 +66,7 @@
 		<script type = 'text/javascript' src="js/bower_components/angular/angular.js"></script>
 	    <script type = 'text/javascript' src="js/bower_components/angular-route/angular-route.js"></script>
 		<script type="text/javascript">
-		var happy_cup = angular.module('happy_cup', ['ngRoute']);
+		var happy_cup = angular.module('happy_cup', ['ngRoute', 'vAccordion', 'ngAnimate']);
 		
 			//Multiselect plug in
 			// $(document).ready(function() {
@@ -100,9 +100,15 @@
 		        // });
 		    // });
 		</script>
+		<!-- v-accordion scripts-->
+		<link href="js/bower_components/v-accordion/dist/v-accordion.css" rel="stylesheet" />
+		<script src="js/bower_components/angular-animate/angular-animate.min.js"></script>
+		<script src="js/bower_components/v-accordion/dist/v-accordion.min.js"></script>
+		<!-- v-accordion scripts end -->
 		<script type = 'text/javascript' src = 'js/Angular/config/routes.js'></script>
 		<script type = 'text/javascript' src = 'js/Angular/controllers/shop_controller.js'></script>
 		<script type = 'text/javascript' src = 'js/Angular/controllers/nav_controller.js'></script>
+		<script type = "text/javascript" src = 'js/Angular/controllers/locations_controller.js'></script>
 	</head>
 
 	<!-- body classes:  -->
