@@ -23,6 +23,9 @@ body, h1, h2, h3, h4, h5, p{
   text-align: center;
   padding: 0!important;
 }
+.top-buffer { 
+	margin-top: 1%; 
+}
 
 .modal:before {
   content: '';
