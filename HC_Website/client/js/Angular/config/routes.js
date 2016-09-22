@@ -45,3 +45,15 @@ happy_cup.config(function($routeProvider, $interpolateProvider){
 			redirectTo: '/'
 		})
 });
+
+
+happy_cup.directive('moveToTop', function(){
+	return {
+		restrict: 'A',
+		link: function(scope, $elm) {
+			$elm.on('click', function(){
+				$("body").scrollTop(0);
+			});
+		}
+	}
+});
