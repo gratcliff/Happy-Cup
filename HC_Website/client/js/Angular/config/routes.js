@@ -2,7 +2,7 @@ happy_cup.config(function($routeProvider, $interpolateProvider){
 	$interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
 
-
+  
 
 	$routeProvider
 		.when('/',{
@@ -12,7 +12,7 @@ happy_cup.config(function($routeProvider, $interpolateProvider){
 			templateUrl: 'partials/hc_about_main.html',
 		})
 		.when('/blog',{
-			templateUrl: 'partials/hc_blog_post.html',
+			templateUrl: 'partials/hc_blog_main.html',
 		})
 		.when('/locations',{
 			templateUrl: 'partials/hc_locations.html',
