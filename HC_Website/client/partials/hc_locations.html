@@ -27,14 +27,25 @@
 									<li><i class="fa fa-clock-o pr-10"></i>Open M-F 7:30 a.m. – 4:00 p.m.</li>
 									<li><i class="fa fa-phone pr-10"></i> 503-208-2239</li>
 								</ul>
-								<a class="btn btn-gray collapsed map-show btn-animated" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">Show Map <i class="fa fa-plus"></i></a>
+								<!-- <a class="btn btn-gray collapsed map-show btn-animated" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">Show Map <i class="fa fa-plus"></i></a> -->
 
 							</div>
-							<div class="block clearfix">
-								<div id="coffee_locations" ng-repeat = "location in locations">
-									[[location.name]]
-								</div>
-							</div>
+							<!-- <div class="block clearfix"> -->
+								<v-accordion class="vAccordion--default">
+									<v-pane id="{{location.address}}" ng-repeat="location in locations">
+										<v-pane-header id="{{location.address}]">
+											<h4>{{location.name}}</h4>
+										</v-pane-header>
+
+										<v-pane-content id="{{location.address}}">
+											<div class="col-md-6">
+												<p>{{location.address}}</p>
+												<p>{{location.number}}</p>
+											</div>
+										</v-pane-content>
+									</v-pane>
+								</v-accordion>
+							<!-- </div> -->
 							<a href="./images/catering-form2016.pdf" title="">CATERING IS AVAILABLE! (Menu)</a>
 						</div>
 						<!-- main end -->
