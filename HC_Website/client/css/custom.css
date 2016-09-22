@@ -205,10 +205,10 @@ fieldset legend {
 	padding-left: 15px;
 	vertical-align: middle;
 }
-/*.semi-opaque{
-	opacity: 0.1;
-}*/
 
+.product_background{
+	/*background-color: #D2C278;*/
+}
 /* centered columns styles */
 .row-centered {
     text-align:center;
