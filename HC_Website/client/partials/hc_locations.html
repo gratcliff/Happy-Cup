@@ -1,0 +1,56 @@
+<div ng-controller = 'locations_controller'>
+			<!-- main-container start -->
+			<div id="collapseMap" class="banner">
+				<!-- google map start -->
+				<!-- ================ -->
+				<!-- <div id="map-canvas"></div> -->
+				<!-- google maps end -->
+			</div>
+			<section class="main-container">
+
+				<div class="container">
+					<div class="row">
+
+						<!-- main start -->
+						<!-- ================ -->
+						<div class="main col-md-8">
+							<!-- page-title start -->
+							<!-- ================ -->
+							<h1 class="page-title">Where to Buy</h1>
+							<div class="separator-2"></div>
+							<!-- page-title end -->
+							<p>Happy Cup can be purchased <a href="#">online</a> and at our Coffee Shop: Portland City Hall – 1221 SW 4th, Portland, OR 97204, Sandy Blvd.</p>
+							<div class="block clearfix">
+								<div class="separator-2"></div>
+								<ul class="list">
+									<li><i class="fa fa-coffee pr-10"></i>1221 SW 4th Ave. Portland, OR 97204</li>
+									<li><i class="fa fa-clock-o pr-10"></i>Open M-F 7:30 a.m. – 4:00 p.m.</li>
+									<li><i class="fa fa-phone pr-10"></i> 503-208-2239</li>
+								</ul>
+								<a class="btn btn-gray collapsed map-show btn-animated" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">Show Map <i class="fa fa-plus"></i></a>
+
+							</div>
+							<div class="block clearfix">
+								<div id="coffee_locations" ng-repeat = "location in locations">
+									{{location.name}}
+								</div>
+							</div>
+							<a href="./images/catering-form2016.pdf" title="">CATERING IS AVAILABLE! (Menu)</a>
+						</div>
+						<!-- main end -->
+
+						<!-- sidebar start -->
+						<!-- ================ -->
+						<div class="col-md-1 col-md-4 col-lg-3 col-lg-offset-1">
+							<div id="map-canvas"></div>
+						</div>
+						<!-- sidebar end -->
+
+					</div>
+				</div>
+			</section>
+			<!-- main-container end -->
+	</body>
+		
+		<script type="text/javascript" src="js/google.map.config.js"></script>
+</div>
