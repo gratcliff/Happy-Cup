@@ -6,7 +6,7 @@ happy_cup.config(function($routeProvider, $interpolateProvider){
 
 	$routeProvider
 		.when('/',{
-			templateUrl: 'partials/hc_index.html',
+			templateUrl: 'partials/hc_index2.html',
 		})
 		.when('/about',{
 			templateUrl: 'partials/hc_about_main.html',
