@@ -238,6 +238,13 @@ fieldset legend {
   background: url("../resources/images/Banners/HC_bean_import.jpg") 50% 0px no-repeat;
 }
 
+#cafe_banner h2 {
+	color: #69321f;
+}
+#cafe_banner.dark-translucent-bg:after {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 768px) {
 	.modal-dialog {
     width: 96%;
