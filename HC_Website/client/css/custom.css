@@ -234,7 +234,12 @@ fieldset legend {
     margin-right:-4px;
 }
 
+.background-img-10 {
+  background: url("../resources/images/Banners/HC_bean_import.jpg") 50% 0px no-repeat;
+}
+
 @media (max-width: 768px) {
 	.modal-dialog {
     width: 96%;
 }
+
