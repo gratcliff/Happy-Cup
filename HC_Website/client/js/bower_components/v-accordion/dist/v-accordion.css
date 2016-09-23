@@ -75,7 +75,7 @@ v-pane-content {
 .vAccordion--default v-pane {
   overflow: hidden; }
   .vAccordion--default v-pane.is-expanded > v-pane-header {
-    border-bottom-color: #2196F3; }
+    border-bottom-color: #69321f; }
     .vAccordion--default v-pane.is-expanded > v-pane-header::after {
       -webkit-transform: rotate(90deg);
               transform: rotate(90deg);
@@ -104,7 +104,7 @@ v-pane-content {
     right: 0;
     width: 10px;
     height: 1px;
-    background-color: #2196F3;
+    background-color: #69321f;
     -webkit-transform-origin: 50% 50%;
             transform-origin: 50% 50%;
     will-change: transform;
@@ -114,4 +114,4 @@ v-pane-content {
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg); }
   .vAccordion--default v-pane-header:hover, .vAccordion--default v-pane-header:focus {
-    color: #2196F3; }
+    color: #69321f; }
