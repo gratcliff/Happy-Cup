@@ -30,7 +30,12 @@ body, h1, h2, h3, h4, h5, p{
 .top-buffer { 
 	margin-top: 1%; 
 }
-
+.white{
+	color: white;
+}
+.vertical-center{
+	vertical-align: middle;
+}
 .modal:before {
   content: '';
   display: inline-block;
