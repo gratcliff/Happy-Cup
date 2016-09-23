@@ -224,3 +224,8 @@ fieldset legend {
     /* inline-block space fix */
     margin-right:-4px;
 }
+
+@media (max-width: 768px) {
+	.modal-dialog {
+    width: 96%;
+}
