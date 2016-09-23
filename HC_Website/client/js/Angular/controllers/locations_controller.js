@@ -329,11 +329,8 @@ happy_cup.controller('locations_controller', function($scope){
 			}];
 	
 	$scope.locations = locations;
-	$scope.expandAll = function() {
-		$scope.expanded = true;
-	}
-	$scope.collapseAll = function() {
-		$scope.expanded = false;
+	$scope.updateMap = function(address){
+		console.log(address);
 	}
 
 });
