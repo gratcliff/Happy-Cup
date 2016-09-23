@@ -19,7 +19,7 @@
 							<h1 class="page-title">Where to Buy</h1>
 							<div class="separator-2"></div>
 							<!-- page-title end -->
-							<p>Happy Cup can be purchased <a href="#">online</a> and at our Coffee Shop: Portland City Hall – 1221 SW 4th, Portland, OR 97204, Sandy Blvd.</p>
+							<p>Happy Cup can be purchased <a href="#/">online</a> and at our Coffee Shop: Portland City Hall – 1221 SW 4th, Portland, OR 97204, Sandy Blvd.</p>
 							<div class="block clearfix">
 								<div class="separator-2"></div>
 								<ul class="list">
@@ -31,20 +31,22 @@
 
 							</div>
 							<!-- <div class="block clearfix"> -->
-								<v-accordion class="vAccordion--default">
-									<v-pane id="[[location.address]]" ng-repeat="location in locations">
-										<v-pane-header id="[[location.address}]">
-											<h4>[[location.name]]</h4>
-										</v-pane-header>
+								<div ng-repeat = "(type, location) in locations | groupBy: 'type'">
+									<v-accordion allow-multiple control="accordionControl" class="vAccordion--default" id = "MyAccordion" >
+										<v-pane>
+											<v-pane-header>
+												<h4>[[type]]</h4>
+											</v-pane-header>
 
-										<v-pane-content id="[[location.address]]">
-											<div class="col-md-6">
-												<p>[[location.address]]</p>
-												<p>[[location.number]]</p>
-											</div>
-										</v-pane-content>
-									</v-pane>
-								</v-accordion>
+											<v-pane-content>
+												<div class = "row" ng-repeat = "x in location">
+													<p class="col-md-9 col-xs-6 col-sm-8"><i class="fa fa-coffee pr-10"></i> [[x.address]]</p>
+													<p class="col-md-3 col-xs-6 col-sm-4"><i class="fa fa-phone pr-10"></i> [[x.number]]</p>
+												</div>
+											</v-pane-content>
+										</v-pane>
+									</v-accordion>
+								</div>
 							<!-- </div> -->
 							<a href="./images/catering-form2016.pdf" title="">CATERING IS AVAILABLE! (Menu)</a>
 						</div>
@@ -52,7 +54,7 @@
 
 						<!-- sidebar start -->
 						<!-- ================ -->
-						<div class="col-md-1 col-md-4 col-lg-3 col-lg-offset-1">
+						<div class="block col-md-1 col-md-4 col-lg-3 col-lg-offset-1">
 							<div id="map-canvas"></div>
 						</div>
 						<!-- sidebar end -->
