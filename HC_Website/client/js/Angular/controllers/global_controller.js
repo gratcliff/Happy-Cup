@@ -1,4 +1,4 @@
-happy_cup.controller('nav_controller', function ($scope, $location){
+happy_cup.controller('global_controller', function ($scope, $location){
 
 	$scope.currentView = getCurrentView()
 	$scope.shoppingCart = 3
