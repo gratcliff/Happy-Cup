@@ -13,7 +13,7 @@ happy_cup.controller('locations_controller', function($scope){
  //            }, options);
 
 	// $scope.current_position = current_position;
-
+	$scope.expanded;
 
 	var locations = [{
 				'name': 'Arbor Lodge',
@@ -329,5 +329,11 @@ happy_cup.controller('locations_controller', function($scope){
 			}];
 	
 	$scope.locations = locations;
+	$scope.expandAll = function() {
+		$scope.expanded = true;
+	}
+	$scope.collapseAll = function() {
+		$scope.expanded = false;
+	}
 
 });
