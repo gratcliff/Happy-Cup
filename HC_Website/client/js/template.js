@@ -1390,7 +1390,7 @@
 				$(".video-background-banner").vide({
 					mp4: "resources/videos/background-video-banner.mp4",
 					webm: "resources/videos/background-video-banner.webm",
-					poster: "resources/videos/video-banner-poster.jpg"
+					poster: "resources/videos/video-banner-poster_orig.jpg"
 				}, {
 					volume: 1,
 					playbackRate: 1,

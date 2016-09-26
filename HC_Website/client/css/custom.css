@@ -8,8 +8,33 @@ License URI:http://support.wrapbootstrap.com/
 File Description: Place here your custom CSS styles
 */
 
+
+
 #full-width-header {
 	width: 100%;
+}
+
+#user-reg-alert, #user-logout-alert {
+	position: fixed;
+	top: 0%;
+	right: 0%;
+	z-index: 10000;
+	width: 80%;
+	padding: 20px 0px;
+
+}
+
+.animate-show.ng-enter {
+	opacity: 1;
+}
+
+.animate-show.ng-leave {
+	transition: all linear 0.5s;
+	opacity: 1;
+}
+
+.animate-show.ng-leave.ng-leave-active {
+	opacity: 0;
 }
 
 .header_text {
