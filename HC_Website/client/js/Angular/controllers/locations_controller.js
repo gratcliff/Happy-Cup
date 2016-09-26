@@ -1,19 +1,40 @@
-happy_cup.controller('locations_controller', function($scope){
+happy_cup.controller('locations_controller', function($scope, $http){
 
-	// var current_position;
-	// var options = {
- //                enableHighAccuracy: true
- //            };
-	// navigator.geolocation.getCurrentPosition(function(pos) {
- //                $scope.position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
- //                current_position = $scope.position;
- //            }, 
- //            function(error) {                    
- //                alert('Unable to get location: ' + error.message);
- //            }, options);
-
-	// $scope.current_position = current_position;
 	$scope.expanded;
+		// if ($("#map-canvas").length>0) {
+	var map, myLatlng, myZoom, marker;
+	// Set the coordinates of your location
+	var options = {
+                enableHighAccuracy: true
+            };
+
+	function initialize(myLatlng, myZoom) {
+		var mapOptions = {
+			zoom: myZoom,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			center: myLatlng,
+			scrollwheel: false
+		};
+		map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+		marker = new google.maps.Marker({
+			map:map,
+			draggable:true,
+			animation: google.maps.Animation.DROP,
+			position: myLatlng
+		});
+		google.maps.event.addDomListener(window, "resize", function() {
+			map.setCenter(myLatlng);
+		});
+	}
+
+	navigator.geolocation.getCurrentPosition(function(position) {
+		myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		myZoom = 12;
+		initialize(myLatlng, myZoom);
+		google.maps.event.addDomListener(window, "load", initialize);
+	},function(error) {
+		alert('Unable to get location: ' + error.message);
+	}, options);
 
 	var locations = [{
 				'name': 'Arbor Lodge',
@@ -327,13 +348,20 @@ happy_cup.controller('locations_controller', function($scope){
 				'number': 5032308808,
 				'url': 'http://cbarportland.com/'
 			}];
-	
+
+
 	$scope.locations = locations;
-	$scope.expandAll = function() {
-		$scope.expanded = true;
-	}
-	$scope.collapseAll = function() {
-		$scope.expanded = false;
-	}
+	$scope.updateMap = function(address){
+		$http.get('https://maps.googleapis.com/maps/api/geocode/json?&address='+address+'&key=********').success(function(response){
+			if ($("#map-canvas").length>0) {
+				var map, myLatlng, myZoom, marker;
+				// Set the coordinates of your location
+				myLatlng = new google.maps.LatLng(response.results[0].geometry.location.lat, response.results[0].geometry.location.lng);
+				myZoom = 12;
+				initialize(myLatlng, myZoom);
+				google.maps.event.addDomListener(window, "load", initialize);
+			}
+		});
+	};
 
 });

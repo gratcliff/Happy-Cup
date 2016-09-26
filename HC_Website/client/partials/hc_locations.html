@@ -20,16 +20,7 @@
 							<div class="separator-2"></div>
 							<!-- page-title end -->
 							<p>Happy Cup can be purchased <a href="#/">online</a> and at our Coffee Shop: Portland City Hall – 1221 SW 4th, Portland, OR 97204, Sandy Blvd.</p>
-							<div class="block clearfix">
-								<div class="separator-2"></div>
-								<ul class="list">
-									<li><i class="fa fa-coffee pr-10"></i>1221 SW 4th Ave. Portland, OR 97204</li>
-									<li><i class="fa fa-clock-o pr-10"></i>Open M-F 7:30 a.m. – 4:00 p.m.</li>
-									<li><i class="fa fa-phone pr-10"></i> 503-208-2239</li>
-								</ul>
-								<!-- <a class="btn btn-gray collapsed map-show btn-animated" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">Show Map <i class="fa fa-plus"></i></a> -->
 
-							</div>
 							<!-- <div class="block clearfix"> -->
 								<div ng-repeat = "(type, location) in locations | groupBy: 'type'">
 									<v-accordion allow-multiple control="accordionControl" class="vAccordion--default" id = "MyAccordion" >
@@ -40,7 +31,7 @@
 
 											<v-pane-content>
 												<div class = "row" ng-repeat = "x in location">
-													<p class="col-md-9 col-xs-6 col-sm-8"><i class="fa fa-coffee pr-10"></i> [[x.address]]</p>
+													<p class="col-md-9 col-xs-6 col-sm-8"><a ng-click="updateMap([[x.address]])"><i class="fa fa-coffee pr-10"></i></a> [[x.address]]</p>
 													<p class="col-md-3 col-xs-6 col-sm-4"><i class="fa fa-phone pr-10"></i> [[x.number]]</p>
 												</div>
 											</v-pane-content>
