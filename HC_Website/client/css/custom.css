@@ -22,7 +22,23 @@ File Description: Place here your custom CSS styles
 	width: 80%;
 
 }
+.table_image{
+	height: 125px;
+	width: 125px;
+}
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
 
+.brown-border td, .brown-border th {
+    border-color: #914E38 !important;
+    border-width: 0.5px;
+}
+.btn-brown{
+	color:#914E38 !important;
+	background-color: none;
+	border-color: #914E38 !important;
+}
 .animate-show.ng-enter {
 	opacity: 1;
 }
@@ -41,7 +57,7 @@ File Description: Place here your custom CSS styles
 	font-size: 5em;
 }
 .tab_text {
-	font-size: 2em;
+	font-size: 1.25em;
 	color: #69321f;
 }
 body, h1, h2, h3, h4, h5, p{

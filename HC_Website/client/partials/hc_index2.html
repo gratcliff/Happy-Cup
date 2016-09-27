@@ -5,9 +5,9 @@
 
 				<!-- main start -->
 				<!-- ================ -->
-				<div style = 'margin-top:5%;' class="main col-md-12">
+				<div  class="main col-md-12">
 					<div class="row-centered">
-						<div class="col-sm-2 col-centered vertical-center">
+						<div class="col-md-3 col-centered vertical-center">
 							<div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
 								<span class="icon without-bg"><i class="fa fa-users"></i></span>
 								<div class="body">
@@ -16,7 +16,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-2 col-centered vertical-center">
+						<div class="col-md-3 col-centered vertical-center">
 							<div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="150">
 								<span class="icon without-bg"><i class="fa fa-heart"></i></span>
 								<div class="body">
@@ -25,7 +25,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-2 col-centered vertical-center">
+						<div class="col-md-3 col-centered vertical-center">
 							<div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="200">
 								<span class="icon without-bg"><i class="fa fa-coffee"></i></span>
 								<div class="body">
@@ -49,108 +49,196 @@
 	<!-- section start SHOP START-->
 	<!-- ================ -->
 	<section class="section light-gray-bg clearfix">
-		<div class="container-fluid">
+		<div class="container">
 
 			<!-- Nav tabs -->
-			<div class = 'row row-centered'>
+			<div class = 'row'>
 				<div class="col-md-12">
-					<ul class="nav nav-pills" role="tablist">
+					<ul class="nav nav-pills">
 						<li ng-class="{active: productDisplay.showCoffee === true}"><a ng-click = 'showCoffee()' title="Current Coffee"> <span class = 'tab_text'>Current Roasts</span></a></li>
 						<li ng-class="{active: productDisplay.showMerch === true}"><a ng-click = 'showMerch()' title="Merchandise"><span class = 'tab_text'>Merchandise</span></a></li>
 					</ul>
 				</div>
 			</div>
+
 			<!-- Nav Tab End -->
 
 			<!-- Coffee -->
 			<div ng-if = 'productDisplay.showCoffee === true' id="coffee_products">
-			
-				<!-- First Row -->
-				<div class = 'row row-centered'>
-					
-					<!-- The Buzz -->
-					<div class="col-md-5 col-sm-8 col-centered product_background top-buffer">
-						<div class="col-sm-4">
-							<img src="resources/images/products/the_buzz.png" alt="The Buzz Blend">
-						</div>
-						<div class = 'col-sm-7 text-center'>
-							<h3>Medium Roast</h3>
-							<p>12oz Price : $12.99</p>
-							<a class="margin-clear btn btn-group btn-default " data-toggle = 'modal' data-target = '#buzz_modal'>More Info</a>
-						</div>
-					</div>
 
-					<!-- Boom Boom -->
-					<div class="col-md-offset-1 col-md-5 col-sm-8 col-centered product_background top-buffer">
-						<div class="col-sm-4">
-							<img src="resources/images/products/boomboom.png" alt="Boom Boom Coffee Bag">
-						</div>
-						<div class = 'col-sm-7 text-center'>
-							<h3>Dark Roast</h3>
-							<p>12oz Price : $12.99</p>
-							<a class="margin-clear btn btn-group btn-default" data-toggle = 'modal' data-target = '#boomboom_modal'>More Info</a>
-						</div>
-					</div>
-					
-				</div>
-				<!-- Row End -->
-				<!-- Second Row -->
-				<div class = 'row row-centered'>
+				<h1 class = 'row row-centered'> Offered In All Sizes </h1>
+				<table class = 'table table-hover brown-border'>
+					<thead>
+						<tr>
+							<td>Description</td>
+							<td>Name</td>
+							<td>Roast</td>
+							<td>Price</td>
+							<td>Size</td>
+							<td>Grind</td>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- The Buzz -->
+						<tr>
+							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#buzz_modal'>+</a></td>
+							<td>The Buzz </td>
+							<td>Medium Roast </td>
+							<td>$12.99</td>
+							<td><select class="form-control">
+													<option value = '12oz'> 12 oz </option>
+													<option value = '2lbs'> 2 lbs </option>
+													<option value = '5lbs'> 5 lbs </option>
+												</select>
+								</td>
+							<td><select class="form-control">
+													<option value = 'Whole Bean'>Whole Bean </option>
+													<option value = 'Espresso'>Espresso </option>
+													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+													<option value = 'Chemex'>Chemex </option>
+													<option value = 'French Press'>French Press </option>
+												</select>
+								</td>
+							<td>
+							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
+							</td>
+						</tr>
 
-					<!-- Morning Madness -->
-					<div class="col-md-5 col-sm-8 col-centered product_background top-buffer">
-						<div class="col-sm-4">
-							<img src="resources/images/products/morning_madness.png" alt="Morning Madness Espresso Roast">
-						</div>
-						<div class = 'col-sm-7 text-center'>
-							<h3>Espresso Roast</h3>
-							<p>12oz Price : $12.99</p>
-							<a class="margin-clear btn btn-group btn-default " data-toggle = 'modal' data-target = '#morningMadness_modal'>More Info</a>
-						</div>
-					</div>
+						<!-- Boom Boom -->
+						<tr>
+							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#boomboom_modal'>+</a></td>
+							<td>Boom Boom </td>
+							<td>Dark Roast </td>
+							<td>$12.99</td>
+							<td><select class="form-control">
+													<option value = '12oz'> 12 oz </option>
+													<option value = '2lbs'> 2 lbs </option>
+													<option value = '5lbs'> 5 lbs </option>
+												</select>
+								</td>
+							<td><select class="form-control">
+													<option value = 'Whole Bean'>Whole Bean </option>
+													<option value = 'Espresso'>Espresso </option>
+													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+													<option value = 'Chemex'>Chemex </option>
+													<option value = 'French Press'>French Press </option>
+												</select>
+								</td>
+							<td>
+							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
+							</td>
+						</tr>
 
-					<!-- Decaffeination -->
-					<div class="col-md-offset-1 col-md-5 col-sm-8 col-centered product_background top-buffer">
-						<div class="col-sm-4">
-							<img src="resources/images/products/decaf.png" alt="Decaffeination Blend">
-						</div>
-						<div class = 'col-sm-7 text-center'>
-							<h3>Decaf</h3>
-							<p>12oz Price : $12.99</p>
-							<a class="margin-clear btn btn-group btn-default" data-toggle = 'modal' data-target = '#decaffeination_modal'>More Info</a>
-						</div>
-					</div>
+						<!-- Morning Madness -->
+						<tr>
+							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#morningMadness_modal'>+</a></td>
+							<td>Morning Madness</td>
+							<td>Espresso Roast </td>
+							<td>$12.99</td>
+							<td><select class="form-control">
+													<option value = '12oz'> 12 oz </option>
+													<option value = '2lbs'> 2 lbs </option>
+													<option value = '5lbs'> 5 lbs </option>
+												</select>
+								</td>
+							<td><select class="form-control">
+													<option value = 'Whole Bean'>Whole Bean </option>
+													<option value = 'Espresso'>Espresso </option>
+													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+													<option value = 'Chemex'>Chemex </option>
+													<option value = 'French Press'>French Press </option>
+												</select>
+								</td>
+							<td>
+							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
+							</td>
+						</tr>
 
-				</div>
-				<!-- Row End -->
-				<!-- Third Row -->
-				<div class = 'row row-centered'>
+						<!-- Decaffeination -->
+						<tr>
+							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#decaffeination_modal'>+</a></td>
+							<td>Decaffeination</td>
+							<td>Decaf</td>
+							<td>$12.99</td>
+							<td><select class="form-control">
+													<option value = '12oz'> 12 oz </option>
+													<option value = '2lbs'> 2 lbs </option>
+													<option value = '5lbs'> 5 lbs </option>
+												</select>
+								</td>
+							<td><select class="form-control">
+													<option value = 'Whole Bean'>Whole Bean </option>
+													<option value = 'Espresso'>Espresso </option>
+													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+													<option value = 'Chemex'>Chemex </option>
+													<option value = 'French Press'>French Press </option>
+												</select>
+								</td>
+							<td>
+							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
+							</td>
+						</tr>
 
-					<!-- Happy Heart -->
-					<div class="col-md-5 col-sm-8 col-centered product_background top-buffer">
-						<div class="col-sm-4">
-							<img src="resources/images/products/happy_heart.png" alt="Happy Heart">
-						</div>
-						<div class = 'col-sm-7 text-center'>
-							<h3>Single Origin - Ethiopia</h3>
-							<p>12oz Price : $12.99</p>
-							<a class="margin-clear btn btn-group btn-default" data-toggle = 'modal' data-target = '#happy_heart_modal'>More Info</a>
-						</div>
-					</div>
+						<!-- Happy Heart -->
+						<tr>
+							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#happy_heart_modal'>+</a></td>
+							<td>Happy Heart</td>
+							<td>Single Origin - Ethiopia</td>
+							<td>$12.99</td>
+							<td><select class="form-control">
+													<option value = '12oz'> 12 oz </option>
+													<option value = '2lbs'> 2 lbs </option>
+													<option value = '5lbs'> 5 lbs </option>
+												</select>
+								</td>
+							<td><select class="form-control">
+													<option value = 'Whole Bean'>Whole Bean </option>
+													<option value = 'Espresso'>Espresso </option>
+													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+													<option value = 'Chemex'>Chemex </option>
+													<option value = 'French Press'>French Press </option>
+												</select>
+								</td>
+							<td>
+							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
+							</td>
+						</tr>
 
-					<!-- Pondok Baru -->
-					<div class="col-md-offset-1 col-md-5 col-sm-8 col-centered product_background top-buffer">
-						<div class="col-sm-4">
-							<img src="resources/images/products/pondok_baru.png" alt="Pondok Baru">
-						</div>
-						<div class = 'col-sm-7 text-center'>
-							<h3>Single Origin - Sumatra</h3>
-							<p>12oz Price : $12.99</p>
-							<a class="margin-clear btn btn-group btn-default" data-toggle = 'modal' data-target = '#pondok_baru_modal'>More Info</a>
-						</div>
-					</div>
-				<!-- Row End -->
-				</div>
+						<!-- Pondok Baru -->
+						<tr>
+							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#pondok_baru_modal'>+</a></td>
+							<td>Pondok Baru</td>
+							<td>Single Origin - Sumatra</td>
+							<td>$12.99</td>
+							<td><select class="form-control">
+													<option value = '12oz'> 12 oz </option>
+													<option value = '2lbs'> 2 lbs </option>
+													<option value = '5lbs'> 5 lbs </option>
+												</select>
+								</td>
+							<td><select class="form-control">
+													<option value = 'Whole Bean'>Whole Bean </option>
+													<option value = 'Espresso'>Espresso </option>
+													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+													<option value = 'Chemex'>Chemex </option>
+													<option value = 'French Press'>French Press </option>
+												</select>
+								</td>
+							<td>
+							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+				<h1 class = 'row row-centered'> Offered Wholesale </h1>
+
 			</div>
 			<!-- Coffee End -->
 
