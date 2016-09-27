@@ -1424,9 +1424,12 @@
 		$(".scrollToMap").click(function() {
 			// $("body,html").animate({scrollTop:0},800);
 			// $(window).scrollTop($('#map-canvas').offset().top);
-			$('html,body').animate({
-				scrollTop: $('#map-canvas').offset().top - 100},
-				'slow');
+			if (window.innerWidth <= 980) {
+				$('html,body').animate({
+					scrollTop: $('#map-canvas').offset().top - 100},
+					'slow');	
+			}
+			
 		});		
 
 
