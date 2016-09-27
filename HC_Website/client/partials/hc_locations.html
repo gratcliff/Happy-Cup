@@ -9,7 +9,7 @@
 			<section class="main-container">
 
 				<div class="container">
-					<div class="row">
+					<div class="row" id="row">
 
 						<!-- main start -->
 						<!-- ================ -->
@@ -31,7 +31,7 @@
 
 											<v-pane-content>
 												<div class = "row" ng-repeat = "x in location">
-													<p class="col-md-9 col-xs-6 col-sm-8"><a ng-click="updateMap([[x.address]])"><i class="fa fa-coffee pr-10"></i></a> [[x.address]]</p>
+													<p class="col-md-9 col-xs-6 col-sm-8"><a class = "scrollToMap" role = "button" ng-click="updateMap([[x.address]])"><i class="fa fa-coffee pr-10"></i></a> [[x.address]]</p>
 													<p class="col-md-3 col-xs-6 col-sm-4"><i class="fa fa-phone pr-10"></i> [[x.number]]</p>
 												</div>
 											</v-pane-content>
@@ -45,8 +45,9 @@
 
 						<!-- sidebar start -->
 						<!-- ================ -->
-						<div class="block col-md-1 col-md-4 col-lg-3 col-lg-offset-1">
+						<div class="col-md-1 col-md-4 col-lg-3 col-lg-offset-1" style="">
 							<div id="map-canvas"></div>
+
 						</div>
 						<!-- sidebar end -->
 
@@ -58,5 +59,42 @@
 </div>
 <script type="text/javascript">
 	$.getScript('js/template.js');
-	$.getScript('js/google.map.config.js');
 </script>
+
+<script type="text/javascript">
+// function checkOffset() {
+// 	if($('#map-canvas').offset().top + $('#map-canvas').height() >= $('#footer').offset().top)
+// 		$('#map-canvas').css('position', 'absolute');
+// 	if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top)
+// 		$('#map-canvas').css('position', 'fixed'); // restore when you scroll up
+// }
+// $(document).ready(function(){
+// 	checkOffset();
+// });
+// $(document).scroll(function() {
+// 	checkOffset();
+// });
+
+// function checkOffset() {
+// 	var a=$(document).scrollTop()+window.innerHeight;
+// 	var b=$('#footer').offset().top;
+// 	if (a<(b-100)) {
+// 		$('#map-canvas').css('bottom', '10px');
+// 	} else {
+// 		$('#map-canvas').css('bottom', (10+(a-b))+'px');
+// 	}
+// }
+// $(document).ready(checkOffset);
+// $(document).scroll(checkOffset);
+
+</script>
+
+<style type="text/css">
+#map-canvas {
+  position: fixed;
+  width: 300px;
+  text-align: center;
+  background-color: #fff;
+}
+
+</style>

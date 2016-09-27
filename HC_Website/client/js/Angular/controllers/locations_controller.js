@@ -23,9 +23,33 @@ happy_cup.controller('locations_controller', function($scope, $http){
 			position: myLatlng
 		});
 		google.maps.event.addDomListener(window, "resize", function() {
-			map.setCenter(myLatlng);
+			// map.setCenter(myLatlng);
+			setMarker(myLatlng);
+			checkOffset();
 		});
 	}
+
+    function setMarker(position, description) {
+    	console.log('setting marker');
+        //Remove previous Marker.
+        if (marker != null) {
+            marker.setMap(null);
+        }
+ 
+        //Set Marker on Map.
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: description
+        });
+ 
+        //Create and open InfoWindow.
+        var infoWindow = new google.maps.InfoWindow();
+        infoWindow.setContent(description);
+        infoWindow.open(map, marker);
+        checkOffset();
+    };
+
 
 	navigator.geolocation.getCurrentPosition(function(position) {
 		myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -354,14 +378,37 @@ happy_cup.controller('locations_controller', function($scope, $http){
 	$scope.updateMap = function(address){
 		$http.get('https://maps.googleapis.com/maps/api/geocode/json?&address='+address+'&key=********').success(function(response){
 			if ($("#map-canvas").length>0) {
+				console.log(response.results[0]);
 				var map, myLatlng, myZoom, marker;
 				// Set the coordinates of your location
 				myLatlng = new google.maps.LatLng(response.results[0].geometry.location.lat, response.results[0].geometry.location.lng);
 				myZoom = 12;
-				initialize(myLatlng, myZoom);
+				myDescription = response.results[0].formatted_address;
+				setMarker(myLatlng, myDescription);
 				google.maps.event.addDomListener(window, "load", initialize);
+				checkOffset();
 			}
 		});
 	};
+
+	function checkOffset() {
+		var w = window.innerWidth;
+		if (w > 980) {
+			if($('#map-canvas').offset().top + $('#map-canvas').height() >= $('#footer').offset().top)
+				$('#map-canvas').css('position', 'absolute');
+			if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top)
+				$('#map-canvas').css('position', 'fixed'); // restore when you scroll up
+		} else {
+			$('#map-canvas').css('position', 'relative');
+			$('#map-canvas').css('margin-left', '5px');
+		}
+		
+	}
+	$(document).ready(function(){
+		checkOffset();
+	});
+	$(document).scroll(function() {
+		checkOffset();
+	});
 
 });
