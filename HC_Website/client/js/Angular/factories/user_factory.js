@@ -15,8 +15,17 @@ happy_cup.factory('user_factory',function(){
 		callback(currentUser)
 	};
 
+	factory.loginUser = function(userData, callback) {
+		if (currentUser === 'None') {
+			currentUser = {};
+		}
+		currentUser.username = userData.email_username;
+		currentUser.first_name = 'Bob';
+		callback(currentUser);
+	};
+
 	factory.logout = function(callback) {
-		currentUser = 'None'
+		currentUser = 'None';
 		callback(currentUser);
 	};
 

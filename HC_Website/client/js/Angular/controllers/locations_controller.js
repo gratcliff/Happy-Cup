@@ -1,4 +1,4 @@
-happy_cup.controller('locations_controller', function($scope, $http){
+happy_cup.controller('locations_controller', function($scope, $http, $location){
 
 	$scope.expanded;
 		// if ($("#map-canvas").length>0) {
@@ -376,7 +376,7 @@ happy_cup.controller('locations_controller', function($scope, $http){
 
 	$scope.locations = locations;
 	$scope.updateMap = function(address){
-		$http.get('https://maps.googleapis.com/maps/api/geocode/json?&address='+address+'&key=********').success(function(response){
+		$http.get('https://maps.googleapis.com/maps/api/geocode/json?&address='+address+'&key=*******').success(function(response){
 			if ($("#map-canvas").length>0) {
 				console.log(response.results[0]);
 				var map, myLatlng, myZoom, marker;
@@ -392,18 +392,22 @@ happy_cup.controller('locations_controller', function($scope, $http){
 	};
 
 	function checkOffset() {
-		var w = window.innerWidth;
-		if (w > 980) {
-			if($('#map-canvas').offset().top + $('#map-canvas').height() >= $('#footer').offset().top)
-				$('#map-canvas').css('position', 'absolute');
-			if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top)
-				$('#map-canvas').css('position', 'fixed'); // restore when you scroll up
-		} else {
-			$('#map-canvas').css('position', 'relative');
-			$('#map-canvas').css('margin-left', '5px');
+		console.log('checkOffset is still running in locations_controller.js');
+		if ($location.url() === '/locations') {
+			var w = window.innerWidth;
+			if (w > 980) {
+				if($('#map-canvas').offset().top + $('#map-canvas').height() >= $('#footer').offset().top)
+					$('#map-canvas').css('position', 'absolute');
+				if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top)
+					$('#map-canvas').css('position', 'fixed'); // restore when you scroll up
+			} else {
+				$('#map-canvas').css('position', 'relative');
+				$('#map-canvas').css('margin-left', '5px');
+			}
 		}
 		
 	}
+
 	$(document).ready(function(){
 		checkOffset();
 	});

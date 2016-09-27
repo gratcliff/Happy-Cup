@@ -10,6 +10,21 @@ happy_cup.factory('content_factory',function(){
 
 
 			};
+			content.shop = {
+
+			};
+			content.about = {
+
+			};
+			content.blog = {
+
+			};
+			content.contact = {
+
+			};
+			content.cafe = {
+
+			};
 
 			callback(content);
 		
