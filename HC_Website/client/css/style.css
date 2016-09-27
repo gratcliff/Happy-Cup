@@ -80,9 +80,9 @@ ul {
 
 /* Tables
 ---------------------------------- */
-.table:not(.table-bordered) {
+/*.table:not(.table-bordered) {
   border-bottom: 2px solid #f3f3f3;
-}
+}*/
 
 .table > thead > tr > th {
   vertical-align: bottom;
@@ -299,7 +299,7 @@ tbody {
 }
 
 .banner.video-background-banner {
-  min-height: 700px;
+  height: 10% !important;
   padding-top: 100px;
 }
 
