@@ -39,7 +39,10 @@
         <link href="css/animations.css" rel="stylesheet">
         <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
         <link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
-        <link href="plugins/hover/hover-min.css" rel="stylesheet">      
+        <link href="plugins/hover/hover-min.css" rel="stylesheet"> 
+
+        <!--Pageloader -->
+        <link href = 'css/custom_pageloader.css' rel = 'stylesheet'>     
         
         <!-- The Project's core CSS file -->
         <link href="css/style.css" rel="stylesheet" >
@@ -121,13 +124,12 @@
 		<script type = "text/javascript" src = 'js/Angular/factories/user_factory.js'></script>
 	</head>
 
-	<!-- body classes:  -->
-	<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
-	<!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
-	<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
-	<!-- "gradient-background-header": applies gradient background to header -->
-	<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
-	<body class="no-trans  page-loader-2" ng-controller='global_controller'>
+	<body style = 'background-color: #914E38' class="no-trans page-loader-2" ng-controller='global_controller'>
+		<div ng-if = 'pageLoading' class="la-fire">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
 
 		<!-- scrollToTop -->
 		<!-- ================ -->
