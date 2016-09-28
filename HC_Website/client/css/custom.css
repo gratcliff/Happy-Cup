@@ -16,8 +16,8 @@ File Description: Place here your custom CSS styles
 
 .banner.video-background-banner {
   min-height: 10% !important;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 75px;
+  padding-bottom: 75px;
 }
 
 #video-banner-features-row {
