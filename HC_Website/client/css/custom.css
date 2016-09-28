@@ -14,6 +14,21 @@ File Description: Place here your custom CSS styles
 	width: 100%;
 }
 
+.banner.video-background-banner {
+  min-height: 300px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#video-banner-features-row {
+	margin-bottom: -30px;
+}
+
+#video-banner-feature-1 {
+	margin-left: 12.5%;
+}
+
+
 #user-reg-alert, #user-logout-alert {
 	position: fixed;
 	top: 0%;
@@ -216,6 +231,10 @@ fieldset legend {
 
 }
 
+#coffee-products-table {
+	border-bottom: 0px;
+}
+
 #three_coffee_select_btn {
 	-webkit-appearance: menulist;
 }
@@ -288,5 +307,15 @@ fieldset legend {
 @media (max-width: 768px) {
 	.modal-dialog {
     width: 96%;
+  }
+  #video-banner-feature-1 {
+  	margin-left: inherit;
+  }
+}
+
+@media (max-width: 992px) {
+  #video-banner-feature-1 {
+  	margin-left: 0px;
+  }
 }
 

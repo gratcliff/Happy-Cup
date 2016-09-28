@@ -1,13 +1,13 @@
 <div ng-controller = 'shop_controller'>
-	<div class="banner video-background-banner pv-10 dark-translucent-bg hovered">
+	<div class="banner video-background-banner dark-translucent-bg hovered">
 		<div class="container-fluid">
 			<div class="row">
 
 				<!-- main start -->
 				<!-- ================ -->
 				<div  class="main col-md-12">
-					<div class="row-centered">
-						<div class="col-md-3 col-centered vertical-center">
+					<div id="video-banner-features-row" class="row vertical-center col-centered">
+						<div id="video-banner-feature-1" class="col-md-3">
 							<div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
 								<span class="icon without-bg"><i class="fa fa-users"></i></span>
 								<div class="body">
@@ -16,7 +16,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-3 col-centered vertical-center">
+						<div class="col-md-3">
 							<div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="150">
 								<span class="icon without-bg"><i class="fa fa-heart"></i></span>
 								<div class="body">
@@ -25,7 +25,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-3 col-centered vertical-center">
+						<div class="col-md-3">
 							<div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="200">
 								<span class="icon without-bg"><i class="fa fa-coffee"></i></span>
 								<div class="body">
@@ -67,7 +67,7 @@
 			<div ng-if = 'productDisplay.showCoffee === true' id="coffee_products">
 
 				<h1 class = 'row row-centered'> Offered In All Sizes </h1>
-				<table class = 'table table-hover brown-border'>
+				<table id ="coffee-products-table" class = 'table table-hover brown-border'>
 					<thead>
 						<tr>
 							<td>Description</td>
@@ -80,166 +80,23 @@
 					</thead>
 					<tbody>
 						<!-- The Buzz -->
-						<tr>
+						<tr ng-repeat="coffee in products.coffee track by coffee.id">
 							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#buzz_modal'>+</a></td>
-							<td>The Buzz </td>
-							<td>Medium Roast </td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
+							<td>[[coffee.name]]</td>
+							<td>[[coffee.roast]]</td>
+							<td>[[order.qty.price]]</td>
+							<td><select class="form-control" ng-init="order.qty=coffee.pricing[0]" ng-model="order.qty" ng-options="value.qty for value in coffee.pricing track by value.qty"></select>
 								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
+							<td><select class="form-control" ng-init="order.grind=coffee.grinds[0]" ng-options="grind.type for grind in coffee.grinds track by grind.id" ng-model="order.grind"></select>
 								</td>
 							<td>
 							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
 							</td>
 						</tr>
-
-						<!-- Boom Boom -->
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#boomboom_modal'>+</a></td>
-							<td>Boom Boom </td>
-							<td>Dark Roast </td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
-								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
-								</td>
-							<td>
-							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
-							</td>
-						</tr>
-
-						<!-- Morning Madness -->
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#morningMadness_modal'>+</a></td>
-							<td>Morning Madness</td>
-							<td>Espresso Roast </td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
-								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
-								</td>
-							<td>
-							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
-							</td>
-						</tr>
-
-						<!-- Decaffeination -->
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#decaffeination_modal'>+</a></td>
-							<td>Decaffeination</td>
-							<td>Decaf</td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
-								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
-								</td>
-							<td>
-							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
-							</td>
-						</tr>
-
-						<!-- Happy Heart -->
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#happy_heart_modal'>+</a></td>
-							<td>Happy Heart</td>
-							<td>Single Origin - Ethiopia</td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
-								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
-								</td>
-							<td>
-							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
-							</td>
-						</tr>
-
-						<!-- Pondok Baru -->
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#pondok_baru_modal'>+</a></td>
-							<td>Pondok Baru</td>
-							<td>Single Origin - Sumatra</td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
-								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
-								</td>
-							<td>
-							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
-							</td>
-						</tr>
-
 					</tbody>
 				</table>
-				<h1 class = 'row row-centered'> Offered Wholesale </h1>
 
-			</div>
+						
 			<!-- Coffee End -->
 
 			<!-- Merch Start -->
