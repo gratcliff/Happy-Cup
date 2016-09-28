@@ -1,54 +1,8 @@
 happy_cup.controller('locations_controller', function($scope, $http, $location){
 
 	$scope.expanded;
-		// if ($("#map-canvas").length>0) {
-	var map, myLatlng, myZoom, marker;
-	// Set the coordinates of your location
-	var options = {
-                enableHighAccuracy: true
-            };
+	$scope.mapLoaded = false;
 
-	function initialize(myLatlng, myZoom) {
-		var mapOptions = {
-			zoom: myZoom,
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			center: myLatlng,
-			scrollwheel: false
-		};
-		map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
-		marker = new google.maps.Marker({
-			map:map,
-			draggable:true,
-			animation: google.maps.Animation.DROP,
-			position: myLatlng
-		});
-		google.maps.event.addDomListener(window, "resize", function() {
-			// map.setCenter(myLatlng);
-			setMarker(myLatlng);
-			checkOffset();
-		});
-	}
-
-    function setMarker(position, description) {
-    	console.log('setting marker');
-        //Remove previous Marker.
-        if (marker != null) {
-            marker.setMap(null);
-        }
- 
-        //Set Marker on Map.
-        marker = new google.maps.Marker({
-            position: position,
-            map: map,
-            title: description
-        });
- 
-        //Create and open InfoWindow.
-        var infoWindow = new google.maps.InfoWindow();
-        infoWindow.setContent(description);
-        infoWindow.open(map, marker);
-        checkOffset();
-    };
 
 
 	navigator.geolocation.getCurrentPosition(function(position) {
@@ -59,6 +13,8 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 	},function(error) {
 		alert('Unable to get location: ' + error.message);
 	}, options);
+	
+
 
 	var locations = [{
 				'name': 'Arbor Lodge',
@@ -414,5 +370,54 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 	$(document).scroll(function() {
 		checkOffset();
 	});
+
+
+	var map, myLatlng, myZoom, marker;
+	// Set the coordinates of your location
+	var options = {
+                enableHighAccuracy: true
+            };
+
+	function initialize(myLatlng, myZoom) {
+		var mapOptions = {
+			zoom: myZoom,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			center: myLatlng,
+			scrollwheel: false
+		};
+		map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+		marker = new google.maps.Marker({
+			map:map,
+			draggable:true,
+			animation: google.maps.Animation.DROP,
+			position: myLatlng
+		});
+		google.maps.event.addDomListener(window, "resize", function() {
+			// map.setCenter(myLatlng);
+			setMarker(myLatlng);
+			checkOffset();
+		});
+	}
+
+    function setMarker(position, description) {
+    	console.log('setting marker');
+        //Remove previous Marker.
+        if (marker != null) {
+            marker.setMap(null);
+        }
+ 
+        //Set Marker on Map.
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: '<a href = "https://maps.google.com/maps?q='+description+'"</a>'
+        });
+ 
+        //Create and open InfoWindow.
+        var infoWindow = new google.maps.InfoWindow();
+        infoWindow.setContent('<a href = "https://maps.google.com/maps?q='+description+'" target="_blank">'+description+'</a>');
+        infoWindow.open(map, marker);
+        checkOffset();
+    };
 
 });
