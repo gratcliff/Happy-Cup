@@ -7,6 +7,7 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 
 	$scope.productDisplay = {
 		"showCoffee" : true,
+		"showSubs" : false,
 		"showMerch" : false
 	};
 
@@ -15,11 +16,19 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 	$scope.showCoffee = function (){
 		$scope.productDisplay.showCoffee = true;
 		$scope.productDisplay.showMerch = false;
+		$scope.productDisplay.showSubs = false;
+	}
+
+	$scope.showSubs = function (){
+		$scope.productDisplay.showCoffee = false;
+		$scope.productDisplay.showMerch = false;
+		$scope.productDisplay.showSubs = true;
 	}
 
 	$scope.showMerch = function (){
 		$scope.productDisplay.showCoffee = false;
 		$scope.productDisplay.showMerch = true;
+		$scope.productDisplay.showSubs = false;
 	}
 
 	$scope.openCoffeeModal = function(coffee, idx) {
