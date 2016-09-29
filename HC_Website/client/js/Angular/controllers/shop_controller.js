@@ -39,7 +39,7 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 		$scope.modalOrder.qty = coffee.pricing[0]
 	};
 
-	$scope.addToCart = function(coffee, order, idx) {
+	$scope.addCoffeeToCart = function(coffee, order, idx) {
 		$scope.products.coffee[idx].addingProduct = true;
 		$scope.addingProduct = true;
 		var data = {
@@ -52,7 +52,7 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 			subtotal: order.qty.price
 		};
 			
-		shop_factory.addToCart(data, function(newCart) {
+		shop_factory.addCoffeeToCart(data, function(newCart) {
 			// emits event to global controller
 			$scope.$emit('addedToCart', newCart);
 			$timeout(function(){

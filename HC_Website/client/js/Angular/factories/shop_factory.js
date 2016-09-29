@@ -6,13 +6,18 @@ happy_cup.factory('shop_factory', function(){
 
 	//-------creating shoppingCart object
 	var shoppingCart = {};
-	shoppingCart.products = [];
+	shoppingCart.coffee = [];
+	shoppingCart.merch = [];
 	shoppingCart.countTotals = function() {
 		var totalItems = 0;
 		var totalPrice = 0;
-		for (idx in this.products) {
-			totalItems += this.products[idx].qty;
-			totalPrice += this.products[idx].subtotal;
+		for (idx in this.coffee) {
+			totalItems += this.coffee[idx].qty;
+			totalPrice += this.coffee[idx].subtotal;
+		}
+		for (idx in this.merch) {
+			totalItems += this.merch[idx].qty;
+			totalPrice += this.merch[idx].subtotal;
 		}
 		this.totalItems = totalItems;
 		this.totalPrice = totalPrice;
@@ -24,31 +29,35 @@ happy_cup.factory('shop_factory', function(){
 		callback(shoppingCart);
 	};
 
-	factory.addToCart = function(order, callback) {
+	factory.addCoffeeToCart = function(order, callback) {
 		var identicalProduct = false;
-		for (idx in shoppingCart.products) {
+		for (idx in shoppingCart.coffee) {
 			// if an identical product exists in the cart, 
 			// adjust the qty and price of the existing one
 
-			if (shoppingCart.products[idx].id === order.id &&
-			shoppingCart.products[idx].grind === order.grind &&
-			shoppingCart.products[idx].size === order.size) {
+			if (shoppingCart.coffee[idx].id === order.id &&
+			shoppingCart.coffee[idx].grind === order.grind &&
+			shoppingCart.coffee[idx].size === order.size) {
 
-				shoppingCart.products[idx].qty += order.qty;
-				shoppingCart.products[idx].subtotal += order.subtotal;
+				shoppingCart.coffee[idx].qty += order.qty;
+				shoppingCart.coffee[idx].subtotal += order.subtotal;
 				identicalProduct = true;
 				break;
 			}
 
 		}
 		if (!identicalProduct) {
-			shoppingCart.products.push(order);
+			shoppingCart.coffee.push(order);
 		}
 
 		shoppingCart.totalItems += order.qty;
 		shoppingCart.totalPrice += order.subtotal;
 		callback(shoppingCart);
 	}
+
+	factory.updateCart = function(cart, callback){
+		callback(shoppingCart);
+	};
 
 
 	return factory;
