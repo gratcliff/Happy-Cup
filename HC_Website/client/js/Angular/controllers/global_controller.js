@@ -127,4 +127,5 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 		}
 		return view
 	}
+
 });

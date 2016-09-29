@@ -15,9 +15,7 @@ File Description: Place here your custom CSS styles
 }
 
 .banner.video-background-banner {
-  min-height: 10% !important;
-  padding-top: 75px;
-  padding-bottom: 75px;
+  min-height: 450px;
 }
 
 #video-banner-features-row {
@@ -91,6 +89,7 @@ body, h1, h2, h3, h4, h5, p{
 .vertical-center{
 	vertical-align: middle;
 }
+
 .modal:before {
   content: '';
   display: inline-block;

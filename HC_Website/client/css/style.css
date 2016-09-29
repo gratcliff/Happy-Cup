@@ -288,13 +288,13 @@ tbody {
 .banner.light-translucent-bg,
 .banner.dark-translucent-bg,
 .banner.default-translucent-bg {
-  min-height: 250px;
+  min-height: 350px;
   padding-top: 60px;
   padding-bottom: 20px;
 }
 
 .banner.banner-big-height {
-  min-height: 550px;
+  min-height: 450px;
   padding-top: 100px;
 }
 
@@ -7557,8 +7557,8 @@ h6.media-heading {
 
   .full-image-overlay {
     display: block;
-    opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 1;
+    filter: alpha(opacity=1);
   }
 
   .full-image-container:before {
@@ -7566,11 +7566,11 @@ h6.media-heading {
     position: absolute;
     top: 5%;
     right: 0%;
-    width: 50%;
+    width: 100%;
     height: 90%;
     background-color: rgba(55, 55, 55, 0.3);
-    opacity: 0;
-    filter: alpha(opacity=0);
+    opacity: 1;
+    filter: alpha(opacity=1);
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -7596,7 +7596,7 @@ h6.media-heading {
   .full-width-section:hover .full-text-container + .full-image-container:before,
   .full-width-section .full-text-container + .full-image-container.hovered:before {
     right: auto;
-    left: 5%;
+    left: 0%;
   }
 
   .full-width-section.hover-disabled:hover .full-image-container:before,
