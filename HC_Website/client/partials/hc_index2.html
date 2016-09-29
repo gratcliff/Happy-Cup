@@ -56,7 +56,7 @@
 				<div class="col-md-12">
 					<ul class="nav nav-pills">
 						<li ng-class="{active: productDisplay.showCoffee === true}"><a ng-click = 'showCoffee()' title="Current Coffee"> <span class = 'tab_text'>Current Roasts</span></a></li>
-						<li ng-class="{active: productDisplay.showSubs === true}"><a ng-click = 'showSubs()' title="Subscriptions"> <span class = 'tab_text'>Subscriptions Options</span></a></li>
+						<li ng-class="{active: productDisplay.showSubs === true}"><a ng-click = 'showSubs()' title="Subscriptions"> <span class = 'tab_text'>Subscriptions</span></a></li>
 						<li ng-class="{active: productDisplay.showMerch === true}"><a ng-click = 'showMerch()' title="Merchandise"><span class = 'tab_text'>Merchandise</span></a></li>
 					</ul>
 				</div>
@@ -108,6 +108,43 @@
 
 			<!--Subscriptions -->
 			<div ng-if = 'productDisplay.showSubs === true'>
+
+				<h1 class = 'row row-centered'>Subscriptions</h1>
+				<div class = 'row row-centered top-buffer'>
+
+					<!-- Six Month Sub -->
+					<div class="col-sm-4 col-centered">
+						<div class="col-sm-8 col-centered text-center">
+							<img src="resources/images/products/6mo_sub.png" alt="6 month sub">
+							<div class="body">
+								<div class = 'text-center'>
+									<h3>6 Month Subscription</h3>
+								</div>
+								<div class = 'elements-list clearfix'>
+									<span class = 'price'>$105.00</span>
+									<a class = 'pull-right margin-clear btn btn-sm btn-group btn-brown' data-toggle = 'modal' data-target = '#6_sub_modal'>Add To Cart </a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Twelve Month Sub -->
+					<div class="col-sm-4 col-centered">
+						<div class="col-sm-8 col-centered text-center">
+							<img src="resources/images/products/12mo_sub.png" alt="12 month sub">
+							<div class="body">
+								<div class = 'text-center'>
+									<h3>12 Month Subscription</h3>
+								</div>
+								<div class = 'elements-list clearfix'>
+									<span class = 'price'>$200.00</span>
+									<a class = 'pull-right margin-clear btn btn-sm btn-group btn-brown' data-toggle = 'modal' data-target = '#12_sub_modal'>Add To Cart</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
 
 			</div>
 
