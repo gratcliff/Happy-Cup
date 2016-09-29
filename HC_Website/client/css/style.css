@@ -7519,11 +7519,11 @@ h6.media-heading {
   margin-top: -133px;
   color: #ffffff;
   z-index: 1;
-  -webkit-transition: all 0.3s ease-in-out;
+ /* -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   -webkit-transition-delay: 0s;
-  transition-delay: 0s;
+  transition-delay: 0s;*/
 }
 
 .full-image-overlay h3 {
@@ -7609,8 +7609,8 @@ h6.media-heading {
   .full-width-section .hovered .full-image-overlay {
     opacity: 1;
     filter: alpha(opacity=100);
-    -webkit-transition-delay: 0.3s;
-    transition-delay: 0.3s;
+   /* -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;*/
   }
 
   .full-text-container {
