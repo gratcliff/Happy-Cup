@@ -85,7 +85,7 @@
 							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#coffee_modal' ng-click="openCoffeeModal(coffee, $index)">+</a></td>
 							<td>[[coffee.name]]</td>
 							<td>[[coffee.roast]]</td>
-							<td>[[order.qty.price]]</td>
+							<td>$[[order.qty.price]]</td>
 							<td><select class="form-control" ng-init="order.qty=coffee.pricing[0]" ng-model="order.qty" ng-options="value.qty for value in coffee.pricing track by value.qty"></select>
 								</td>
 							<td><select class="form-control" ng-init="order.grind=coffee.grinds[0]" ng-options="grind.type for grind in coffee.grinds track by grind.id" ng-model="order.grind"></select>
