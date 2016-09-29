@@ -24,11 +24,12 @@ happy_cup.factory('content_factory',function(){
 								{qty: '12oz', price: 12.99},
 								{qty: '2lbs', price: 24.99},
 								{qty: '5lbs', price: 49.99}
-							]
+							],
+							img_src : "resources/images/products/the_buzz.png"
 						},
 						{
 							id : 2,
-							name : 'Boom Boom',
+							name : 'Boom! Boom!',
 							roast : 'Dark Roast',
 							description : 'The rich, nutty, smoky, bold flavors of our Dark Roast are a classic blend for the dark coffee enthusiast.',
 							// qty_available : ['12oz', '2lbs', '5lbs'],
@@ -37,7 +38,8 @@ happy_cup.factory('content_factory',function(){
 								{qty: '12oz', price: 12.99},
 								{qty: '2lbs', price: 24.99},
 								{qty: '5lbs', price: 49.99}
-							]
+							],
+							img_src : "resources/images/products/boomboom.png"
 						},
 						{
 							id : 3,
@@ -50,7 +52,8 @@ happy_cup.factory('content_factory',function(){
 								{qty: '12oz', price: 12.99},
 								{qty: '2lbs', price: 24.99},
 								{qty: '5lbs', price: 49.99}
-							]
+							],
+							img_src : "resources/images/products/morning_madness.png"
 						},
 						{
 							id : 4,
@@ -63,7 +66,8 @@ happy_cup.factory('content_factory',function(){
 								{qty: '12oz', price: 12.99},
 								{qty: '2lbs', price: 24.99},
 								{qty: '5lbs', price: 49.99}
-							]
+							],
+							img_src : "resources/images/products/decaf.png"
 						},
 						{
 							id : 5,
@@ -76,7 +80,8 @@ happy_cup.factory('content_factory',function(){
 								{qty: '12oz', price: 12.99},
 								{qty: '2lbs', price: 24.99},
 								{qty: '5lbs', price: 49.99}
-							]
+							],
+							img_src : "resources/images/products/happy_heart.jpg"
 						},
 						{
 							id : 6,
@@ -89,7 +94,8 @@ happy_cup.factory('content_factory',function(){
 								{qty: '12oz', price: 12.99},
 								{qty: '2lbs', price: 24.99},
 								{qty: '5lbs', price: 49.99}
-							]
+							],
+							img_src : "resources/images/products/pondok_baru.png"
 						},
 					]
 				}
