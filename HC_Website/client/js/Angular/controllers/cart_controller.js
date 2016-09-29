@@ -8,16 +8,19 @@ happy_cup.controller('cart_controller', function ($scope, $location, $timeout, u
 	});
 
 	$scope.updateCart = function() {
-		shop_factory.updateCart($scope.currentCart, function(cart){
-			$scope.currentCart = cart;
+		shop_factory.updateCart($scope.currentCart, function(newCart){
+			$scope.currentCart = newCart;
 			$scope.currentCart.edited = false;
 		});
 	}
 
-	$scope.removeProduct = function(product) {
+	$scope.removeProduct = function(idx, arrayName) {
 		$timeout(function(){
-			
-		}, 1000);
+			shop_factory.removeProduct(idx, arrayName,  function(newCart) {
+				$scope.currentCart = newCart;
+				$scope.currentCart.edited = false;
+			})
+		}, 500);
 	};
 
 

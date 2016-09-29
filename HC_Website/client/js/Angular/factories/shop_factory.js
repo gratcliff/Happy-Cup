@@ -56,8 +56,36 @@ happy_cup.factory('shop_factory', function(){
 	}
 
 	factory.updateCart = function(cart, callback){
+		var nonZeroQtyCheck = [];
+		for (idx in cart.coffee) {
+			if (cart.coffee[idx].qty !== 0) {
+				nonZeroQtyCheck.push(cart.coffee[idx]);
+			}
+		}
+		shoppingCart.coffee = nonZeroQtyCheck;
+
+		nonZeroQtyCheck = [];
+
+		for (idx in cart.merch) {
+			if (cart.merch[idx].qty !== 0) {
+				nonZeroQtyCheck.push(cart.merch[idx]);
+			}
+		}
+
+		shoppingCart.merch = nonZeroQtyCheck;
+		shoppingCart.countTotals();
+
+
+
 		callback(shoppingCart);
 	};
+
+	factory.removeProduct = function(idx, arrayName, callback) {
+		shoppingCart[arrayName].splice(idx, 1);
+		shoppingCart.countTotals();
+		callback(shoppingCart);
+
+	}
 
 
 	return factory;

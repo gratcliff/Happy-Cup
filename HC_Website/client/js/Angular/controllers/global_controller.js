@@ -109,11 +109,11 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 		});
 	}
 
-
+	// listener does not do anything 
 	//event listener for updating cart display. Received from shop_controller.addToCart()
-	$scope.$on('addedToCart', function(event, newCart){
-		$scope.shoppingCart = newCart;
-	});
+	// $scope.$on('addedToCart', function(event, newCart){
+	// 	$scope.shoppingCart = newCart;
+	// });
 
 	function getCurrentView(){
 		// adds styling to navbar

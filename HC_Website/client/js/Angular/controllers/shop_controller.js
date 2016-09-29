@@ -54,7 +54,8 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 			
 		shop_factory.addCoffeeToCart(data, function(newCart) {
 			// emits event to global controller
-			$scope.$emit('addedToCart', newCart);
+			// this is not needed to update global shopping cart
+			// $scope.$emit('addedToCart', newCart);
 			$timeout(function(){
 				delete $scope.products.coffee[idx].addingProduct
 				$scope.addingProduct = false;

@@ -34,7 +34,7 @@
 									<input type="number" class="form-control" ng-model="coffee.qty" ng-change="coffee.subtotal = coffee.size.price * coffee.qty; currentCart.countTotals(); currentCart.edited=true;" min="0">
 								</div>											
 							</td>
-							<td class="remove"><button class="btn btn-default" ng-if="coffee.qty" ng-click="coffee.qty = 0; removeProduct(coffee);">Remove</button></td>
+							<td class="remove"><button class="btn btn-default" ng-show="coffee.qty" ng-click="coffee.qty = 0; removeProduct($index, 'coffee');">Remove</button></td>
 							<td class="amount">$[[coffee.subtotal | number: 2]]</td>
 						</tr>
 						<tr>
@@ -52,8 +52,8 @@
 					</tbody>
 				</table>
 				<div class="text-right">	
-					<button class="btn btn-group btn-default" ng-show="currentCart.edited" ng-click="updateCart()">Update Cart</button>
-					<a href="#/cart/checkout" move-to-top class="btn btn-group btn-default" ng-show="!currentCart.edited">Checkout</a>
+					<button class="btn btn-group btn-default" ng-show="currentCart.edited" ng-click="updateCart()" move-to-top>Update Cart</button>
+					<a href="#/cart/checkout" move-to-top class="btn btn-group btn-default" ng-hide="currentCart.edited">Checkout</a>
 				</div>
 
 			</div>
