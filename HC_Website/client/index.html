@@ -277,7 +277,7 @@
 													<div class="btn-group dropdown">
 
 														<!-- Cart Counter -->
-														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" ng-style="currentView === 'cart' ? {'background-color' : '#69321f', 'color' : 'white'} : null"><i class="icon-basket-1"></i><span ng-if="currentView != 'cart' " class="cart-count default-bg">[[shoppingCart]]</span></button>
+														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" ng-style="currentView === 'cart' ? {'background-color' : '#69321f', 'color' : 'white'} : null"><i class="icon-basket-1"></i><span ng-if="currentView != 'cart' && shoppingCart.totalItems > 0" class="cart-count default-bg">[[shoppingCart.totalItems]]</span></button>
 														<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
 															<li>
 																<table class="table table-hover">
@@ -290,15 +290,15 @@
 																		</tr>
 																	</thead>
 																	<tbody>
-																		<tr>
-																			<td class="quantity">3 x</td>
-																			<td class="product"><a href="shop-product.html">Pondok Baru</a><span class="small">Single Origin - Sumatra</span></td>
-																			<td> 12oz </td>
-																			<td class="amount">$38.97</td>
+																		<tr ng-repeat="product in shoppingCart.products | orderBy: ['-qty','name']">
+																			<td class="quantity">[[product.qty]] x</td>
+																			<td class="product"><a href="shop-product.html">[[product.name]]</a><span class="small">[[product.roast]]</span></td>
+																			<td>[[product.size.qty]]</td>
+																			<td class="amount">$[[product.subtotal | number: 2 ]]</td>
 																		</tr>
 																		<tr>
-																			<td class="total-quantity" colspan="3">Total 3 Items</td>
-																			<td class="total-amount">$38.97</td>
+																			<td class="total-quantity" colspan="3">Total [[shoppingCart.totalItems]] Items</td>
+																			<td class="total-amount">$[[shoppingCart.totalPrice | number : 2]]</td>
 																		</tr>
 																	</tbody>
 																</table>
@@ -554,7 +554,7 @@
 		<!-- Contact form -->
 		<script src="plugins/jquery.validate.js"></script>
 		<!-- Google Maps javascript -->
-		<script type="text/javascript" src = "https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=******"></script>
+		<script type="text/javascript" src = "https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=*******"></script>
 		<script type="text/javascript" src=""></script>
 		<!-- Background Video -->
 		<script src="plugins/vide/jquery.vide.js"></script>
