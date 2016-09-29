@@ -49,7 +49,7 @@ File Description: Place here your custom CSS styles
 }
 .btn-brown{
 	color:#914E38 !important;
-	background-color: none;
+	background-color: transparent;
 	border-color: #914E38 !important;
 }
 .animate-show.ng-enter {

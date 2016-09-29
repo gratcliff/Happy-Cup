@@ -2,7 +2,7 @@
 <!-- main-container start -->
 <section class="main-container">
 
-	<div class="container">
+	<div class="container" ng-controller="cart_controller">
 		<div class="row">
 
 			<!-- main start -->
@@ -26,38 +26,16 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="remove-data">
-							<td class="product"><a href="shop-product.html">Product Title 1</a> <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.</small></td>
-							<td class="price">$99.50 </td>
+						<tr ng-repeat="coffee in currentCart.coffee track by $index">
+							<td class="product">[[coffee.name]] ([[coffee.size.qty]])<small>[[coffee.roast]] - [[coffee.grind.type]]</small></td>
+							<td class="price">$[[coffee.size.price | number : 2]]</td>
 							<td class="quantity">
 								<div class="form-group">
-									<input type="text" class="form-control" value="2">
+									<input type="number" class="form-control" ng-model="coffee.qty" ng-change="coffee.subtotal = coffee.size.price * coffee.qty; currentCart.countTotals(); currentCart.edited=true;" min="0">
 								</div>											
 							</td>
-							<td class="remove"><a class="btn btn-remove btn-sm btn-default">Remove</a></td>
-							<td class="amount">$199.00 </td>
-						</tr>
-						<tr class="remove-data">
-							<td class="product"><a href="shop-product.html">Product Title 2</a> <small>Quas inventore modi</small></td>
-							<td class="price"> $99.66 </td>
-							<td class="quantity">
-								<div class="form-group">
-									<input type="text" class="form-control" value="3">
-								</div>											
-							</td>
-							<td class="remove"><a class="btn btn-remove btn-sm btn-default">Remove</a></td>
-							<td class="amount">$299.00 </td>
-						</tr>
-						<tr class="remove-data">
-							<td class="product"><a href="shop-product.html">Product Title 3</a> <small>Fugiat nemo enim officiis repellendus</small></td>
-							<td class="price"> $499.66 </td>
-							<td class="quantity">
-								<div class="form-group">
-									<input type="text" class="form-control" value="3">
-								</div>											
-							</td>
-							<td class="remove"><a class="btn btn-remove btn-sm btn-default">Remove</a></td>
-							<td class="amount">$1499.00 </td>
+							<td class="remove"><button class="btn btn-default" ng-if="coffee.qty" ng-click="coffee.qty = 0; removeProduct(coffee);">Remove</button></td>
+							<td class="amount">$[[coffee.subtotal | number: 2]]</td>
 						</tr>
 						<tr>
 							<td colspan="3">Discount Coupon</td>
@@ -68,14 +46,14 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="total-quantity" colspan="4">Total 8 Items</td>
-							<td class="total-amount">$1997.00</td>
+							<td class="total-quantity" colspan="4">Total [[currentCart.totalItems]] Items</td>
+							<td class="total-amount">$[[currentCart.totalPrice | number : 2]]</td>
 						</tr>
 					</tbody>
 				</table>
 				<div class="text-right">	
-					<a href="#/cart" move-to-top class="btn btn-group btn-default">Update Cart</a>
-					<a href="#/cart/checkout" move-to-top class="btn btn-group btn-default">Checkout</a>
+					<button class="btn btn-group btn-default" ng-show="currentCart.edited" ng-click="updateCart()">Update Cart</button>
+					<a href="#/cart/checkout" move-to-top class="btn btn-group btn-default" ng-show="!currentCart.edited">Checkout</a>
 				</div>
 
 			</div>

@@ -81,7 +81,7 @@ happy_cup.factory('content_factory', function(){
 								{qty: '2lbs', price: 24.99},
 								{qty: '5lbs', price: 49.99}
 							],
-							img_src : "resources/images/products/happy_heart.jpg"
+							img_src : "resources/images/products/happy_heart.png"
 						},
 						{
 							id : 6,

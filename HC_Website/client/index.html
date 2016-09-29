@@ -114,6 +114,7 @@
 
 		<!-- angular controllers -->
 		<script type = 'text/javascript' src = 'js/Angular/controllers/shop_controller.js'></script>
+		<script type = "text/javascript" src = 'js/Angular/controllers/cart_controller.js'></script>
 		<script type = 'text/javascript' src = 'js/Angular/controllers/global_controller.js'></script>
 		<script type = "text/javascript" src = 'js/Angular/controllers/locations_controller.js'></script>
 
@@ -290,11 +291,23 @@
 																		</tr>
 																	</thead>
 																	<tbody>
-																		<tr ng-repeat="product in shoppingCart.products | orderBy: ['-qty','name']">
-																			<td class="quantity">[[product.qty]] x</td>
-																			<td class="product"><a href="shop-product.html">[[product.name]]</a><span class="small">[[product.roast]]</span></td>
-																			<td>[[product.size.qty]]</td>
-																			<td class="amount">$[[product.subtotal | number: 2 ]]</td>
+																		<tr ng-if="shoppingCart.coffee.length">
+																			<th colspan="4" class="text-center">Coffee</th>
+																		</tr>
+																		<tr ng-repeat="coffee in shoppingCart.coffee | orderBy: ['-qty','name']">
+																			<td class="quantity">[[coffee.qty]] x</td>
+																			<td class="product"><a href="shop-product.html">[[coffee.name]]</a><span class="small">[[coffee.roast]]</span></td>
+																			<td>[[coffee.size.qty]]</td>
+																			<td class="amount">$[[coffee.subtotal | number: 2 ]]</td>
+																		</tr>
+																		<tr ng-if="shoppingCart.merch.length">
+																		<th colspan="4">Merchandise</th>
+																		</tr>
+																		<tr ng-repeat="merch in shoppingCart.merch | orderBy: ['-qty','name']">
+																			<td class="quantity">[[merch.qty]] x</td>
+																			<td class="product"><a href="shop-product.html">[[merch.name]]</a></td>
+																			<td></td>
+																			<td class="amount">$[[merch.subtotal | number: 2 ]]</td>
 																		</tr>
 																		<tr>
 																			<td class="total-quantity" colspan="3">Total [[shoppingCart.totalItems]] Items</td>
