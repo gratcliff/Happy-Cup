@@ -1,4 +1,4 @@
-happy_cup.factory('shop_factory',function(){
+happy_cup.factory('shop_factory', function(){
 
 	var factory = {};
 
