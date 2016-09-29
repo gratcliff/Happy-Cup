@@ -332,7 +332,8 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 
 	$scope.locations = locations;
 	$scope.updateMap = function(address){
-		$http.get('https://maps.googleapis.com/maps/api/geocode/json?&address='+address+'&key=*******').success(function(response){
+		var key = '******'
+		$http.get('https://maps.googleapis.com/maps/api/geocode/json?&address='+address+'&key='+key+'').success(function(response){
 			if ($("#map-canvas").length>0) {
 				console.log(response.results[0]);
 				var map, myLatlng, myZoom, marker;

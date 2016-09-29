@@ -90,13 +90,15 @@ body, h1, h2, h3, h4, h5, p{
 	vertical-align: middle;
 }
 
-.modal:before {
+
+/* this block causes issues with modals on mobile devices */
+/*.modal:before {
   content: '';
   display: inline-block;
   height: 100%;
   vertical-align: middle;
   margin-right: -4px;
-}
+}*/
 
 .modal-dialog {
   display: inline-block;
