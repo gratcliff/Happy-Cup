@@ -1,5 +1,5 @@
 <div ng-controller = 'shop_controller'>
-	<div class="banner video-background-banner pv-10 dark-translucent-bg hovered">
+	<div class="banner video-background-banner dark-translucent-bg hovered">
 		<div class="container-fluid">
 			<div class="row">
 
@@ -67,7 +67,7 @@
 			<div ng-if = 'productDisplay.showCoffee === true' id="coffee_products">
 
 				<h1 class = 'row row-centered'> Offered In All Sizes </h1>
-				<table class = 'table table-hover brown-border'>
+				<table id ="coffee-products-table" class = 'table table-hover brown-border'>
 					<thead>
 						<tr>
 							<td>Description</td>
@@ -79,167 +79,29 @@
 						</tr>
 					</thead>
 					<tbody>
-						<!-- The Buzz -->
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#buzz_modal'>+</a></td>
-							<td>The Buzz </td>
-							<td>Medium Roast </td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
+
+						<!-- Coffee Products -->
+						<tr ng-repeat="coffee in products.coffee track by coffee.id">
+							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#coffee_modal' ng-click="openCoffeeModal(coffee, $index)">+</a></td>
+							<td>[[coffee.name]]</td>
+							<td>[[coffee.roast]]</td>
+							<td>$[[order.qty.price]]</td>
+							<td><select class="form-control" ng-init="order.qty=coffee.pricing[0]" ng-model="order.qty" ng-options="value.qty for value in coffee.pricing track by value.qty"></select>
 								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
+							<td><select class="form-control" ng-init="order.grind=coffee.grinds[0]" ng-options="grind.type for grind in coffee.grinds track by grind.id" ng-model="order.grind"></select>
 								</td>
 							<td>
-							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
+							<a class = 'margin-clear btn btn-group btn-brown' ng-click="addToCart(coffee, order, $index)" ng-disabled="coffee.addingProduct"><span ng-if="!coffee.addingProduct">Add To Cart</span><span ng-if="coffee.addingProduct">Item Added</span> </a>
+							
 							</td>
 						</tr>
-
-						<!-- Boom Boom -->
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#boomboom_modal'>+</a></td>
-							<td>Boom Boom </td>
-							<td>Dark Roast </td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
-								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
-								</td>
-							<td>
-							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
-							</td>
-						</tr>
-
-						<!-- Morning Madness -->
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#morningMadness_modal'>+</a></td>
-							<td>Morning Madness</td>
-							<td>Espresso Roast </td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
-								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
-								</td>
-							<td>
-							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
-							</td>
-						</tr>
-
-						<!-- Decaffeination -->
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#decaffeination_modal'>+</a></td>
-							<td>Decaffeination</td>
-							<td>Decaf</td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
-								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
-								</td>
-							<td>
-							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
-							</td>
-						</tr>
-
-						<!-- Happy Heart -->
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#happy_heart_modal'>+</a></td>
-							<td>Happy Heart</td>
-							<td>Single Origin - Ethiopia</td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
-								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
-								</td>
-							<td>
-							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
-							</td>
-						</tr>
-
-						<!-- Pondok Baru -->
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#pondok_baru_modal'>+</a></td>
-							<td>Pondok Baru</td>
-							<td>Single Origin - Sumatra</td>
-							<td>$12.99</td>
-							<td><select class="form-control">
-													<option value = '12oz'> 12 oz </option>
-													<option value = '2lbs'> 2 lbs </option>
-													<option value = '5lbs'> 5 lbs </option>
-												</select>
-								</td>
-							<td><select class="form-control">
-													<option value = 'Whole Bean'>Whole Bean </option>
-													<option value = 'Espresso'>Espresso </option>
-													<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-													<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-													<option value = 'Chemex'>Chemex </option>
-													<option value = 'French Press'>French Press </option>
-												</select>
-								</td>
-							<td>
-							<a class = 'margin-clear btn btn-group btn-brown'>Add To Cart </a>
-							</td>
-						</tr>
-
 					</tbody>
+
 				</table>
 				<h1 class = 'row row-centered'> Offered Wholesale </h1>
-
 			</div>
+
+						
 			<!-- Coffee End -->
 
 			<!-- Merch Start -->
@@ -367,10 +229,8 @@
 			</div>
 			<!-- Merch End -->
 
-			<!--Coffee Modals -->
-
-			<!-- The Buzz Modal -->
-			<div class="modal fade" id="buzz_modal" tabindex="-1" role="dialog" aria-labelledby="buzz_modal_label" aria-hidden="true">
+			<!--Coffee Modal -->
+			<div class="modal fade" id="coffee_modal" tabindex="-1" role="dialog" aria-labelledby="coffee_modal_label" aria-hidden="true">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -380,37 +240,29 @@
 							<div class = 'container-fluid'>
 								<div class = 'row'>
 									<div class="col-md-5 text-center">
-										<img src="resources/images/products/the_buzz.png" alt="The Buzz Blend">
+										<img ng-src="[[coffeeModal.img_src]]" alt="[[coffeeModal.name]]">
 									</div>
 									<div class = 'col-md-7'>
-										<h3>The Buzz Medium Roast</h3>
-										<p>A sweet coffee with notes of ripe blueberries and rich dark chocolate. Pleasantly complex with a smooth silky body and a clean brisk finish.</p>
+										<h3>[[coffeeModal.name]]</h3>
+										<p>[[coffeeModal.roast]]</p>
+										<p>[[coffeeModal.description]]</p>
 										<form class = 'form-horizontal' role = 'form'>
 											<div class = 'form-group has-feedback'>
 												<label for = 'grind' class = 'col-sm-2 control-label'>Grind:</label>
-												<div class = 'col-sm-8'>  
-													<select class="form-control">
-														<option value = 'Whole Bean'>Whole Bean </option>
-														<option value = 'Espresso'>Espresso </option>
-														<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-														<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-														<option value = 'Chemex'>Chemex </option>
-														<option value = 'French Press'>French Press </option>
+												<div class = 'col-sm-8'>
+													<select class="form-control" ng-options="grind.type for grind in coffeeModal.grinds track by grind.id" ng-model="modalOrder.grind">
 													</select>
 												</div>
 											</div>
 											<div class = 'form-group has-feedback'>
 												<label for ='size' class = 'col-sm-2 control-label'> Size:</label>
 												<div class = 'col-sm-4'> 
-												 	<select class="form-control">
-														<option value = '12oz'> 12 oz </option>
-														<option value = '2lbs'> 2 lbs </option>
-														<option value = '5lbs'> 5 lbs </option>
+												 	<select class="form-control" ng-options="value.qty for value in coffeeModal.pricing track by value.qty" ng-model="modalOrder.qty">
 													</select>
 												</div>
 											</div>
 											<div class="form-group text-center">
-													<button type="submit" class="btn btn-group btn-default btn-animated">Add to cart<i class="fa fa-shopping-cart"></i></button>
+													<button type="submit" class="btn btn-group btn-default btn-animated" ng-click="addToCart(coffeeModal, modalOrder, coffeeModal.idx)"><span ng-if="!addingProduct">Add To Cart</span><span ng-if="addingProduct">Item Added</span><i class="fa fa-shopping-cart"></i></button>
 													<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
 											</div>
 										</form>

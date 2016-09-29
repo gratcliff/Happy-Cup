@@ -1,4 +1,4 @@
-happy_cup.controller('global_controller', function ($scope, $location, $timeout, content_factory, user_factory){
+happy_cup.controller('global_controller', function ($scope, $location, $timeout, content_factory, user_factory, shop_factory){
 
 	$scope.currentView = getCurrentView()
 	$scope.pageLoading = true;
@@ -10,12 +10,14 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 	content_factory.getContent(function(content){
 			$scope.globalContent = content.global;
 			$scope.forms = {}
-			
 	});
 
 	user_factory.getCurrentUser(function(currentUser){
 		$scope.currentUser = currentUser
-		$scope.shoppingCart = 3
+	});
+
+	shop_factory.getShoppingCart(function(cart){
+		$scope.shoppingCart = cart;
 		$scope.pageLoading = false;
 	});
 	
@@ -106,6 +108,12 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 			}, 2000);
 		});
 	}
+
+
+	//event listener for updating cart display. Received from shop_controller.addToCart()
+	$scope.$on('addedToCart', function(event, newCart){
+		$scope.shoppingCart = newCart;
+	});
 
 	function getCurrentView(){
 		// adds styling to navbar
