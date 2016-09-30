@@ -1,3 +1,5 @@
+<div ng-controller = 'blog_controller' >
+
 <!-- main-container start -->
 <!-- ================ -->
 <section class="main-container">
@@ -17,7 +19,7 @@
 
 				<!-- blogpost start -->
 				<article class="blogpost">
-					<div id="carousel-blog-post" class="carousel slide" data-ride="carousel">
+					<div id="carousel-blog-post" class="carousel slide" data-ride="carousel" data-interval="3000">
 						<!-- Indicators -->
 						<ol class="carousel-indicators bottom margin-clear">
 							<li data-target="#carousel-blog-post" data-slide-to="0" class="active"></li>
@@ -27,24 +29,27 @@
 
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
-							<div class="item active">
-								<div class="overlay-container">
-									<img src="images/blog-1.jpg" alt="">
-									<a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
+							<div class="item active" ng-repeat = "post in first_post">
+								<div class="overlay container">
+									<img src="[[post.img_url]]" alt="">
+									<a href="blog-post.html"></a>
+									<div class="carousel-title">
+										<h3>[[post.title]]</h3>
+									</div>
 								</div>
 							</div>
-							<div class="item">
-								<div class="overlay-container">
-									<img src="images/blog-3.jpg" alt="">
-									<a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
+							<div class="item" ng-repeat = "post in other_posts | limitTo: 2">
+								<div class="overlay container">
+									<img src="[[post.img_url]]" alt="">
+									<a href="blog-post.html"></a>
 								</div>
 							</div>
-							<div class="item">
+<!-- 							<div class="item">
 								<div class="overlay-container">
 									<img src="images/blog-4.jpg" alt="">
 									<a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<header>
@@ -349,6 +354,9 @@
 	</div>
 </section>
 <!-- main-container end -->
+
+</div>
+
 <script type="text/javascript">
 	$.getScript('js/template.js');
 </script>
