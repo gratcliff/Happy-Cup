@@ -20,6 +20,22 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 		$scope.shoppingCart = cart;
 		$scope.pageLoading = false;
 	});
+
+	$scope.$on('openCoffeeModal', function(event, coffee) {
+		$scope.coffeeModal = coffee;
+		$scope.modalOrder = {}
+		$scope.modalOrder.grind = coffee.grinds[0]
+		$scope.modalOrder.qty = coffee.pricing[0]
+	});
+
+	$scope.broadcastToCart = function(coffee, order, idx) {
+		$scope.addingProduct = true;
+		$scope.$broadcast('sendToCart', coffee, order, idx);
+	}
+	// event listener eceived from shop_controller.addToCart()
+	$scope.$on('addedToCart', function(event){
+		$scope.addingProduct = false;
+	});
 	
 	$scope.registerUser = function() {
 		if ($scope.forms.userRegForm.$valid) {
@@ -109,11 +125,7 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 		});
 	}
 
-	// listener does not do anything 
-	//event listener for updating cart display. Received from shop_controller.addToCart()
-	// $scope.$on('addedToCart', function(event, newCart){
-	// 	$scope.shoppingCart = newCart;
-	// });
+	
 
 	function getCurrentView(){
 		// adds styling to navbar

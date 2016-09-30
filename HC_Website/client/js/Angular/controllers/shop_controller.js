@@ -33,15 +33,16 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 
 	$scope.openCoffeeModal = function(coffee, idx) {
 		coffee.idx = idx
-		$scope.coffeeModal = coffee;
-		$scope.modalOrder = {}
-		$scope.modalOrder.grind = coffee.grinds[0]
-		$scope.modalOrder.qty = coffee.pricing[0]
+		$scope.$emit('openCoffeeModal', coffee)
+		
 	};
+
+	$scope.$on('sendToCart', function(event, coffee, order, idx) {
+		$scope.addCoffeeToCart(coffee, order, idx);
+	});
 
 	$scope.addCoffeeToCart = function(coffee, order, idx) {
 		$scope.products.coffee[idx].addingProduct = true;
-		$scope.addingProduct = true;
 		var data = {
 			id: coffee.id,
 			qty: 1,
@@ -53,12 +54,12 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 		};
 			
 		shop_factory.addCoffeeToCart(data, function(newCart) {
-			// emits event to global controller
-			// this is not needed to update global shopping cart
-			// $scope.$emit('addedToCart', newCart);
+			
+			
 			$timeout(function(){
 				delete $scope.products.coffee[idx].addingProduct
-				$scope.addingProduct = false;
+				// emits completion event to global controller
+				$scope.$emit('addedToCart');
 			}, 1000);
 		});
 
