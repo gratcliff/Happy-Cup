@@ -110,9 +110,93 @@
 			<div ng-if = 'productDisplay.showSubs === true'>
 
 				<h1 class = 'row row-centered'>Subscriptions</h1>
+				<br>
+				<div class = 'row row-centered'>
+					<p class = 'col-sm-10 col-centered'>Happy Cup sent directly to your door! Choose your favorite roast, or switch things up every month with the "Roaster's Choice" option and try one bag each of our current cofeee lineup! A great way to introduce a friend to Happy Cup and spread the Portland coffee scene.</p>
+				</div>
+
+				<table class = 'table table-hover brown-border'>
+					<thead>
+						<tr>
+							<td></td>
+							<td>Roast</td>
+							<td>Grind</td>
+							<td>Price</td>
+						</tr>
+					</thead>
+					<tbody>
+
+						<!-- Coffee Products -->
+						<tr>
+							<td><img style= 'height:210px; width:210px;' src="resources/images/products/6mo_sub.png" alt="6 month sub"></td>
+							<td>
+								<select class="form-control">
+							 		<optgroup label="Roasts">
+							 			<option value = 'roaster_choice'> Roaster's Choice</option>
+										<option value = 'gift_buzz'> The Buzz Medium Roast</option>
+										<option value = 'gift_boomboom'> Boom! Boom! Dark Roast</option>
+										<option value = 'gift_morning_madness'> Morning Madness Espresso Roast</option>
+										<option value = 'gift_decaf'> Decaffeination Decaf</option>
+									</optgroup>
+									<optgroup label="Single Origin">
+										<option value = 'gift_happy_heart'> Happy Heart - Ethiopia</option>
+										<option value = 'gift_pondok'> Pondok Baru - Sumatra</option>
+									</optgroup>
+								</select>
+							</td>
+							<td>
+								<select class="form-control">
+									<option value = 'Whole Bean'>Whole Bean </option>
+									<option value = 'Espresso'>Espresso </option>
+									<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+									<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+									<option value = 'Chemex'>Chemex </option>
+									<option value = 'French Press'>French Press </option>
+								</select>
+							</td>
+							<td>$105.00</td>
+							<td><a class = 'pull-right margin-clear btn btn-sm btn-group btn-brown' data-toggle = 'modal' data-target = '#6_sub_modal'>Add To Cart </a>
+							</td>
+						</tr>
+
+						<tr>
+							<td><img style= 'height:210px; width:210px;' src="resources/images/products/12mo_sub.png" alt="12 month sub"></td>
+							<td>
+								<select class="form-control">
+							 		<optgroup label="Roasts">
+							 			<option value = 'roaster_choice'> Roaster's Choice</option>
+										<option value = 'gift_buzz'> The Buzz Medium Roast</option>
+										<option value = 'gift_boomboom'> Boom! Boom! Dark Roast</option>
+										<option value = 'gift_morning_madness'> Morning Madness Espresso Roast</option>
+										<option value = 'gift_decaf'> Decaffeination Decaf</option>
+									</optgroup>
+									<optgroup label="Single Origin">
+										<option value = 'gift_happy_heart'> Happy Heart - Ethiopia</option>
+										<option value = 'gift_pondok'> Pondok Baru - Sumatra</option>
+									</optgroup>
+								</select>
+							</td>
+							<td>
+								<select class="form-control">
+									<option value = 'Whole Bean'>Whole Bean </option>
+									<option value = 'Espresso'>Espresso </option>
+									<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
+									<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
+									<option value = 'Chemex'>Chemex </option>
+									<option value = 'French Press'>French Press </option>
+								</select>
+							</td>
+							<td>$200.00</td>
+							<td><a class = 'pull-right margin-clear btn btn-sm btn-group btn-brown' data-toggle = 'modal' data-target = '#12_sub_modal'>Add To Cart</a>
+							</td>
+						</tr>
+					</tbody>
+
+				</table>
+				<!-- 
 				<div class = 'row row-centered top-buffer'>
 
-					<!-- Six Month Sub -->
+					
 					<div class="col-sm-4 col-centered">
 						<div class="col-sm-8 col-centered text-center">
 							<img src="resources/images/products/6mo_sub.png" alt="6 month sub">
@@ -128,7 +212,7 @@
 						</div>
 					</div>
 
-					<!-- Twelve Month Sub -->
+					
 					<div class="col-sm-4 col-centered">
 						<div class="col-sm-8 col-centered text-center">
 							<img src="resources/images/products/12mo_sub.png" alt="12 month sub">
@@ -145,6 +229,7 @@
 					</div>
 
 				</div>
+				-->
 
 			</div>
 
@@ -622,7 +707,7 @@
 										</div>
 										<div class = 'col-md-7'>
 											<h3>Six Month Subscription</h3>
-											<p>Happy Cup sent directly to your door for six months! Choose your favorite roast, or switch things up every month with the roasters choice option. A six month subscription gives you a chance to try one bag each of our current coffee lineup! A great way to introduce a friend to Happy Cup and spread the Portland coffee scene.</p>
+											<p>Happy Cup sent directly to your door for six months! A six month subscription gives you a chance to try one bag each of our current coffee lineup!</p>
 											<form class = 'form-horizontal' role = 'form'>
 												<div class = 'form-group has-feedback'>
 													<label for ='size' class = 'col-sm-2 control-label'> Coffee:</label>
@@ -683,7 +768,7 @@
 										</div>
 										<div class = 'col-md-7'>
 											<h3>Twelve Month Subscription</h3>
-											<p>Happy Cup sent directly to your door for an entire year! Choose your favorite roast, or switch things up every month with the roasters choice option. A great way to introduce a friend to Happy Cup and spread the Portland coffee scene. </p>
+											<p>Happy Cup sent directly to your door for an entire year! Choose your favorite roast, or switch things up every month with the roasters choice option.</p>
 											<form class = 'form-horizontal' role = 'form'>
 												<div class = 'form-group has-feedback'>
 													<label for ='size' class = 'col-sm-2 control-label'> Coffee:</label>
