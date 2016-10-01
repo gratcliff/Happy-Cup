@@ -14,6 +14,9 @@ happy_cup.config(function($routeProvider, $interpolateProvider){
 		.when('/blog',{
 			templateUrl: 'partials/hc_blog_main.html',
 		})
+		.when('/blog/:id',{
+			templateUrl: 'partials/hc_blog_post.html',
+		})
 		.when('/locations',{
 			templateUrl: 'partials/hc_locations.html',
 		})
