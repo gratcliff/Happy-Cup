@@ -11,12 +11,12 @@
 
 				<!-- page-title start -->
 				<!-- ================ -->
-				<h1 class="page-title">Shopping Cart <span class="animate-show pull-right" ng-if="cartSaved">[[cartSaved]]</span></h1>
+				<h1 class="page-title">Shopping Cart <span class="animate-show pull-right" ng-if="cartSaved">Your cart has been updated</span></h1>
 				<div class="separator-2"></div>
 				<!-- page-title end -->
 
 				<table class="table cart table-hover table-colored">
-					<thead>
+					<thead ng-show="currentCart.totalItems">
 						<tr>
 							<th>Product </th>
 							<th>Price </th>
@@ -31,17 +31,30 @@
 							<td class="price">$[[coffee.size.price | number : 2]]</td>
 							<td class="quantity">
 								<div class="form-group">
-									<input type="number" class="form-control" ng-model="coffee.qty" ng-change="coffee.subtotal = coffee.size.price * coffee.qty; currentCart.countTotals(); currentCart.edited=true;" min="0">
+									<input type="number" class="form-control" ng-model="coffee.qty" ng-change="currentCart.unsavedChanges=true; coffee.subtotal = coffee.size.price * coffee.qty; currentCart.countTotals();" min="0">
 								</div>											
 							</td>
 							<td class="remove"><button class="btn btn-default" ng-show="coffee.qty" ng-click="coffee.qty = 0; removeProduct($index, 'coffee');">Remove</button></td>
 							<td class="amount">$[[coffee.subtotal | number: 2]]</td>
 						</tr>
-						<tr>
-							<td colspan="3">Discount Coupon</td>
-							<td colspan="2">
+						<tr ng-show="currentCart.totalItems">
+							<td colspan="2">Discount Coupon <span ng-if="currentCart.coupon.valid">submitted and will be applied on Checkout</span><span class="pull-right" ng-if="invalidCoupon">Invalid Discount Coupon</span></td>
+							
+							<td colspan="3">
 								<div class="form-group">
-									<input type="text" class="form-control">
+									<div class="input-group" id="coupon-input">
+										
+										<input type="text" class="form-control" ng-model="currentCart.coupon.code" ng-disabled="currentCart.coupon.valid">
+
+										<div class="input-group-addon" id="coupon-input-addon" ng-show="currentCart.coupon.code" >
+
+											<button class="btn btn-default" ng-click="submitCoupon()" ng-show="!currentCart.coupon.valid">Apply</button>
+											<button class="btn btn-default" ng-click="currentCart.coupon.code = undefined; currentCart.coupon.valid = false;" ng-show="currentCart.coupon.valid">Remove</button>
+
+										</div>
+
+										
+									</div>
 								</div>											
 							</td>
 						</tr>
@@ -51,9 +64,10 @@
 						</tr>
 					</tbody>
 				</table>
-				<div class="text-right">	
-					<button class="btn btn-group btn-default" ng-show="currentCart.edited" ng-click="updateCart()" move-to-top>Update Cart</button>
-					<a href="#/cart/checkout" move-to-top class="btn btn-group btn-default" ng-hide="currentCart.edited">Checkout</a>
+				<div class="text-right">
+					<a href="" move-to-top class="btn btn-group btn-default pull-left" ng-click="changeView('/')">Continue Shopping</a>	
+					<button class="btn btn-group btn-default" ng-show="currentCart.unsavedChanges" ng-click="updateCart()" move-to-top>Update Cart</button>
+					<a href="#/cart/checkout" move-to-top class="btn btn-group btn-default" ng-hide="currentCart.unsavedChanges || !currentCart.totalItems">Checkout</a>
 				</div>
 
 			</div>

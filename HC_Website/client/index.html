@@ -261,7 +261,7 @@
 														<a href="#/contact" move-to-top ng-click="currentView = 'contact'" ng-style="currentView === 'contact' ? {'color' : '#914E38'} : null">Contact</a>
 													</li>
 													<li class="visible-xs">
-														<a href="#/cart" move-to-top>Cart - [[shoppingCart.totalItems]] items</a>
+														<a href="#/cart" move-to-top ng-click="currentView = 'cart' " ng-style="currentView === 'cart' ? {'color' : '#914E38'} : null">Cart - [[shoppingCart.totalItems]] items</a>
 													</li>
 													<li class="hidden-xs" ng-if="currentUser === 'None'">
 														<a href="" data-toggle="modal" data-target="#user-reg-modal">Sign Up</a>
@@ -487,20 +487,19 @@
 			<!-- User Login Modal End -->
 			<!--Coffee Modal -->
 			<div class="modal fade" id="coffee_modal" tabindex="-1" role="dialog" aria-labelledby="coffee_modal_label" aria-hidden="true">
-				<div class="modal-dialog modal-lg">
+				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 id="coffee_modal_label" class="modal-title">[[coffeeModal.name]] - [[coffeeModal.roast]]</h4>
 						</div>
 						<div class="modal-body">
 							<div class = 'container-fluid'>
 								<div class = 'row'>
-									<div class="col-md-5 text-center">
+									<div class="col-xs-8 col-md-5 col-xs-offset-2 col-sm-offset-2 col-md-offset-0 text-center">
 										<img ng-src="[[coffeeModal.img_src]]" alt="[[coffeeModal.name]]">
 									</div>
-									<div class = 'col-md-7'>
-										<h3>[[coffeeModal.name]]</h3>
-										<p>[[coffeeModal.roast]]</p>
+									<div class = 'col-xs-12 col-md-7'>
 										<p>[[coffeeModal.description]]</p>
 										<form class = 'form-horizontal' role = 'form'>
 											<div class = 'form-group has-feedback'>

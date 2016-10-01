@@ -65,40 +65,41 @@
 			<!-- Nav Tab End -->
 
 			<!-- Coffee -->
-			<div ng-if = 'productDisplay.showCoffee === true' id="coffee_products">
+			<div class="row" ng-if = 'productDisplay.showCoffee === true' id="coffee_products">
 
 				<h1 class = 'row row-centered'> Offered In All Sizes </h1>
-				<table id ="coffee-products-table" class = 'table table-hover brown-border'>
-					<thead>
-						<tr>
-							<td>Description</td>
-							<td>Name</td>
-							<td>Roast</td>
-							<td>Price</td>
-							<td>Size</td>
-							<td>Grind</td>
-						</tr>
-					</thead>
-					<tbody>
+					<table id ="coffee-products-table" class = 'table table-hover brown-border'>
+						<thead>
+							<tr>
+								<td>Description</td>
+								<td>Name</td>
+								<td>Roast</td>
+								<td class="hidden-xs">Price</td>
+								<td class="hidden-xs">Size</td>
+								<td class="hidden-xs">Grind</td>
+							</tr>
+						</thead>
+						<tbody>
 
-						<!-- Coffee Products -->
-						<tr ng-repeat="coffee in products.coffee track by coffee.id">
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#coffee_modal' ng-click="openCoffeeModal(coffee, $index)">+</a></td>
-							<td>[[coffee.name]]</td>
-							<td>[[coffee.roast]]</td>
-							<td>$[[order.qty.price]]</td>
-							<td><select class="form-control" ng-init="order.qty=coffee.pricing[0]" ng-model="order.qty" ng-options="value.qty for value in coffee.pricing track by value.qty"></select>
+							<!-- Coffee Products -->
+							<tr ng-repeat="coffee in products.coffee track by coffee.id">
+								<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#coffee_modal' ng-click="openCoffeeModal(coffee, $index)">+</a></td>
+								<td>[[coffee.name]]</td>
+								<td>[[coffee.roast]]</td>
+								<td class="hidden-xs">$[[order.qty.price]]</td>
+								<td class="hidden-xs"><select class="form-control" ng-init="order.qty=coffee.pricing[0]" ng-model="order.qty" ng-options="value.qty for value in coffee.pricing track by value.qty"></select>
+									</td>
+								<td class="hidden-xs"><select class="form-control" ng-init="order.grind=coffee.grinds[0]" ng-options="grind.type for grind in coffee.grinds track by grind.id" ng-model="order.grind"></select>
+									</td>
+								<td>
+								<button class = 'margin-clear btn btn-brown hidden-xs' ng-click="addCoffeeToCart(coffee, order, $index)" ng-disabled="coffee.addingProduct"><span ng-if="!coffee.addingProduct">Add To Cart</span><span ng-if="coffee.addingProduct">Item Added</span> </button>
+								
 								</td>
-							<td><select class="form-control" ng-init="order.grind=coffee.grinds[0]" ng-options="grind.type for grind in coffee.grinds track by grind.id" ng-model="order.grind"></select>
-								</td>
-							<td>
-							<button class = 'margin-clear btn btn-brown' ng-click="addCoffeeToCart(coffee, order, $index)" ng-disabled="coffee.addingProduct"><span ng-if="!coffee.addingProduct">Add To Cart</span><span ng-if="coffee.addingProduct">Item Added</span> </button>
-							
-							</td>
-						</tr>
-					</tbody>
+							</tr>
+						</tbody>
 
-				</table>
+					</table>
+
 				<h1 class = 'row row-centered'> Offered Wholesale </h1>
 			</div>
 

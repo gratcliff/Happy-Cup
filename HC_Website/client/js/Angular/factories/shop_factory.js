@@ -8,6 +8,13 @@ happy_cup.factory('shop_factory', function(){
 	var shoppingCart = {};
 	shoppingCart.coffee = [];
 	shoppingCart.merch = [];
+	shoppingCart.unsavedChanges = false;
+	shoppingCart.coupon = {code: undefined, valid:false};
+	shoppingCart.checkoutStatus = {
+		payment : false,
+		review : false,
+		complete : false
+	}
 	shoppingCart.countTotals = function() {
 		var totalItems = 0;
 		var totalPrice = 0;
@@ -23,7 +30,7 @@ happy_cup.factory('shop_factory', function(){
 		this.totalPrice = totalPrice;
 	};
 	shoppingCart.countTotals();
-	//-------
+	//------- done creating shopping cart
 
 	factory.getShoppingCart = function(callback) {
 		callback(shoppingCart);
@@ -86,6 +93,17 @@ happy_cup.factory('shop_factory', function(){
 		callback(shoppingCart);
 
 	}
+
+	factory.submitCoupon = function(cart, callback) {
+		var couponCode = cart.coupon.code;
+		//post the coupon code to server and verify validity and discount
+
+		var check = Math.random();
+		if (check >= 0.5) {
+			cart.coupon.valid = true;
+		}
+		callback(shoppingCart);
+	};
 
 
 	return factory;
