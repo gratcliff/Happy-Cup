@@ -326,6 +326,10 @@ fieldset legend {
 	overflow: hidden;
 }
 
+#carousel-blog-post .carousel-inner {
+	height: 300px;
+}
+
 .carousel-title {
   position: absolute;
   right: 5%;
