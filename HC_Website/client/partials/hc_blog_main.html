@@ -19,7 +19,7 @@
 
 				<!-- blogpost start -->
 				<article class="blogpost">
-					<div id="carousel-blog-post" class="carousel slide" data-ride="carousel" data-interval="3000">
+					<div id="carousel-blog-post" class="carousel slide" data-ride="carousel" data-interval="5000">
 						<!-- Indicators -->
 						<ol class="carousel-indicators bottom margin-clear">
 							<li data-target="#carousel-blog-post" data-slide-to="0" class="active"></li>
@@ -30,24 +30,31 @@
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
 							<div class="item active" ng-repeat = "post in first_post">
-								<div class="overlay-container">
-									<img src="[[post.img_url]]" alt="">
-									<a class="overlay-link" href="blog-post.html"></a>
-									<div class="carousel-title">
-										<h3>[[post.title]]</h3>
+								<div class="overlay-box">
+									<div class="overlay-container">
+										<img src="[[post.img_url]]" alt="">
+										<a class="overlay-link" href="#/blog/[[post.id]]"></a>
+										<div class="carousel-title">
+											<h3>[[post.title]]</h3>
+										</div>
 									</div>
 								</div>
 							</div>
 							<div class="item" ng-repeat = "post in other_posts | limitTo: 2">
-								<div class="overlay-container">
-									<img src="[[post.img_url]]" alt="">
-									<a class="overlay-link" href="blog-post.html"></a>
+								<div class="overlay-box">
+									<div class="overlay-container">
+										<img src="[[post.img_url]]" alt="">
+										<a class="overlay-link" href="#/blog/[[post.id]]"></a>
+										<div class="carousel-title">
+											<h3>[[post.title]]</h3>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<header>
-						<h2><a href="blog-post.html">Blogpost with slider</a></h2>
+<!-- 						<h2><a href="blog-post.html">Blogpost with slider</a></h2>
 						<div class="post-info">
 							<span class="post-date">
 								<i class="icon-calendar"></i>
@@ -64,22 +71,23 @@
 					<footer class="clearfix">
 						<div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
 						<div class="link pull-right"><i class="icon-link"></i><a href="#">Read More</a></div>
-					</footer>
+					</footer> -->
 				</article>
 				<!-- blogpost end -->
 
 				<!-- blogpost start -->
-				<article class="blogpost">
-					<div class="embed-responsive embed-responsive-16by9">
+				<article class="blogpost" ng-repeat = "post in posts | limit">
+<!-- 					<div class="embed-responsive embed-responsive-16by9">
 						<iframe class="embed-responsive-item" src="//www.youtube.com/embed/91J8pLHdDB0"></iframe>
-					</div>
+					</div> -->
 					<header>
-						<h2><a href="blog-post.html">Blogpost with embedded youtube video</a></h2>
+						<h2><a href="#/blog/[[first_post[0].id]]">[[first_post[0].title]]</a></h2>
 						<div class="post-info">
 							<span class="post-date">
-								<i class="icon-calendar"></i>
+<!-- 								<i class="icon-calendar"></i>
 								<span class="day">11</span>
-								<span class="month">May 2015</span>
+								<span class="month">May 2015</span> -->
+								<span class="date">[[first_post[0].created_at]]</span>
 							</span>
 							<span class="submitted"><i class="icon-user-1"></i> by <a href="#">John Doe</a></span>
 							<span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
@@ -195,12 +203,12 @@
 			<!-- ================ -->
 			<aside class="col-md-4 col-lg-3 col-lg-offset-1">
 				<div class="sidebar">
-
 					<div class="block clearfix">
 						<h3 class="title">Latest tweets</h3>
-						            <a class="twitter-timeline"  href="https://twitter.com/hashtag/happycupcoffee" data-widget-id="779423083660582912">#happycupcoffee Tweets</a>
+							<div class="twitter_feed">
+						            <a class="twitter-timeline" href="https://twitter.com/HappyCupCoffee">Tweets by HappyCupCoffee</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          
+          					</div>
 					</div>	
 
 					<div class="block clearfix">
@@ -272,74 +280,28 @@
 					<div class="block clearfix">
 						<h3 class="title">Latest News</h3>
 						<div class="separator-2"></div>
-						<div class="media margin-clear">
+						<div class="media margin-clear" ng-repeat = "post in posts | limitTo: 5">
 							<div class="media-left">
 								<div class="overlay-container">
-									<img class="media-object" src="images/blog-thumb-1.jpg" alt="blog-thumb">
-									<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
+									<img class="media-object" src="[[post.img_url]]" alt="blog-thumb">
+									<a href="#/blog/[[post.id]]" class="overlay-link small"><i class="fa fa-link"></i></a>
 								</div>
 							</div>
 							<div class="media-body">
-								<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-								<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 23, 2015</p>
+								<h6 class="media-heading"><a href="#/blog/[[post.id]]">[[post.title]]</a></h6>
+								<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>[[post.created_at]]</p>
 							</div>
 							<hr>
 						</div>
-						<div class="media margin-clear">
-							<div class="media-left">
-								<div class="overlay-container">
-									<img class="media-object" src="images/blog-thumb-2.jpg" alt="blog-thumb">
-									<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-								</div>
-							</div>
-							<div class="media-body">
-								<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-								<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 22, 2015</p>
-							</div>
-							<hr>
-						</div>
-						<div class="media margin-clear">
-							<div class="media-left">
-								<div class="overlay-container">
-									<img class="media-object" src="images/blog-thumb-3.jpg" alt="blog-thumb">
-									<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-								</div>
-							</div>
-							<div class="media-body">
-								<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-								<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2015</p>
-							</div>
-							<hr>
-						</div>
-						<div class="media margin-clear">
-							<div class="media-left">
-								<div class="overlay-container">
-									<img class="media-object" src="images/blog-thumb-4.jpg" alt="blog-thumb">
-									<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-								</div>
-							</div>
-							<div class="media-body">
-								<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-								<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2015</p>
-							</div>
-						</div>
-						<div class="text-right space-top">
+						<!-- <div class="text-right space-top">
 							<a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>More</a>	
-						</div>
+						</div> -->
 					</div>
 					<div class="block clearfix">
-						<h3 class="title">Text Sample</h3>
+						<h3 class="title">Happy Cup Coffee</h3>
 						<div class="separator-2"></div>
-						<p class="margin-clear">Debitis eaque officia illo impedit ipsa earum <a href="#">cupiditate repellendus</a> corrupti nisi nemo, perspiciatis optio harum, hic laudantium nulla maiores rem sit magni neque nihil sequi temporibus. Laboriosam ipsum reiciendis iste, nobis obcaecati, a autem voluptatum odio? Recusandae officiis dicta quod qui eligendi.</p>
-					</div>
-					<div class="block clearfix">
-						<form role="search">
-							<div class="form-group has-feedback">
-								<input type="text" class="form-control" placeholder="Search">
-								<i class="fa fa-search form-control-feedback"></i>
-							</div>
-						</form>
-					</div>								
+						<p class="margin-clear">Based in Portland, Happy Cup is a unique cafe and coffee roaster using ethicially traded coffee sourced from all over the world. The humanitarian, community oriented company offers employment to adults with disabilities and donates a percentage of their profits to vocational and recreational programming for the disabled community. <a href="#/about">Learn more</a></p>
+					</div>							
 				</div>
 			</aside>
 			<!-- sidebar end -->
