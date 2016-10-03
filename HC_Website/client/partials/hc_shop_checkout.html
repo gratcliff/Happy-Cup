@@ -46,37 +46,50 @@
 						</tr>
 					</tbody>
 				</table>
-				<div class="space-bottom"></div>
-				<fieldset >
+				<div class="space-bottom" id="billing-form-start"></div>
+				<fieldset>
 					<legend>Billing information</legend>
-					<form role="form" class="form-horizontal" id="billing-information">
+					<form role="form" name="forms.checkoutForm" novalidate class="form-horizontal" id="billing-information">
 						<div class="row">
 							<div class="col-lg-3">
 								<h3 class="title">Personal Info</h3>
 							</div>
 							<div class="col-lg-8 col-lg-offset-1">
-								<div class="form-group">
-									<label for="billingFirstName" class="col-md-2 control-label">First Name<small class="text-default">*</small></label>
+								<div class="form-group has-feedback" ng-class="{ 'has-error' : (forms.checkoutForm.$submitted ||  forms.checkoutForm.first_name.$touched) && forms.checkoutForm.first_name.$invalid}">
+									<label for="first_name" class="col-md-2 control-label">First Name<small class="text-default">*</small></label>
 									<div class="col-md-10">
-										<input type="text" class="form-control" id="billingFirstName" placeholder="First Name">
+										<input type="text" name="first_name" class="form-control" id="billingFirstName" placeholder="First Name" ng-model="billingInfo.first_name" required maxlength="24">
+										<div ng-messages="forms.checkoutForm.first_name.$error" class="text-danger" role="alert" ng-if="forms.checkoutForm.first_name.$touched || forms.checkoutForm.$submitted">
+											<span ng-message="required">Please enter a value for this field.</span>
+										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<label for="billingLastName" class="col-md-2 control-label">Last Name<small class="text-default">*</small></label>
+								<div class="form-group has-feedback" ng-class="{ 'has-error' : (forms.checkoutForm.$submitted ||  forms.checkoutForm.last_name.$touched) && forms.checkoutForm.last_name.$invalid}">
+									<label for="last_name" class="col-md-2 control-label">Last Name<small class="text-default">*</small></label>
 									<div class="col-md-10">
-										<input type="text" class="form-control" id="billingLastName" placeholder="Last Name">
+										<input type="text" name="last_name" class="form-control" id="billingLastName" placeholder="Last Name" ng-model="billingInfo.last_name" required maxlength="48">
+										<div ng-messages="forms.checkoutForm.last_name.$error" class="text-danger" role="alert" ng-if="forms.checkoutForm.last_name.$touched || forms.checkoutForm.$submitted">
+											<span ng-message="required">Please enter a value for this field.</span>
+										</div>
 									</div>
 								</div>
-								<div class="form-group">
+								<div class="form-group has-feedback" ng-class="{ 'has-error' : (forms.checkoutForm.$submitted ||  forms.checkoutForm.phone_number.$touched) && forms.checkoutForm.phone_number.$invalid}">
 									<label for="billingTel" class="col-md-2 control-label">Telephone<small class="text-default">*</small></label>
 									<div class="col-md-10">
-										<input type="text" class="form-control" id="billingTel" placeholder="Telephone">
+										<input type="text" name="phone_number" class="form-control" id="billingTel" placeholder="Telephone" required ng-model="billingInfo.phone_number">
+										<div ng-messages="forms.checkoutForm.phone_number.$error" class="text-danger" role="alert" ng-if="forms.checkoutForm.phone_number.$touched || forms.checkoutForm.$submitted">
+											<span ng-message="required">Please enter a value for this field.</span>
+										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<label for="billingemail" class="col-md-2 control-label">Email<small class="text-default">*</small></label>
+								<div class="form-group has-feedback" ng-class="{ 'has-error' : (forms.checkoutForm.$submitted ||  forms.checkoutForm.billing_email.$touched) && forms.checkoutForm.billing_email.$invalid}">
+									<label for="billing_email" class="col-md-2 control-label">Email<small class="text-default">*</small></label>
 									<div class="col-md-10">
-										<input type="email" class="form-control" id="billingemail" placeholder="Email">
+										<input type="email" name="billing_email" class="form-control" id="billingemail" placeholder="Email" required ng-model="billingInfo.email">
+										<div ng-messages="forms.checkoutForm.billing_email.$error" class="text-danger" role="alert" ng-if="forms.checkoutForm.billing_email.$touched || forms.checkoutForm.$submitted">
+											<span ng-message="required">Please enter a value for this field.</span>
+											<span ng-message="email">Please enter a valid email address.</span>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -87,28 +100,34 @@
 								<h3 class="title">Your Address</h3>
 							</div>
 							<div class="col-lg-8 col-lg-offset-1">
-								<div class="form-group">
-									<label for="billingAddress1" class="col-md-2 control-label">Address 1<small class="text-default">*</small></label>
+								<div class="form-group has-feedback" ng-class="{ 'has-error' : (forms.checkoutForm.$submitted ||  forms.checkoutForm.billing_address1.$touched) && forms.checkoutForm.billing_address1.$invalid}">
+									<label for="billing_address1" class="col-md-2 control-label">Address 1<small class="text-default">*</small></label>
 									<div class="col-md-10">
-										<input type="text" class="form-control" id="billingAddress1" placeholder="Address 1">
+										<input type="text" name="billing_address1" class="form-control" id="billingAddress1" placeholder="Address 1" required ng-model="billingInfo.address">
+										<div ng-messages="forms.checkoutForm.billing_address1.$error" class="text-danger" role="alert" ng-if="forms.checkoutForm.billing_address1.$touched || forms.checkoutForm.$submitted">
+											<span ng-message="required">Please enter a value for this field.</span>
+										</div>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="billingAddress2" class="col-md-2 control-label">Address 2</label>
 									<div class="col-md-10">
-										<input type="text" class="form-control" id="billingAddress2" placeholder="Address 2">
+										<input type="text" name="billing_address2" class="form-control" id="billingAddress2" placeholder="Address 2" ng-model="billingInfo.address2">
 									</div>
 								</div>
-								<div class="form-group">
+								<div class="form-group has-feedback" ng-class="{ 'has-error' : (forms.checkoutForm.$submitted ||  forms.checkoutForm.billing_city.$touched) && forms.checkoutForm.billing_city.$invalid}">
 									<label for="billingCity" class="col-md-2 control-label">City<small class="text-default">*</small></label>
 									<div class="col-md-10">
-										<input type="text" class="form-control" id="billingCity" placeholder="City">
+										<input type="text" name="billing_city" class="form-control" id="billingCity" placeholder="City" required ng-model="billingInfo.city">
+										<div ng-messages="forms.checkoutForm.billing_city.$error" class="text-danger" role="alert" ng-if="forms.checkoutForm.billing_city.$touched || forms.checkoutForm.$submitted">
+											<span ng-message="required">Please enter a value for this field.</span>
+										</div>
 									</div>
 								</div>
-								<div class="form-group">
+								<div class="form-group has-feedback" ng-class="{ 'has-error' : (forms.checkoutForm.$submitted ||  forms.checkoutForm.billing_state.$touched) && forms.checkoutForm.billing_state.$invalid}">
 									<label class="col-md-2 control-label">State<small class="text-default">*</small></label>
 									<div class="col-md-10">
-										<select class="form-control">
+										<select class="form-control" name="billing_state" required ng-model="billingInfo.state">
 											<option value="">Select State</option>
 											<option value="AA">Armed Forces America</option>
 											<option value="AE">Armed Forces Europe</option>
@@ -174,12 +193,18 @@
 											<option value="WV">West Virginia</option>
 											<option value="WY">Wyoming</option>
 										</select>
+										<div ng-messages="forms.checkoutForm.billing_state.$error" class="text-danger" role="alert" ng-if="forms.checkoutForm.billing_state.$touched || forms.checkoutForm.$submitted">
+											<span ng-message="required">Please select a value for this field.</span>
+										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<label for="billingPostalCode" class="col-md-2 control-label">Zip Code<small class="text-default">*</small></label>
+								<div class="form-group has-feedback" ng-class="{ 'has-error' : (forms.checkoutForm.$submitted ||  forms.checkoutForm.billing_zip.$touched) && forms.checkoutForm.billing_zip.$invalid}">
+									<label for="billing_zip" class="col-md-2 control-label">Zip Code<small class="text-default">*</small></label>
 									<div class="col-md-10">
-										<input type="text" class="form-control" id="billingPostalCode" placeholder="Postal Code">
+										<input type="text" name=billing_zip class="form-control" id="billingPostalCode" placeholder="Postal Code" required ng-model="billingInfo.zip">
+										<div ng-messages="forms.checkoutForm.billing_zip.$error" class="text-danger" role="alert" ng-if="forms.checkoutForm.billing_zip.$touched || forms.checkoutForm.$submitted">
+											<span ng-message="required">Please enter a value for this field.</span>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -192,8 +217,10 @@
 							<div class="col-lg-8 col-lg-offset-1">
 								<div class="form-group">
 									<div class="col-md-12">
-										<textarea class="form-control" rows="4"></textarea>
+										<textarea class="form-control" name="message" rows="4" maxlength="255" ng-model="billingInfo.message"></textarea>
+										<p class="pull-right" ng-show="billingInfo.message"><small>Characters remaining: [[255 - billingInfo.message.length]]</small><p>
 									</div>
+
 								</div>
 							</div>
 						</div>
@@ -340,14 +367,14 @@
 						</div>
 						<div class="checkbox padding-top-clear">
 							<label>
-								<input type="checkbox" id="shipping-info-check" checked> My Shipping information is the same as my Billing information.
+								<input type="checkbox" name="same-as-billing" id="shipping-info-check" ng-init="shippingInfo.sameAsBilling = true" ng-model="shippingInfo.sameAsBilling"> My Shipping information is the same as my Billing information. [[shippingInfo.sameAsBilling]]
 							</label>
 						</div>
 					</form>
 				</fieldset>
 				<div class="text-right">	
-					<a href="#/cart" move-to-top class="btn btn-group btn-default"><i class="icon-left-open-big"></i> Go Back To Cart</a>
-					<a href="#/cart/payment" move-to-top class="btn btn-group btn-default">Next Step <i class="icon-right-open-big"></i></a>
+					<a href="#/cart" class="btn btn-group btn-default"><i class="icon-left-open-big"></i> Go Back To Cart</a>
+					<a ng-click="submitBillingInfo()" class="btn btn-group btn-default">Next Step <i class="icon-right-open-big"></i></a>
 				</div>
 
 			</div>

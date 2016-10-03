@@ -1,4 +1,4 @@
-happy_cup.controller('global_controller', function ($scope, $location, $timeout, content_factory, user_factory, shop_factory){
+happy_cup.controller('global_controller', function ($scope, $location, $timeout, $anchorScroll, content_factory, user_factory, shop_factory){
 
 	$scope.currentView = getCurrentView()
 	$scope.pageLoading = true;
@@ -138,6 +138,8 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 	// listens for route changes in order to style header appropriately
 	$scope.$on("$routeChangeSuccess", function(event) {
 		$scope.currentView = getCurrentView();
+		$anchorScroll('page-top');
+
 	});
 
 

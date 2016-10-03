@@ -106,6 +106,13 @@ happy_cup.factory('shop_factory', function(){
 		callback(shoppingCart);
 	};
 
+	factory.submitBillingInfo = function(billingInfo, shippingInfo, callback) {
+		shoppingCart.checkoutStatus.payment = true;
+		shoppingCart.billingInfo = billingInfo;
+		shoppingCart.shippingInfo = shippingInfo;
+		callback();
+	}
+
 
 	return factory;
 });
