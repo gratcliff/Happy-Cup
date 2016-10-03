@@ -105,10 +105,39 @@ happy_cup.factory('content_factory', function(){
 			};
 			content.about = {
 
-			};
-			content.blog = {
-
-			};
+			};			
+			content.blog = [
+				{
+					id: 1,
+					title: 'onlyinyourstate.com named Happy Cup one of the 12 unique shops to visit in Oregon',
+					link_title: 'Full Life Launches Sustainable Coffee Roasting Business',
+					url: 'http://www.sustainablebusinessoregon.com/articles/2011/12/full-life-launches-sustainable-coffee.html',
+					img_url: './resources/images/blog/2016/01/21/1.jpg',
+					text: '<p> Based in Portland, Happy Cup is a unique cafe and coffee roaster using ethicially traded coffee sourced from all over the world. The humanitarian, community oriented company offers employment to adults with disabilities and donates a percentage of their profits to vocational and recreational programming for the disabled community. Plus, their coffee is delicious! My personal favorite is the Boom Boom dark roast. Read the full article <a href="[[post[0].url]]">here.</a></p>',
+					created_at: '2016-01-21T16:15:37+00:00',
+					updated_at: '2016-01-21T16:15:37+00:00',
+				},
+				{
+					id: 2,
+					title: 'Happy Cup Killingsworth named one of Portland’s top 10 new cafes',
+					link_title: 'Full article here!',
+					url: 'http://www.wweek.com/2015/11/10/the-10-best-new-coffee-shops-in-portland/',
+					img_url: './resources/images/blog/2015/11/11/1.jpg',
+					text: '<p> Read Willamette Week’s write up featuring Happy Cup Killingsworth as one of the ten best new cafes in Portland for 2015.</p> <p>Happy Cup Coffee</p><br><p>446 NE Killingsworth St., 889-0511, <a href = "www.happycup.com">happycup.com</a> <p>Happy Cup exists sort of as an ode to squishy feelings: When I walked into a backroom stacked with beanbags at Happy’s newest location on Killingsworth Street, Portland entertainer Nikki Brown Clown was in the back setting up a book table for her Tuesday-morning gig entertaining preschoolers. Other days, the room might house a sewing club, a book group, or a small press reading. Meanwhile, the coffee is roasted in part by adults with disabilities, and the proceeds from the three cafes flip out to related programs. It’s hard not to feel good about it all. But this is the thing: It’s also one of the better examples of a solidly domestic cafe in town, with decent coffee, two neat copies of&nbsp;<i>The New York Times</i>&nbsp;laid out each day in a gesture of squarely old-school hospitality, an array of couches neither too soft nor too hard, and plenty of corners where you can plug in a laptop or just plain hide. A word, however: That piano in the back looks nice, but don’t sit by it. Just…trust me on that. MATTHEW KORFHAGE.</p> <a href = "http://www.wweek.com/2015/11/10/the-10-best-new-coffee-shops-in-portland/">Full article here!</a>',
+					created_at: '2015-11-11T14:04:56+00:00',
+					updated_at: '2015-11-11T14:04:56+00:00',
+				},
+				{
+					id: 3,
+					title: 'Jobs & Hope', 
+					link_title: 'Read the full article here',
+					url: 'http://portlandobserver.com/news/2015/mar/03/jobs-and-hope/',
+					img_url: './resources/images/blog/2015/03/6/1.jpg',
+					text: '<p> The Portland Observer stopped by Happy Cup on Killingsworth and came away with an article focused on our mission and the different ways Happy Cup is working to benefit adults with developmental disabilities.  “A small corner of northeast Portland is expanding to create more jobs and hope for adults with developmental disabilities.” </p> <a href = "[[post[0].url]]">[[post[0].link_title]]</a>.',
+					created_at: '2015-03-06T15:24:05+00:00',
+					updated_at: '2015-03-06T15:24:05+00:00',
+				}
+			];
 			content.contact = {
 
 			};
