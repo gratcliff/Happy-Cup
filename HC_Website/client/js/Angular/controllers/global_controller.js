@@ -135,10 +135,9 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 		$scope.addingProduct = false;
 	});
 
-	$scope.$on('viewWillChange', function(event, path){
-		$location.url(path);
+	// listens for route changes in order to style header appropriately
+	$scope.$on("$routeChangeSuccess", function(event) {
 		$scope.currentView = getCurrentView();
-
 	});
 
 

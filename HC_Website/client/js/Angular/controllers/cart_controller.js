@@ -49,9 +49,5 @@ happy_cup.controller('cart_controller', function ($scope, $location, $timeout, u
 		});
 	}
 
-	$scope.changeView = function(path) {
-		$scope.$emit('viewWillChange', path);
-	}
-
 
 });
