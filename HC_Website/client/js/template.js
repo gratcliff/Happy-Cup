@@ -994,6 +994,7 @@
 
 		$(window).scroll(function() {
 			if (($(".header.fixed:not(.fixed-before)").length > 0)  && !($(".transparent-header .slideshow").length>0)) {
+
 				if (($(this).scrollTop() > headerTopHeight + headerHeight) && ($(window).width() > 767)) {
 					$("body").addClass("fixed-header-on");
 					$(".header.fixed:not(.fixed-before)").addClass('animated object-visible fadeInDown');
@@ -1378,7 +1379,7 @@
 					poster: "resources/videos/video-fallback.jpg"
 				}, {
 					volume: 1,
-					playbackRate: 1,
+					playbackRate: 0.75,
 					muted: true,
 					loop: true,
 					autoplay: true,
@@ -1393,7 +1394,7 @@
 					poster: "resources/videos/video-banner-poster_orig.jpg"
 				}, {
 					volume: 1,
-					playbackRate: 1,
+					playbackRate: 0.75,
 					muted: true,
 					loop: true,
 					autoplay: true,

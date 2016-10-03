@@ -9,7 +9,7 @@ happy_cup.factory('shop_factory', function(){
 	shoppingCart.coffee = [];
 	shoppingCart.merch = [];
 	shoppingCart.unsavedChanges = false;
-	shoppingCart.coupon = {code: undefined, valid:false};
+	shoppingCart.coupon = {code: undefined, valid:false, discount: 0};
 	shoppingCart.checkoutStatus = {
 		payment : false,
 		review : false,
@@ -101,6 +101,7 @@ happy_cup.factory('shop_factory', function(){
 		var check = Math.random();
 		if (check >= 0.5) {
 			cart.coupon.valid = true;
+			cart.coupon.discount = 0.15;
 		}
 		callback(shoppingCart);
 	};

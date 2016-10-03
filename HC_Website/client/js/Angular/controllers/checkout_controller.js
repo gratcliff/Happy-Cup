@@ -3,6 +3,12 @@ happy_cup.controller('checkout_controller', function ($scope, $location, $timeou
 	$scope.userAllowedInView = false;
 
 	$scope.$emit('getShoppingCart', function(cart){
+		if (cart.unsavedChanges || !cart.totalItems) {
+			$location.url('/cart');
+		} else {
+			$scope.currentCart = cart
+			$scope.userAllowedInView = true;
+		}
 		
 
 

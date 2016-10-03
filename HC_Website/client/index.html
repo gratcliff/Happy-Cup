@@ -117,6 +117,7 @@
 		<script type = "text/javascript" src = 'js/Angular/controllers/cart_controller.js'></script>
 		<script type = 'text/javascript' src = 'js/Angular/controllers/global_controller.js'></script>
 		<script type = "text/javascript" src = 'js/Angular/controllers/locations_controller.js'></script>
+		<script type = "text/javascript" src = 'js/Angular/controllers/checkout_controller.js'></script>
 
 		<!-- end angular controllers -->
 
@@ -126,7 +127,7 @@
 		<script type = "text/javascript" src = 'js/Angular/factories/shop_factory.js'></script>
 	</head>
 
-	<body style = 'background-color: #F0EBD2' class="no-trans page-loader-2" ng-controller='global_controller'>
+	<body style = 'background-color: #F0EBD2' class="wide page-loader-2" ng-controller='global_controller'>
 		<!-- 
 		<div ng-if = 'pageLoading' class="la-fire">
 			<div></div>
@@ -142,208 +143,212 @@
 		<!-- page wrapper start -->
 		<!-- ================ -->
 		<div ng-if="!pageLoading" class="page-wrapper" >
+			<!-- header-container start -->
+			<div class="header-container">
 
-			<div class="header-top dark visible-xs">
-					<div class="container">
-						<div class="row">
-							<div class="col-xs-3 col-sm-6 col-md-9">
-								<!-- header-top-first start -->
-								<!-- ================ -->
-								
-								<!-- header-top-first end -->
-							</div>
-							<div class="col-xs-9 col-sm-6 col-md-3">
-
-								<!-- header-top-second start -->
-								<!-- ================ -->
-								<div id="header-top-second"  class="clearfix">
-									<!-- header top dropdowns start -->
+				<div class="header-top dark visible-xs">
+						<div class="container">
+							<div class="row">
+								<div class="col-xs-3 col-sm-6 col-md-9">
+									<!-- header-top-first start -->
 									<!-- ================ -->
-									<div class="header-top-dropdown text-right">
-										<div class="btn-group" ng-if="currentUser === 'None'">
-											<a data-toggle="modal" data-target="#user-reg-modal" class="btn btn-default btn-sm"><i class="fa fa-user pr-10"></i> Sign Up</a>
-										</div>
-										<div class="btn-group">
-											<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#user-login-modal" ng-if="currentUser === 'None'"><i class="fa fa-lock pr-10"></i> Login</button>
-											<button type="button" class="btn btn-default btn-sm" ng-if="currentUser !== 'None'" ng-click="logout()"><i class="fa fa-unlock pr-10"></i> Logout</button>
-										</div>
-									</div>
-									<!--  header top dropdowns end -->
+									
+									<!-- header-top-first end -->
 								</div>
-								<!-- header-top-second end -->
+								<div class="col-xs-9 col-sm-6 col-md-3">
+
+									<!-- header-top-second start -->
+									<!-- ================ -->
+									<div id="header-top-second"  class="clearfix">
+										<!-- header top dropdowns start -->
+										<!-- ================ -->
+										<div class="header-top-dropdown text-right">
+											<div class="btn-group" ng-if="currentUser === 'None'">
+												<a data-toggle="modal" data-target="#user-reg-modal" class="btn btn-default btn-sm"><i class="fa fa-user pr-10"></i> Sign Up</a>
+											</div>
+											<div class="btn-group">
+												<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#user-login-modal" ng-if="currentUser === 'None'"><i class="fa fa-lock pr-10"></i> Login</button>
+												<button type="button" class="btn btn-default btn-sm" ng-if="currentUser !== 'None'" ng-click="logout()"><i class="fa fa-unlock pr-10"></i> Logout</button>
+											</div>
+										</div>
+										<!--  header top dropdowns end -->
+									</div>
+									<!-- header-top-second end -->
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<!-- header-top end -->
-				
-				<!-- header start -->
-				<!-- classes:  -->
-				<!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
-				<!-- "dark": dark version of header e.g. class="header dark clearfix" -->
-				<!-- "full-width": mandatory class for the full-width menu layout -->
-				<!-- "centered": mandatory class for the centered logo layout -->
-				<!-- ================ --> 
-				<header class="header  fixed    clearfix" >
-					<div id='user-reg-alert' class="alert alert-success text-center animate-show" role="alert" ng-if="userRegAlert">
-  					<h2>Welcome, [[currentUser.first_name]]! You have successfully logged in.</h2>
-					</div>
-					<div id='user-logout-alert' class="alert alert-info text-center animate-show" role="alert" ng-if="userLogoutAlert">
-  					<h3>[[userLogoutAlert]]</h3>
-					</div>
+					<!-- header-top end -->
 					
-					<div class="container" id="full-width-header">
-						<div class="row">
-							<div class="col-md-2 ">
-								<!-- header-left start -->
-								<!-- ================ -->
-								<div class="header-left clearfix">
-									
-									<!-- logo -->
-									<div id="logo" class="logo" ng-if="!pageLoading">
-										<a href="#/" move-to-top ng-click="currentView = 'home' "><img id="logo_img" style = 'height: 125px;' ng-src="[[globalContent.headerLogo]]" alt="Happy Cup Coffee Company"></a>
+					<!-- header start -->
+					<!-- classes:  -->
+					<!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
+					<!-- "dark": dark version of header e.g. class="header dark clearfix" -->
+					<!-- "full-width": mandatory class for the full-width menu layout -->
+					<!-- "centered": mandatory class for the centered logo layout -->
+					<!-- ================ --> 
+					<header class="header  fixed    clearfix" >
+						<div id='user-reg-alert' class="alert alert-success text-center animate-show" role="alert" ng-if="userRegAlert">
+	  					<h2>Welcome, [[currentUser.first_name]]! You have successfully logged in.</h2>
+						</div>
+						<div id='user-logout-alert' class="alert alert-info text-center animate-show" role="alert" ng-if="userLogoutAlert">
+	  					<h3>[[userLogoutAlert]]</h3>
+						</div>
+						
+						<div class="container" id="full-width-header">
+							<div class="row">
+								<div class="col-md-2 ">
+									<!-- header-left start -->
+									<!-- ================ -->
+									<div class="header-left clearfix">
+										
+										<!-- logo -->
+										<div id="logo" class="logo" ng-if="!pageLoading">
+											<a href="#/" move-to-top ng-click="currentView = 'home' "><img id="logo_img" style = 'height: 125px;' ng-src="[[globalContent.headerLogo]]" alt="Happy Cup Coffee Company"></a>
+										</div>
+
 									</div>
+									<!-- header-left end -->
 
 								</div>
-								<!-- header-left end -->
-
-							</div>
-							<div class="col-md-10">
-					
-								<!-- header-right start -->
-								<!-- ================ -->
-								<div class="header-right clearfix pull-right">
-									
-								<!-- main-navigation start -->
-								<!-- classes: -->
-								<!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
-								<!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
-								<!-- "with-dropdown-buttons": Mandatory class that adds extra space, to the main navigation, for the search and cart dropdowns -->
-								<!-- ================ -->
-								<div class="main-navigation  animated with-dropdown-buttons">
-
-									<!-- navbar start -->
+								<div class="col-md-10">
+						
+									<!-- header-right start -->
 									<!-- ================ -->
-									<nav class="navbar navbar-default" role="navigation">
-										<div class="container-fluid">
+									<div class="header-right clearfix pull-right">
+										
+									<!-- main-navigation start -->
+									<!-- classes: -->
+									<!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
+									<!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
+									<!-- "with-dropdown-buttons": Mandatory class that adds extra space, to the main navigation, for the search and cart dropdowns -->
+									<!-- ================ -->
+									<div class="main-navigation  animated with-dropdown-buttons">
 
-											<!-- Toggle get grouped for better mobile display -->
-											<div class="navbar-header">
-												<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-													<span class="sr-only">Toggle navigation</span>
-													<span class="icon-bar"></span>
-													<span class="icon-bar"></span>
-													<span class="icon-bar"></span>
-												</button>
-												
-											</div>
+										<!-- navbar start -->
+										<!-- ================ -->
+										<nav class="navbar navbar-default" role="navigation">
+											<div class="container-fluid">
 
-											<!-- Collect the nav links, forms, and other content for toggling -->
-											<div class="collapse navbar-collapse" id="navbar-collapse-1">
-												<!-- main-menu -->
-												<ul class="nav navbar-nav ">
-													<li>
-														<a href="#/" move-to-top ng-click="currentView = 'home'" ng-style="currentView === 'home' ? {'color' : '#914E38'} : null ">Home</a>
-													</li>
-													<li>
-														<a href="#/about" move-to-top ng-click="currentView = 'about'" ng-style="currentView === 'about' ? {'color' : '#914E38'} : null">About Us</a>
-													</li>
-													<li>
-														<a href="#/blog" move-to-top ng-click="currentView = 'blog'" ng-style="currentView === 'blog' ? {'color' : '#914E38'} : null">News</a>
-													</li>
-													<li>
-														<a href="#/locations" move-to-top ng-click="currentView = 'locations'" ng-style="currentView === 'locations' ? {'color' : '#914E38'} : null">Where to Buy</a>
-													</li>
-													<li>
-														<a href="#/cafe" move-to-top ng-click="currentView = 'cafe'" ng-style="currentView === 'cafe' ? {'color' : '#914E38'} : null">Cafe</a>
-													</li>
-													<li>
-														<a href="#/contact" move-to-top ng-click="currentView = 'contact'" ng-style="currentView === 'contact' ? {'color' : '#914E38'} : null">Contact</a>
-													</li>
-													<li class="visible-xs">
-														<a href="#/cart" move-to-top ng-click="currentView = 'cart' " ng-style="currentView === 'cart' ? {'color' : '#914E38'} : null">Cart - [[shoppingCart.totalItems]] items</a>
-													</li>
-													<li class="hidden-xs" ng-if="currentUser === 'None'">
-														<a href="" data-toggle="modal" data-target="#user-reg-modal">Sign Up</a>
-													</li>
-													<li class="hidden-xs" ng-if="currentUser === 'None'">
-														<a href="" data-toggle="modal" data-target="#user-login-modal">Login</a>
-													</li>
-													<li class="hidden-xs" ng-if="currentUser !== 'None'">
-														<a href=""  ng-click="logout()">Logout</a>
-													</li>
-												</ul>
-												<!-- main-menu end -->
-												
-												<!-- header dropdown buttons -->
-												<div class="header-dropdown-buttons hidden-xs ">
-													<div class="btn-group dropdown">
-
-														<!-- Cart Counter -->
-														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" ng-style="currentView === 'cart' ? {'background-color' : '#69321f', 'color' : 'white'} : null"><i class="icon-basket-1"></i><span ng-if="currentView != 'cart' && shoppingCart.totalItems > 0" class="cart-count default-bg">[[shoppingCart.totalItems]]</span></button>
-														<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
-															<li>
-																<table class="table table-hover">
-																	<thead>
-																		<tr>
-																			<th class="quantity">QTY</th>
-																			<th class="product">Product</th>
-																			<th>Size</th>
-																			<th class="amount">Subtotal</th>
-																		</tr>
-																	</thead>
-																	<tbody>
-																		<tr ng-if="shoppingCart.coffee.length">
-																			<th colspan="4" class="text-center">Coffee</th>
-																		</tr>
-																		<tr ng-repeat="coffee in shoppingCart.coffee | orderBy: ['-qty','name']">
-																			<td class="quantity">[[coffee.qty]] x</td>
-																			<td class="product"><a href="shop-product.html">[[coffee.name]]</a><span class="small">[[coffee.roast]]</span></td>
-																			<td>[[coffee.size.qty]]</td>
-																			<td class="amount">$[[coffee.subtotal | number: 2 ]]</td>
-																		</tr>
-																		<tr ng-if="shoppingCart.merch.length">
-																		<th colspan="4">Merchandise</th>
-																		</tr>
-																		<tr ng-repeat="merch in shoppingCart.merch | orderBy: ['-qty','name']">
-																			<td class="quantity">[[merch.qty]] x</td>
-																			<td class="product"><a href="shop-product.html">[[merch.name]]</a></td>
-																			<td></td>
-																			<td class="amount">$[[merch.subtotal | number: 2 ]]</td>
-																		</tr>
-																		<tr>
-																			<td class="total-quantity" colspan="3">Total [[shoppingCart.totalItems]] Items</td>
-																			<td class="total-amount">$[[shoppingCart.totalPrice | number : 2]]</td>
-																		</tr>
-																	</tbody>
-																</table>
-																<div class="panel-body text-right" ng-show="shoppingCart.totalItems">
-																	<a href="#/cart" move-to-top ng-click="currentView = 'cart' " class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">View Cart</a>
-																	<a href="#/cart/checkout" move-to-top ng-click="currentView = 'cart' "class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">Checkout</a>
-																</div>
-															</li>
-														</ul>
-													</div>
+												<!-- Toggle get grouped for better mobile display -->
+												<div class="navbar-header">
+													<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+														<span class="sr-only">Toggle navigation</span>
+														<span class="icon-bar"></span>
+														<span class="icon-bar"></span>
+														<span class="icon-bar"></span>
+													</button>
+													
 												</div>
-												<!-- header dropdown buttons end-->
-												
+
+												<!-- Collect the nav links, forms, and other content for toggling -->
+												<div class="collapse navbar-collapse" id="navbar-collapse-1">
+													<!-- main-menu -->
+													<ul class="nav navbar-nav ">
+														<li>
+															<a href="#/" move-to-top ng-click="currentView = 'home'" ng-style="currentView === 'home' ? {'color' : '#914E38'} : null ">Home</a>
+														</li>
+														<li>
+															<a href="#/about" move-to-top ng-click="currentView = 'about'" ng-style="currentView === 'about' ? {'color' : '#914E38'} : null">About Us</a>
+														</li>
+														<li>
+															<a href="#/blog" move-to-top ng-click="currentView = 'blog'" ng-style="currentView === 'blog' ? {'color' : '#914E38'} : null">News</a>
+														</li>
+														<li>
+															<a href="#/locations" move-to-top ng-click="currentView = 'locations'" ng-style="currentView === 'locations' ? {'color' : '#914E38'} : null">Where to Buy</a>
+														</li>
+														<li>
+															<a href="#/cafe" move-to-top ng-click="currentView = 'cafe'" ng-style="currentView === 'cafe' ? {'color' : '#914E38'} : null">Cafe</a>
+														</li>
+														<li>
+															<a href="#/contact" move-to-top ng-click="currentView = 'contact'" ng-style="currentView === 'contact' ? {'color' : '#914E38'} : null">Contact</a>
+														</li>
+														<li class="visible-xs">
+															<a href="#/cart" move-to-top ng-click="currentView = 'cart' " ng-style="currentView === 'cart' ? {'color' : '#914E38'} : null">Cart - [[shoppingCart.totalItems]] items</a>
+														</li>
+														<li class="hidden-xs" ng-if="currentUser === 'None'">
+															<a href="" data-toggle="modal" data-target="#user-reg-modal">Sign Up</a>
+														</li>
+														<li class="hidden-xs" ng-if="currentUser === 'None'">
+															<a href="" data-toggle="modal" data-target="#user-login-modal">Login</a>
+														</li>
+														<li class="hidden-xs" ng-if="currentUser !== 'None'">
+															<a href=""  ng-click="logout()">Logout</a>
+														</li>
+													</ul>
+													<!-- main-menu end -->
+													
+													<!-- header dropdown buttons -->
+													<div class="header-dropdown-buttons hidden-xs ">
+														<div class="btn-group dropdown">
+
+															<!-- Cart Counter -->
+															<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" ng-style="currentView === 'cart' ? {'background-color' : '#69321f', 'color' : 'white'} : null"><i class="icon-basket-1"></i><span ng-if="currentView != 'cart' && shoppingCart.totalItems > 0" class="cart-count default-bg">[[shoppingCart.totalItems]]</span></button>
+															<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
+																<li>
+																	<table class="table table-hover">
+																		<thead>
+																			<tr>
+																				<th class="quantity">QTY</th>
+																				<th class="product">Product</th>
+																				<th>Size</th>
+																				<th class="amount">Subtotal</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<tr ng-if="shoppingCart.coffee.length">
+																				<th colspan="4" class="text-center">Coffee</th>
+																			</tr>
+																			<tr ng-repeat="coffee in shoppingCart.coffee | orderBy: ['-qty','name']">
+																				<td class="quantity">[[coffee.qty]] x</td>
+																				<td class="product"><a href="shop-product.html">[[coffee.name]]</a><span class="small">[[coffee.roast]]</span></td>
+																				<td>[[coffee.size.qty]]</td>
+																				<td class="amount">$[[coffee.subtotal | number: 2 ]]</td>
+																			</tr>
+																			<tr ng-if="shoppingCart.merch.length">
+																			<th colspan="4">Merchandise</th>
+																			</tr>
+																			<tr ng-repeat="merch in shoppingCart.merch | orderBy: ['-qty','name']">
+																				<td class="quantity">[[merch.qty]] x</td>
+																				<td class="product"><a href="shop-product.html">[[merch.name]]</a></td>
+																				<td></td>
+																				<td class="amount">$[[merch.subtotal | number: 2 ]]</td>
+																			</tr>
+																			<tr>
+																				<td class="total-quantity" colspan="3">Total [[shoppingCart.totalItems]] Items</td>
+																				<td class="total-amount">$[[shoppingCart.totalPrice | number : 2]]</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																	<div class="panel-body text-right" ng-show="shoppingCart.totalItems">
+																		<a href="#/cart" move-to-top ng-click="currentView = 'cart' " class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">View Cart</a>
+																		<a href="#/cart/checkout" move-to-top ng-click="currentView = 'cart' "class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">Checkout</a>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<!-- header dropdown buttons end-->
+													
+												</div>
+
 											</div>
+										</nav>
+										<!-- navbar end -->
 
-										</div>
-									</nav>
-									<!-- navbar end -->
-
+									</div>
+									<!-- main-navigation end -->
+									</div>
+									<!-- header-right end -->
+						
 								</div>
-								<!-- main-navigation end -->
-								</div>
-								<!-- header-right end -->
-					
 							</div>
 						</div>
-					</div>
-					
-				</header>
-				<!-- header end -->
+						
+					</header>
+					<!-- header end -->
+				</div>
+				<!-- header-container end -->
 				<!-- User Registration Modal Start -->
 			<div class="modal fade" id="user-reg-modal" tabindex="-1" role="dialog" aria-labelledby="user-reg-modalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-lg">

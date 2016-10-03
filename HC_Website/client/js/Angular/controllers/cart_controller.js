@@ -17,9 +17,9 @@ happy_cup.controller('cart_controller', function ($scope, $location, $timeout, u
 		shop_factory.updateCart($scope.currentCart, function(newCart){
 			$scope.currentCart = newCart;
 			$scope.currentCart.unsavedChanges = false;
-			$scope.cartSaved = true;
+			$scope.cartSavedMessage = true;
 			$timeout(function(){
-				$scope.cartSaved = false;
+				$scope.cartSavedMessage = false;
 			}, 1000)
 		});
 	}
@@ -30,12 +30,12 @@ happy_cup.controller('cart_controller', function ($scope, $location, $timeout, u
 			shop_factory.removeProduct(idx, arrayName,  function(newCart) {
 				$scope.currentCart = newCart;
 				$scope.currentCart.unsavedChanges = false;
-				$scope.cartSaved = true;
+				$scope.cartSavedMessage = true;
 			})
-		}, 250);
+		}, 100);
 
 		$timeout(function(){
-			$scope.cartSaved = false;
+			$scope.cartSavedMessage = false;
 		}, 1000);
 	};
 
