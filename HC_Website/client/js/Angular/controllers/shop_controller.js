@@ -5,6 +5,8 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 		$scope.coffeeModal = {}
 	});
 
+// console.log($scope.products);
+
 	$scope.productDisplay = {
 		"showCoffee" : true,
 		"showSubs" : false,
@@ -63,6 +65,26 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 			}, 1000);
 		});
 
+	}
+
+	$scope.addSubscriptionsToCart = function(sub, order, idx){
+		$scope.products.subscriptions[idx].addingProduct = true;
+		var data = {
+			id: sub.id,
+			qty: 1,
+			name: sub.name,
+			roast: order.roast,
+			grind: order.grind,
+			subtotal: order.price
+		};
+
+		shop_factory.addSubscriptionsToCart(data, function (newCart){
+
+			$timeout(function(){
+				delete $scope.products.subscriptions[idx].addingProduct
+				$scope.$emit('addedToCart');
+			}, 1000);
+		});
 	}
 	
 })

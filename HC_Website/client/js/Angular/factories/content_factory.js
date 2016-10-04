@@ -97,7 +97,25 @@ happy_cup.factory('content_factory', function(){
 							],
 							img_src : "resources/images/products/pondok_baru.png"
 						},
-					]
+					],
+					subscriptions: [
+						{
+							id: 1,
+							name: 'Six Month Subscription',
+							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
+							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
+							pricing : 105.00,
+							img_src: "resources/images/products/6mo_sub.png" 
+						},
+						{
+							id: 2,
+							name: 'Twelve Month Subscription',
+							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
+							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
+							pricing : 200.00,
+							img_src: "resources/images/products/12mo_sub.png"
+						},
+					],
 				}
 
 				
