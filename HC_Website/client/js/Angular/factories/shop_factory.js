@@ -7,6 +7,7 @@ happy_cup.factory('shop_factory', function(){
 	//-------creating shoppingCart object
 	var shoppingCart = {};
 	shoppingCart.coffee = [];
+	shoppingCart.subscriptions = [];
 	shoppingCart.merch = [];
 	shoppingCart.unsavedChanges = false;
 	shoppingCart.coupon = {code: undefined, valid:false, discount: 0};
