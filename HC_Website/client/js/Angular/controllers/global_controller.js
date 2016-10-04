@@ -1,6 +1,7 @@
 happy_cup.controller('global_controller', function ($scope, $location, $timeout, $anchorScroll, content_factory, user_factory, shop_factory){
 
 	$scope.currentView = getCurrentView()
+	$scope.pageTitle = 'Happy Cup Coffee Company - Portland, OR - Coffee Roasted by People with Potential'
 	$scope.pageLoading = true;
 	$scope.globalContent = {};
 	$scope.userReg = {};
@@ -139,8 +140,13 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 	$scope.$on("$routeChangeSuccess", function(event) {
 		$scope.currentView = getCurrentView();
 		$anchorScroll('page-top');
-
+		$scope.pageTitle = 'Happy Cup Coffee Company - Portland, OR - Coffee Roasted by People with Potential'
 	});
+
+	$scope.$on('changePageTitle', function(event, title){
+		console.log('title');
+		$scope.pageTitle = title;
+	})
 
 
 	// end of event listeners
