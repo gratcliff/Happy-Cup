@@ -123,8 +123,8 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 			data.size = order.size;
 		}
 
-		console.log(data);
-		shop_factory.addMerchToCart(data, function (newCart){
+		// console.log(data);
+		shop_factory.addMerchandiseToCart(data, function (newCart){
 
 			$timeout(function(){
 				delete $scope.products.merchandise[idx].addingProduct

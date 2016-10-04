@@ -90,21 +90,30 @@ happy_cup.factory('shop_factory', function(){
 
 	factory.addMerchandiseToCart = function(order, callback) {
 		var identicalProduct = false;
-		for (idx in shoppingCart.merchandise) {
+		for (idx in shoppingCart.merch) {
+			//coffee
+			if (shoppingCart.merch[idx].id === order.id &&
+			shoppingCart.merch[idx].grind === order.grind &&
+			shoppingCart.merch[idx].roast === order.roast || 
+			//Overall gift
+			shoppingCart.merch[idx].id === order.id &&
+			shoppingCart.merch[idx].grind === order.grind &&
+			shoppingCart.merch[idx].roast === order.roast && 
+			shoppingCart.merch[idx].size === order.size   ||
+			//Shirt
+			shoppingCart.merch[idx].id === order.id &&
+			shoppingCart.merch[idx].size === order.size) {
 
-			if (shoppingCart.merchandise[idx].id === order.id &&
-			shoppingCart.merchandise[idx].grind === order.grind &&
-			shoppingCart.merchandise[idx].roast === order.roast) {
-
-				shoppingCart.merchandise[idx].qty += order.qty;
-				shoppingCart.merchandise[idx].subtotal += order.subtotal;
+				shoppingCart.merch[idx].qty += order.qty;
+				shoppingCart.merch[idx].subtotal += order.subtotal;
 				identicalProduct = true;
 				break;
 			}
 
 		}
+		console.log(shoppingCart);
 		if (!identicalProduct) {
-			shoppingCart.merchandise.push(order);
+			shoppingCart.merch.push(order);
 		}
 
 		shoppingCart.totalItems += order.qty;
