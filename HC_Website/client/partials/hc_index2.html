@@ -130,11 +130,11 @@
 							<td class="hidden-xs"><img class = 'table_image' src ='[[subscription.img_src]]'></td>
 							<td class = 'visible-xs'>[[subscription.name]]</td>
 
-							<td class = 'hidden-xs'><select class = 'form-control' ng-init = 'order.roast=subscription.roasts[0]' ng-options = 'roast.roast_name for roast in subscription.roasts track by roast.id' ng-model = 'order.roast'></select>
-
+							<td class = 'hidden-xs'><select class = 'form-control' ng-init = 'subOrder.roast=subscription.roasts[0]'
+							ng-model = 'subOrder.roast' ng-options = 'roast.name for roast in subscription.roasts track by roast.id' ></select>
 							</td>
 
-							<td class="hidden-xs"><select class = 'form-control' ng-init="order.grind=subscription.grinds[0]" ng-options = 'grind.type for grind in subscription.grinds track by grind.id' ng-model = 'order.grind'></select>
+							<td class="hidden-xs"><select class = 'form-control' ng-init="subOrder.grind=subOrder.roast.grinds[0]" ng-model = 'subOrder.grind' ng-options = 'grind.type for grind in subOrder.roast.grinds track by grind.id' ></select>
 							</td>
 
 							<td>[[subscription.pricing | currency : symbol : fractionSize]]</td>

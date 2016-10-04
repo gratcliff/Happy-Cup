@@ -3,6 +3,7 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 	content_factory.getPageContent('home', function(content){
 		$scope.products = content.products;
 		$scope.coffeeModal = {}
+		console.log(content.products);
 	});
 
 // console.log($scope.products);
@@ -49,15 +50,15 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 
 	$scope.$on('sendToCart', function(event, product, order, idx) {
 		// console.log(product.id);
-		if (product.id < $scope.products.coffee.length){
+		var productType = product.type.type
+		if (productType === 'coffee') {
 			$scope.addCoffeeToCart(product, order, idx);
-		}
-		else if (product.id < ($scope.products.coffee.length + $scope.products.subscriptions.length)){
+		} else if (productType === 'subscription'){
 			$scope.addSubscriptionsToCart(product, order, idx);
-		}
-		else{
+		} else if (productType === 'merchandise') {
 			$scope.addMerchToCart(product, order, idx);
 		}
+
 	});
 
 	$scope.addCoffeeToCart = function(coffee, order, idx) {
