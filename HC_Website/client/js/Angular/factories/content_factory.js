@@ -101,7 +101,7 @@ happy_cup.factory('content_factory', function(){
 
 					subscriptions: [
 						{
-							id: 1,
+							id: 7,
 							name: 'Six Month Subscription',
 							description: 'Happy Cup sent directly to your door for six months! A six month subscription gives you a chance to try one bag each of our current coffee lineup!',
 							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
@@ -110,7 +110,7 @@ happy_cup.factory('content_factory', function(){
 							img_src: "resources/images/products/6mo_sub.png" 
 						},
 						{
-							id: 2,
+							id: 8,
 							name: 'Twelve Month Subscription',
 							description: 'Happy Cup sent directly to your door for an entire year! Choose your favorite roast, or switch things up every month with the roasters choice option.',
 							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],

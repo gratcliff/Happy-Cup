@@ -47,8 +47,15 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 		$scope.$emite('openMerchandiseModal', merch);
 	}
 
-	$scope.$on('sendToCart', function(event, coffee, order, idx) {
-		$scope.addCoffeeToCart(coffee, order, idx);
+	$scope.$on('sendToCart', function(event, product, order, idx) {
+		console.log(product.id);
+		if (product.id < $scope.products.coffee.length){
+			$scope.addCoffeeToCart(product, order, idx);
+		}
+		else if (product.id < ($scope.products.coffee.length + $scope.products.subscriptions.length)){
+			$scope.addSubscriptionsToCart(product, order, idx);
+		}
+		else{}
 	});
 
 	$scope.addCoffeeToCart = function(coffee, order, idx) {
