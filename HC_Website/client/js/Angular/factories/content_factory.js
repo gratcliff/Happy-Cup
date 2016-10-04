@@ -97,7 +97,31 @@ happy_cup.factory('content_factory', function(){
 							],
 							img_src : "resources/images/products/pondok_baru.png"
 						},
-					]
+					],
+
+					subscriptions: [
+						{
+							id: 1,
+							name: 'Six Month Subscription',
+							description: 'Happy Cup sent directly to your door for six months! A six month subscription gives you a chance to try one bag each of our current coffee lineup!',
+							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
+							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
+							pricing : 105.00,
+							img_src: "resources/images/products/6mo_sub.png" 
+						},
+						{
+							id: 2,
+							name: 'Twelve Month Subscription',
+							description: 'Happy Cup sent directly to your door for an entire year! Choose your favorite roast, or switch things up every month with the roasters choice option.',
+							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
+							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
+							pricing : 200.00,
+							img_src: "resources/images/products/12mo_sub.png"
+						},
+					],
+					gift_options: [
+						{}
+					],
 				}
 
 				
@@ -110,16 +134,18 @@ happy_cup.factory('content_factory', function(){
 				{
 					id: 1,
 					title: 'onlyinyourstate.com named Happy Cup one of the 12 unique shops to visit in Oregon',
+					description: 'Based in Portland, Happy Cup is a unique cafe and coffee roaster using ethicially traded coffee sourced from all over the world. The humanitarian, community oriented company offers employment to adults with disabilities and donates a percentage of their profits to vocational and recreational programming for the disabled community.',
 					link_title: 'Full Life Launches Sustainable Coffee Roasting Business',
-					url: 'http://www.sustainablebusinessoregon.com/articles/2011/12/full-life-launches-sustainable-coffee.html',
+					url: 'http://www.onlyinyourstate.com/oregon/coffee-shops-oregon/',
 					img_url: './resources/images/blog/2016/01/21/1.jpg',
-					text: '<p> Based in Portland, Happy Cup is a unique cafe and coffee roaster using ethicially traded coffee sourced from all over the world. The humanitarian, community oriented company offers employment to adults with disabilities and donates a percentage of their profits to vocational and recreational programming for the disabled community. Plus, their coffee is delicious! My personal favorite is the Boom Boom dark roast. Read the full article <a href="[[post[0].url]]">here.</a></p>',
+					text: '<p> Based in Portland, Happy Cup is a unique cafe and coffee roaster using ethicially traded coffee sourced from all over the world. The humanitarian, community oriented company offers employment to adults with disabilities and donates a percentage of their profits to vocational and recreational programming for the disabled community. Plus, their coffee is delicious! My personal favorite is the Boom Boom dark roast. Read the full article <a href="http://www.onlyinyourstate.com/oregon/coffee-shops-oregon/">here.</a></p>',
 					created_at: '2016-01-21T16:15:37+00:00',
 					updated_at: '2016-01-21T16:15:37+00:00',
 				},
 				{
 					id: 2,
 					title: 'Happy Cup Killingsworth named one of Portland’s top 10 new cafes',
+					description: 'Read Willamette Week’s write up featuring Happy Cup Killingsworth as one of the ten best new cafes in Portland for 2015.',
 					link_title: 'Full article here!',
 					url: 'http://www.wweek.com/2015/11/10/the-10-best-new-coffee-shops-in-portland/',
 					img_url: './resources/images/blog/2015/11/11/1.jpg',
@@ -130,12 +156,24 @@ happy_cup.factory('content_factory', function(){
 				{
 					id: 3,
 					title: 'Jobs & Hope', 
+					description: 'The Portland Observer stopped by Happy Cup on Killingsworth and came away with an article focused on our mission and the different ways Happy Cup is working to benefit adults with developmental disabilities.',
 					link_title: 'Read the full article here',
 					url: 'http://portlandobserver.com/news/2015/mar/03/jobs-and-hope/',
 					img_url: './resources/images/blog/2015/03/6/1.jpg',
-					text: '<p> The Portland Observer stopped by Happy Cup on Killingsworth and came away with an article focused on our mission and the different ways Happy Cup is working to benefit adults with developmental disabilities.  “A small corner of northeast Portland is expanding to create more jobs and hope for adults with developmental disabilities.” </p> <a href = "[[post[0].url]]">[[post[0].link_title]]</a>.',
+					text: '<p> The Portland Observer stopped by Happy Cup on Killingsworth and came away with an article focused on our mission and the different ways Happy Cup is working to benefit adults with developmental disabilities.  “A small corner of northeast Portland is expanding to create more jobs and hope for adults with developmental disabilities.” </p> <a href = "http://portlandobserver.com/news/2015/mar/03/jobs-and-hope/">Read the full article here</a>.',
 					created_at: '2015-03-06T15:24:05+00:00',
 					updated_at: '2015-03-06T15:24:05+00:00',
+				}, 
+				{
+					id: 4, 
+					description: 'Happy Cup continues to expand opening a third location at 446 NE Killingsworth.  The location serves as the flagship locale for Happy Cup and offers unique single origin coffees as well as a full breakfast and lunch menu.',
+					title: 'New Cafe opening on Killingsworth & MLK',
+					link_title: ['here', 'here'],
+					url: ['http://www.bizjournals.com/portland/blog/sbo/2014/11/socially-minded-happy-cup-coffee-co-adding-a-third.html', 'http://www.bizjournals.com/portland/blog/sbo/2015/01/happy-cup-with-opening-of-new-portland-caf-the.html?ana=twt'],
+					img_url: './resources/images/blog/2015/01/15/2.jpg',
+					text: '<p> Happy Cup continues to expand opening a third location at 446 NE Killingsworth.  The location serves as the flagship locale for Happy Cup and offers unique single origin coffees as well as a full breakfast and lunch menu.  Come have a pour over and experience the Happy Cup mission.  For more information check the cafe section of our website and read the articles <a href = "http://www.bizjournals.com/portland/blog/sbo/2014/11/socially-minded-happy-cup-coffee-co-adding-a-third.html">here</a> and <a href = "http://www.bizjournals.com/portland/blog/sbo/2015/01/happy-cup-with-opening-of-new-portland-caf-the.html?ana=twt">here</a>.</p>',
+					created_at: '2015-01-15T21:13:19+00:00',
+					updated_at: '2015-01-15T21:13:19+00:00',
 				}
 			];
 			content.contact = {

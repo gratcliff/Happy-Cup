@@ -120,77 +120,30 @@
 					<thead>
 						<tr>
 							<td>Description</td>
-							<td></td>
-							<td>Roast</td>
-							<td>Grind</td>
+							<td class = 'visible-xs'>Name</td>
+							<td class="hidden-xs"></td>
+							<td class="hidden-xs">Roast</td>
+							<td class="hidden-xs">Grind</td>
 							<td>Price</td>
 						</tr>
 					</thead>
 					<tbody>
+						<!-- Subscription Options -->
+						<tr ng-repeat = 'subscription in products.subscriptions track by subscription.id'>
+							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#subscription_modal' ng-click="openSubscriptionModal(subscription, $index)">+</a></td>
+							<td class="hidden-xs"><img class = 'table_image' src ='[[subscription.img_src]]'></td>
+							<td class = 'visible-xs'>[[subscription.name]]</td>
 
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#6_sub_modal'>+</a></td>
-							<td><img class = 'table_image' src="resources/images/products/6mo_sub.png" alt="6 month sub"></td>
-							<td>
-								<select class="form-control">
-							 		<optgroup label="Roasts">
-							 			<option value = 'roaster_choice'> Roaster's Choice</option>
-										<option value = 'gift_buzz'> The Buzz Medium Roast</option>
-										<option value = 'gift_boomboom'> Boom! Boom! Dark Roast</option>
-										<option value = 'gift_morning_madness'> Morning Madness Espresso Roast</option>
-										<option value = 'gift_decaf'> Decaffeination Decaf</option>
-									</optgroup>
-									<optgroup label="Single Origin">
-										<option value = 'gift_happy_heart'> Happy Heart - Ethiopia</option>
-										<option value = 'gift_pondok'> Pondok Baru - Sumatra</option>
-									</optgroup>
-								</select>
-							</td>
-							<td>
-								<select class="form-control">
-									<option value = 'Whole Bean'>Whole Bean </option>
-									<option value = 'Espresso'>Espresso </option>
-									<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-									<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-									<option value = 'Chemex'>Chemex </option>
-									<option value = 'French Press'>French Press </option>
-								</select>
-							</td>
-							<td>$105.00</td>
-							<td><a class = 'margin-clear btn btn-brown'>Add To Cart </a>
-							</td>
-						</tr>
+							<td class = 'hidden-xs'><select class = 'form-control' ng-init = 'order.roast=subscription.roasts[0]' ng-options = 'roast.roast_name for roast in subscription.roasts track by roast.id' ng-model = 'order.roast'></select>
 
-						<tr>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#12_sub_modal'>+</a></td>
-							<td><img class = 'table_image' src="resources/images/products/12mo_sub.png" alt="12 month sub"></td>
-							<td>
-								<select class="form-control">
-							 		<optgroup label="Roasts">
-							 			<option value = 'roaster_choice'> Roaster's Choice</option>
-										<option value = 'gift_buzz'> The Buzz Medium Roast</option>
-										<option value = 'gift_boomboom'> Boom! Boom! Dark Roast</option>
-										<option value = 'gift_morning_madness'> Morning Madness Espresso Roast</option>
-										<option value = 'gift_decaf'> Decaffeination Decaf</option>
-									</optgroup>
-									<optgroup label="Single Origin">
-										<option value = 'gift_happy_heart'> Happy Heart - Ethiopia</option>
-										<option value = 'gift_pondok'> Pondok Baru - Sumatra</option>
-									</optgroup>
-								</select>
 							</td>
-							<td>
-								<select class="form-control">
-									<option value = 'Whole Bean'>Whole Bean </option>
-									<option value = 'Espresso'>Espresso </option>
-									<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-									<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-									<option value = 'Chemex'>Chemex </option>
-									<option value = 'French Press'>French Press </option>
-								</select>
+
+							<td class="hidden-xs"><select class = 'form-control' ng-init="order.grind=subscription.grinds[0]" ng-options = 'grind.type for grind in subscription.grinds track by grind.id' ng-model = 'order.grind'></select>
 							</td>
-							<td>$200.00</td>
-							<td><a class = 'margin-clear btn btn-brown'>Add To Cart</a>
+
+							<td>$[[subscription.pricing]].00</td>
+							<td>
+								<button class = 'margin-clear btn btn-brown hidden-xs' ng-click = 'addSubscriptionsToCart(subscription, order, $index)' ng-disabled = 'subscription.addingProduct'><span ng-if = '!subscription.addingProduct'>Add To Cart</span><span ng-if='subscription.addingProduct'>Item Added</span></button>
 							</td>
 						</tr>
 					</tbody>
@@ -556,128 +509,6 @@
 															<option value = 'Large'>Large</option>
 															<option value = 'Extra-Large'>Extra-Large</option>
 															<option value = 'XX-Large'>XX-Large</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group text-center">
-														<button type="submit" class="btn btn-group btn-default btn-animated">Add to cart<i class="fa fa-shopping-cart"></i></button>
-														<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Six Month Sub Modal-->
-				<div class="modal fade" id="6_sub_modal" tabindex="-1" role="dialog" aria-labelledby="6_sub_modal_label" aria-hidden="true">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-							</div>
-							<div class="modal-body">
-								<div class = 'container-fluid'>
-									<div class = 'row'>
-										<div class="col-md-5 text-center">
-											<img src="resources/images/products/6mo_sub.png" alt="6 month sub">
-										</div>
-										<div class = 'col-md-7'>
-											<h3>Six Month Subscription</h3>
-											<p>Happy Cup sent directly to your door for six months! A six month subscription gives you a chance to try one bag each of our current coffee lineup!</p>
-											<form class = 'form-horizontal' role = 'form'>
-												<div class = 'form-group has-feedback'>
-													<label for ='size' class = 'col-sm-2 control-label'> Coffee:</label>
-													<div class = 'col-sm-8'> 
-													 	<select class="form-control">
-													 		<optgroup label="Roasts">
-													 			<option value = 'roaster_choice'> Roaster's Choice</option>
-																<option value = 'gift_buzz'> The Buzz Medium Roast</option>
-																<option value = 'gift_boomboom'> Boom! Boom! Dark Roast</option>
-																<option value = 'gift_morning_madness'> Morning Madness Espresso Roast</option>
-																<option value = 'gift_decaf'> Decaffeination Decaf</option>
-															</optgroup>
-															<optgroup label="Single Origin">
-																<option value = 'gift_happy_heart'> Happy Heart - Ethiopia</option>
-																<option value = 'gift_pondok'> Pondok Baru - Sumatra</option>
-															</optgroup>
-														</select>
-													</div>
-												</div>
-												<div class = 'form-group has-feedback'>
-													<label for = 'grind' class = 'col-sm-2 control-label'>Grind:</label>
-													<div class = 'col-sm-8'>  
-														<select class="form-control">
-															<option value = 'Whole Bean'>Whole Bean </option>
-															<option value = 'Espresso'>Espresso </option>
-															<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-															<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-															<option value = 'Chemex'>Chemex </option>
-															<option value = 'French Press'>French Press </option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group text-center">
-														<button type="submit" class="btn btn-group btn-default btn-animated">Add to cart<i class="fa fa-shopping-cart"></i></button>
-														<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Twelve Month Sub Modal-->
-				<div class="modal fade" id="12_sub_modal" tabindex="-1" role="dialog" aria-labelledby="12_sub_modal_label" aria-hidden="true">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-							</div>
-							<div class="modal-body">
-								<div class = 'container-fluid'>
-									<div class = 'row'>
-										<div class="col-md-5 text-center">
-											<img src="resources/images/products/12mo_sub.png" alt="12 month sub">
-										</div>
-										<div class = 'col-md-7'>
-											<h3>Twelve Month Subscription</h3>
-											<p>Happy Cup sent directly to your door for an entire year! Choose your favorite roast, or switch things up every month with the roasters choice option.</p>
-											<form class = 'form-horizontal' role = 'form'>
-												<div class = 'form-group has-feedback'>
-													<label for ='size' class = 'col-sm-2 control-label'> Coffee:</label>
-													<div class = 'col-sm-8'> 
-													 	<select class="form-control">
-													 		<optgroup label="Roasts">
-													 			<option value = 'roaster_choice'> Roaster's Choice</option>
-																<option value = 'gift_buzz'> The Buzz Medium Roast</option>
-																<option value = 'gift_boomboom'> Boom! Boom! Dark Roast</option>
-																<option value = 'gift_morning_madness'> Morning Madness Espresso Roast</option>
-																<option value = 'gift_decaf'> Decaffeination Decaf</option>
-															</optgroup>
-															<optgroup label="Single Origin">
-																<option value = 'gift_happy_heart'> Happy Heart - Ethiopia</option>
-																<option value = 'gift_pondok'> Pondok Baru - Sumatra</option>
-															</optgroup>
-														</select>
-													</div>
-												</div>
-												<div class = 'form-group has-feedback'>
-													<label for = 'grind' class = 'col-sm-2 control-label'>Grind:</label>
-													<div class = 'col-sm-8'>  
-														<select class="form-control">
-															<option value = 'Whole Bean'>Whole Bean </option>
-															<option value = 'Espresso'>Espresso </option>
-															<option value = 'Cone Drip Filter'>Cone Drip Filter </option>
-															<option value = 'Flat Bottom Drip Filter'>Flat Bottom Drip Filter </option>
-															<option value = 'Chemex'>Chemex </option>
-															<option value = 'French Press'>French Press </option>
 														</select>
 													</div>
 												</div>

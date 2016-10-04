@@ -5,6 +5,8 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 		$scope.coffeeModal = {}
 	});
 
+// console.log($scope.products);
+
 	$scope.productDisplay = {
 		"showCoffee" : true,
 		"showSubs" : false,
@@ -32,10 +34,18 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 	}
 
 	$scope.openCoffeeModal = function(coffee, idx) {
-		coffee.idx = idx
-		$scope.$emit('openCoffeeModal', coffee)
+		coffee.idx = idx;
+		$scope.$emit('openCoffeeModal', coffee);
 		
 	};
+	$scope.openSubscriptionModal = function (sub, idx) {
+		sub.idx =  idx;
+		$scope.$emit('openSubscriptionModal', sub);
+	}
+	$scope.openMerchandiseModal = function (merch, idx) {
+		merch.idx = idx;
+		$scope.$emite('openMerchandiseModal', merch);
+	}
 
 	$scope.$on('sendToCart', function(event, coffee, order, idx) {
 		$scope.addCoffeeToCart(coffee, order, idx);
@@ -63,6 +73,26 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 			}, 1000);
 		});
 
+	}
+
+	$scope.addSubscriptionsToCart = function(sub, order, idx){
+		$scope.products.subscriptions[idx].addingProduct = true;
+		var data = {
+			id: sub.id,
+			qty: 1,
+			name: sub.name,
+			roast: order.roast,
+			grind: order.grind,
+			subtotal: sub.pricing
+		};
+		// console.log(data);
+		shop_factory.addSubscriptionsToCart(data, function (newCart){
+
+			$timeout(function(){
+				delete $scope.products.subscriptions[idx].addingProduct
+				$scope.$emit('addedToCart');
+			}, 1000);
+		});
 	}
 	
 })

@@ -1,26 +1,28 @@
 <div ng-controller = 'locations_controller' >
 			<!-- main-container start -->
-			<div id="collapseMap" class="banner" >
+			<br>
+			<div class="banner" >
 				<!-- google map start -->
 				<!-- ================ -->
-				<!-- <div id="map-canvas"></div> -->
+				<div id="map-canvas"></div>
 				<!-- google maps end -->
 			</div>
 			<section class="main-container">
 
 				<div class="container">
+
 					<div class="row" id="row">
 
 						<!-- main start -->
 						<!-- ================ -->
-						<div class="main col-md-8">
+						<div class="main col-md-10">
 							<!-- page-title start -->
 							<!-- ================ -->
 							<h1 class="page-title">Where to Buy</h1>
 							<div class="separator-2"></div>
 							<!-- page-title end -->
 							<p>Happy Cup can be purchased <a href="#/">online</a> and at our Coffee Shop: Portland City Hall – 1221 SW 4th, Portland, OR 97204, Sandy Blvd.</p>
-
+							<!-- <a class="btn btn-gray collapsed map-show btn-animated" data-toggle="collapse" href="\\#collapseMap" aria-expanded="false" aria-controls="collapseMap">Show Map <i class="fa fa-plus"></i></a> -->
 							<!-- <div class="block clearfix"> -->
 								<div ng-repeat = "(type, location) in locations | groupBy: 'type'">
 									<v-accordion allow-multiple control="accordionControl" class="vAccordion--default" id = "MyAccordion" >
@@ -31,8 +33,8 @@
 
 											<v-pane-content>
 												<div class = "row" ng-repeat = "x in location">
-													<p class="col-md-9 col-xs-6 col-sm-8"><a class = "scrollToMap" role = "button" ng-click="updateMap([[x.address]])"><i class="fa fa-coffee pr-10"></i></a> [[x.address]]</p>
-													<p class="col-md-3 col-xs-6 col-sm-4"><i class="fa fa-phone pr-10"></i> [[x.number]]</p>
+													<p class="col-md-9 col-xs-7 col-sm-8"><a class = "scrollToMap" role = "button" ng-click="updateMap([[x.address]])"><i class="fa fa-coffee pr-10"></i></a> [[x.address]]</p>
+													<p class="col-md-3 col-xs-5 col-sm-4"><i class="fa fa-phone pr-10"></i> [[x.number]]</p>
 												</div>
 											</v-pane-content>
 										</v-pane>
@@ -45,10 +47,8 @@
 
 						<!-- sidebar start -->
 						<!-- ================ -->
-						<div class="col-md-1 col-md-4 col-lg-3 col-lg-offset-1">
-							<div id="map-canvas"></div>
-
-						</div>
+<!-- 						<div class="col-md-1 col-md-4 col-lg-3 col-lg-offset-1">
+						</div> -->
 						<!-- sidebar end -->
 
 					</div>
@@ -61,44 +61,16 @@
 	$.getScript('js/template.js');
 </script>
 
-<script type="text/javascript">
-// function checkOffset() {
-// 	if($('#map-canvas').offset().top + $('#map-canvas').height() >= $('#footer').offset().top)
-// 		$('#map-canvas').css('position', 'absolute');
-// 	if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top)
-// 		$('#map-canvas').css('position', 'fixed'); // restore when you scroll up
-// }
-// $(document).ready(function(){
-// 	checkOffset();
-// });
-// $(document).scroll(function() {
-// 	checkOffset();
-// });
-
-// function checkOffset() {
-// 	var a=$(document).scrollTop()+window.innerHeight;
-// 	var b=$('#footer').offset().top;
-// 	if (a<(b-100)) {
-// 		$('#map-canvas').css('bottom', '10px');
-// 	} else {
-// 		$('#map-canvas').css('bottom', (10+(a-b))+'px');
-// 	}
-// }
-// $(document).ready(checkOffset);
-// $(document).scroll(checkOffset);
-
-</script>
-
 <style type="text/css">
-#map-canvas {
+/*#map-canvas {
   position: fixed;
   width: 300px;
   text-align: center;
   background-color: #F0EBD2;
-  /*background-image: url("../resources/images/loading-circle.gif");*/
+  background-image: url("../resources/images/loading-circle.gif");
   background-size: 40px 40px;
   background-repeat: no-repeat;
   background-position: center;
-}
+}*/
 
 </style>

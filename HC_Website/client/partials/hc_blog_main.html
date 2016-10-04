@@ -19,7 +19,7 @@
 
 				<!-- blogpost start -->
 				<article class="blogpost">
-					<div id="carousel-blog-post" class="carousel slide" data-ride="carousel" data-interval="5000">
+					<div id="carousel-blog-post" class="carousel slide" data-ride="carousel" data-interval="4000">
 						<!-- Indicators -->
 						<ol class="carousel-indicators bottom margin-clear">
 							<li data-target="#carousel-blog-post" data-slide-to="0" class="active"></li>
@@ -29,13 +29,13 @@
 
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
-							<div class="item active" ng-repeat = "post in first_post">
+							<div class="item active">
 								<div class="overlay-box">
 									<div class="overlay-container">
-										<img src="[[post.img_url]]" alt="">
-										<a class="overlay-link" href="#/blog/[[post.id]]"></a>
+										<img src="[[first_post[0].img_url]]" alt="">
+										<a class="overlay-link" href="#/blog/[[first_post[0].id]]"></a>
 										<div class="carousel-title">
-											<h3>[[post.title]]</h3>
+											<h3 data-animation="animated zoomInLeft">[[first_post[0].title]]</h3>
 										</div>
 									</div>
 								</div>
@@ -46,7 +46,7 @@
 										<img src="[[post.img_url]]" alt="">
 										<a class="overlay-link" href="#/blog/[[post.id]]"></a>
 										<div class="carousel-title">
-											<h3>[[post.title]]</h3>
+											<h3 data-animation="animated zoomInLeft">[[post.title]]</h3>
 										</div>
 									</div>
 								</div>
@@ -76,112 +76,32 @@
 				<!-- blogpost end -->
 
 				<!-- blogpost start -->
-				<article class="blogpost" ng-repeat = "post in posts | limit">
+				<article class="blogpost" ng-repeat = "post in posts | limitTo: 5">
 <!-- 					<div class="embed-responsive embed-responsive-16by9">
 						<iframe class="embed-responsive-item" src="//www.youtube.com/embed/91J8pLHdDB0"></iframe>
 					</div> -->
 					<header>
-						<h2><a href="#/blog/[[first_post[0].id]]">[[first_post[0].title]]</a></h2>
+						<div class = "blog_images_container">
+							<img class="blog_images" src="[[post.img_url]]" alt="">
+						</div>
+						<h2><a href="#/blog/[[post.id]]">[[post.title]]</a></h2>
 						<div class="post-info">
 							<span class="post-date">
 <!-- 								<i class="icon-calendar"></i>
 								<span class="day">11</span>
 								<span class="month">May 2015</span> -->
-								<span class="date">[[first_post[0].created_at]]</span>
+								<span class="date">[[post.created_at | date: mediumDate]]</span>
 							</span>
-							<span class="submitted"><i class="icon-user-1"></i> by <a href="#">John Doe</a></span>
-							<span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
 						</div>
 					</header>
 					<div class="blogpost-content">
-						<p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum. In iaculis lectus vel augue eleifend dignissim. Aenean viverra semper sollicitudin.</p>
+						<p ng-bind-html="post.description"></p>
 					</div>
 					<footer class="clearfix">
-						<div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-						<div class="link pull-right"><i class="icon-link"></i><a href="#">Read More</a></div>
+						<div class="link pull-right"><i class="icon-link"></i><a href="#/blog/[[post.id]]">Read More</a></div>
 					</footer>
 				</article>
 				<!-- blogpost end -->
-
-				<!-- blogpost start -->
-				<article class="blogpost">
-					<div class="audio-wrapper">
-						<iframe height="166" class="margin-clear" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/231321623&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-					</div>
-					<header>
-						<h2><a href="blog-post.html">Audio post</a></h2>
-						<div class="post-info">
-							<span class="post-date">
-								<i class="icon-calendar"></i>
-								<span class="day">10</span>
-								<span class="month">May 2015</span>
-							</span>
-							<span class="submitted"><i class="icon-user-1"></i> by <a href="#">John Doe</a></span>
-							<span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
-						</div>
-					</header>
-					<div class="blogpost-content">
-						<p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum. In iaculis lectus vel augue eleifend dignissim. Aenean viverra semper sollicitudin.</p>
-					</div>
-					<footer class="clearfix">
-						<div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-						<div class="link pull-right"><i class="icon-link"></i><a href="#">Read More</a></div>
-					</footer>
-				</article>
-				<!-- blogpost end -->
-
-				<!-- blogpost start -->
-				<article class="blogpost">
-					<header>
-						<h2><a href="blog-post.html">Text Post</a></h2>
-						<div class="post-info">
-							<span class="post-date">
-								<i class="icon-calendar"></i>
-								<span class="day">09</span>
-								<span class="month">May 2015</span>
-							</span>
-							<span class="submitted"><i class="icon-user-1"></i> by <a href="#">John Doe</a></span>
-							<span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
-						</div>
-					</header>
-					<div class="blogpost-content">
-						<p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum. In iaculis lectus vel augue eleifend dignissim. Aenean viverra semper sollicitudin.</p>
-					</div>
-					<footer class="clearfix">
-						<div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-						<div class="link pull-right"><i class="icon-link"></i><a href="#">Read More</a></div>
-					</footer>
-				</article>
-				<!-- blogpost end -->
-
-				<!-- blogpost start -->
-				<article class="blogpost">
-					<div class="overlay-container">
-						<img src="images/blog-2.jpg" alt="">
-						<a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
-					</div>
-					<header>
-						<h2><a href="blog-post.html">Cute Robot</a></h2>
-						<div class="post-info">
-							<span class="post-date">
-								<i class="icon-calendar"></i>
-								<span class="day">08</span>
-								<span class="month">May 2015</span>
-							</span>
-							<span class="submitted"><i class="icon-user-1"></i> by <a href="#">John Doe</a></span>
-							<span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
-						</div>
-					</header>
-					<div class="blogpost-content">
-						<p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum. In iaculis lectus vel augue eleifend dignissim. Aenean viverra semper sollicitudin.</p>
-					</div>
-					<footer class="clearfix">
-						<div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-						<div class="link pull-right"><i class="icon-link"></i><a href="#">Read More</a></div>
-					</footer>
-				</article>
-				<!-- blogpost end -->
-
 				<!-- pagination start -->
 				<nav>
 					<ul class="pagination">
@@ -212,84 +132,18 @@
 					</div>	
 
 					<div class="block clearfix">
-						<h3 class="title">Popular Tags</h3>
-						<div class="separator-2"></div>
-						<div class="tags-cloud">
-							<div class="tag">
-								<a href="#">energy</a>
-							</div>
-							<div class="tag">
-								<a href="#">business</a>
-							</div>
-							<div class="tag">
-								<a href="#">food</a>
-							</div>
-							<div class="tag">
-								<a href="#">fashion</a>
-							</div>
-							<div class="tag">
-								<a href="#">finance</a>
-							</div>
-							<div class="tag">
-								<a href="#">culture</a>
-							</div>
-							<div class="tag">
-								<a href="#">health</a>
-							</div>
-							<div class="tag">
-								<a href="#">sports</a>
-							</div>
-							<div class="tag">
-								<a href="#">life style</a>
-							</div>
-							<div class="tag">
-								<a href="#">books</a>
-							</div>
-							<div class="tag">
-								<a href="#">lorem</a>
-							</div>
-							<div class="tag">
-								<a href="#">ipsum</a>
-							</div>
-							<div class="tag">
-								<a href="#">responsive</a>
-							</div>
-							<div class="tag">
-								<a href="#">style</a>
-							</div>
-							<div class="tag">
-								<a href="#">finance</a>
-							</div>
-							<div class="tag">
-								<a href="#">sports</a>
-							</div>
-							<div class="tag">
-								<a href="#">technology</a>
-							</div>
-							<div class="tag">
-								<a href="#">support</a>
-							</div>
-							<div class="tag">
-								<a href="#">life style</a>
-							</div>
-							<div class="tag">
-								<a href="#">books</a>
-							</div>
-						</div>
-					</div>
-					<div class="block clearfix">
 						<h3 class="title">Latest News</h3>
 						<div class="separator-2"></div>
 						<div class="media margin-clear" ng-repeat = "post in posts | limitTo: 5">
 							<div class="media-left">
 								<div class="overlay-container">
 									<img class="media-object" src="[[post.img_url]]" alt="blog-thumb">
-									<a href="#/blog/[[post.id]]" class="overlay-link small"><i class="fa fa-link"></i></a>
+									<a href="#/blog/[[post.id]]" class="overlay-link small" ng-click="newPost()"><i class="fa fa-link"></i></a>
 								</div>
 							</div>
 							<div class="media-body">
 								<h6 class="media-heading"><a href="#/blog/[[post.id]]">[[post.title]]</a></h6>
-								<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>[[post.created_at]]</p>
+								<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>[[post.created_at | date: mediumDate]]</p>
 							</div>
 							<hr>
 						</div>
@@ -315,4 +169,35 @@
 
 <script type="text/javascript">
 	$.getScript('js/template.js');
+	$('.carousel').carousel({
+		interval: 4000
+	});
+
+	(function( $ ) {
+
+    //Function to animate slider captions 
+    function doAnimations( elems ) {
+        //Cache the animationend event in a variable
+        var animEndEv = 'webkitAnimationEnd animationend';
+        
+        elems.each(function () {
+            var $this = $(this),
+                $animationType = $this.data('animation');
+            $this.addClass($animationType).one(animEndEv, function () {
+                $this.removeClass($animationType);
+            });
+        });
+    }
+    
+    //Variables on page load 
+    var $myCarousel = $('#carousel-blog-post'),
+        $firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
+    //Other slides to be animated on carousel slide event 
+    $myCarousel.on('slide.bs.carousel', function (e) {
+        var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
+        doAnimations($animatingElems);
+    });  
+    
+})(jQuery);
+
 </script>
