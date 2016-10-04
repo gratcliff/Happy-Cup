@@ -1838,11 +1838,6 @@ h5 + .separator {
   }
 }
 
-.blogpost-content img {
-  /*width: 100%;*/
-  margin: 0 auto;
-}
-
 /* Comments
 ---------------------------------- */
 #comments {
@@ -7896,7 +7891,7 @@ h6.media-heading {
 /* Google maps
 ---------------------------------- */
 #map-canvas {
-  height: 300px;
+  height: 450px;
 }
 
 #map-canvas.small {
@@ -7912,7 +7907,7 @@ h6.media-heading {
 }
 
 #collapseMap.in {
-  height: 300px;
+  height: 450px;
 }
 
 .footer-content #map-canvas {

@@ -90,18 +90,6 @@ body, h1, h2, h3, h4, h5, p{
 	vertical-align: middle;
 }
 
-@media only screen and (min-width: 600px) {
-	/* this block causes issues with modals on mobile devices */
-	.modal:before {
-	  content: '';
-	  display: inline-block;
-	  height: 100%;
-	  vertical-align: middle;
-	  margin-right: -4px;
-	}
-   
-}
-
 .modal-dialog {
   display: inline-block;
   text-align: left;
@@ -326,20 +314,29 @@ fieldset legend {
 	
 }
 
-@media (max-width: 768px) {
-	.modal-dialog {
-    width: 96%;
-  }
-  #video-banner-feature-1 {
-  	margin-left: inherit;
-  }
+/* v-accordion */
+
+.vAccordion--default v-pane.is-expanded > v-pane-header {
+	border-bottom-color: #69321f;
 }
 
-@media (max-width: 992px) {
-  #video-banner-feature-1 {
-  	margin-left: 0px;
-  }
+.vAccordion--default v-pane-header::after, .vAccordion--default v-pane-header::before {
+	background-color: #69321f;
 }
+
+/* end v-accordion */
+
+
+/* Google Maps */
+
+#map-canvas {
+  height: 300px;
+}
+
+#collapseMap.in {
+  height: 300px;
+}
+
 
 /*carousel on blog page*/
 .overlay-box img {
@@ -417,6 +414,42 @@ fieldset legend {
 #blog_post_img {
 	max-height: 600px;
 	overflow: hidden;
+}
+
+.blogpost-content img {
+  /*width: 100%;*/
+  margin: 0 auto;
+}
+
+
+
+
+/* media queries  */
+
+@media (max-width: 768px) {
+	.modal-dialog {
+    width: 96%;
+  }
+  #video-banner-feature-1 {
+  	margin-left: inherit;
+  }
+}
+
+@media (max-width: 992px) {
+  #video-banner-feature-1 {
+  	margin-left: 0px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+	.modal:before {
+	  content: '';
+	  display: inline-block;
+	  height: 100%;
+	  vertical-align: middle;
+	  margin-right: -4px;
+	}
+   
 }
 
 
