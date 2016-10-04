@@ -83,9 +83,9 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 			name: sub.name,
 			roast: order.roast,
 			grind: order.grind,
-			subtotal: order.price
+			subtotal: sub.pricing
 		};
-
+		// console.log(data);
 		shop_factory.addSubscriptionsToCart(data, function (newCart){
 
 			$timeout(function(){

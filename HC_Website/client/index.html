@@ -298,6 +298,7 @@
 																			</tr>
 																		</thead>
 																		<tbody>
+																			<!-- Coffee In Cart -->
 																			<tr ng-if="shoppingCart.coffee.length">
 																				<th colspan="4" class="text-center">Coffee</th>
 																			</tr>
@@ -307,6 +308,18 @@
 																				<td>[[coffee.size.qty]]</td>
 																				<td class="amount">$[[coffee.subtotal | number: 2 ]]</td>
 																			</tr>
+
+																			<!-- Subscriptions in Cart -->
+																			<tr ng-if = 'shoppingCart.subscriptions.length'>
+																				<th colspan = "4" class="text-center">Subscriptions</th></tr>
+																			<tr ng-repeat = 'subscription in shoppingCart.subscriptions | orderBy: ["-qty", "name"]'>
+																				<td class ='quantity'>[[subscription.qty]]</td>
+																				<td class = 'product'><a href="shop-product.html">[[subscription.name]]</a><span class = 'small'>[[subscription.roast.roast_name]]</span></td>
+																				<td></td>
+																				<td class = 'amount'>$[[subscription.subtotal | number: 2]]</td>
+																			</tr>
+
+																			<!-- Merch in Cart -->
 																			<tr ng-if="shoppingCart.merch.length">
 																			<th colspan="4">Merchandise</th>
 																			</tr>

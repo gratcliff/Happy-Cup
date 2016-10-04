@@ -141,9 +141,9 @@
 							<td class="hidden-xs"><select class = 'form-control' ng-init="order.grind=subscription.grinds[0]" ng-options = 'grind.type for grind in subscription.grinds track by grind.id' ng-model = 'order.grind'></select>
 							</td>
 
-							<td >$[[subscription.pricing]].00</td>
+							<td>$[[subscription.pricing]].00</td>
 							<td>
-								<button class = 'margin-clear btn btn-brown hidden-xs' ng-click = 'addSubscriptionToCart(sub, order, $index)' ng-disabled = 'subscription.addingProduct'><span ng-if = '!subscription.addingProduct'>Add To Cart</span><span ng-if='subscription.addingProduct'>Item Added</span></button>
+								<button class = 'margin-clear btn btn-brown hidden-xs' ng-click = 'addSubscriptionsToCart(subscription, order, $index)' ng-disabled = 'subscription.addingProduct'><span ng-if = '!subscription.addingProduct'>Add To Cart</span><span ng-if='subscription.addingProduct'>Item Added</span></button>
 							</td>
 						</tr>
 					</tbody>
