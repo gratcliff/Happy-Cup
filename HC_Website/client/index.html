@@ -69,9 +69,12 @@
 		<script type = 'text/javascript' src="js/bower_components/angular/angular.js"></script>
 	    <script type = 'text/javascript' src="js/bower_components/angular-route/angular-route.js"></script>
 	    <script type = 'text/javascript' src="js/bower_components/angular-filter/dist/angular-filter.min.js"></script>
-	    <script src="js/bower_components/angular-messages/angular-messages.min.js"></script>
-		<script type="text/javascript">
-		var happy_cup = angular.module('happy_cup', ['ngRoute', 'vAccordion', 'ngAnimate', 'angular.filter', 'ngMessages']);
+	    <script type = 'text/javascript' src="js/bower_components/angular-messages/angular-messages.min.js"></script>
+	    <script type = 'text/javascript' src="js/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+	    <script type = "text/javascript" src="js/bower_components/moment/moment.js"></script>
+		<script type = "text/javascript" src="js/bower_components/angular-moment/angular-moment.js"></script>
+		<script type = "text/javascript">
+		var happy_cup = angular.module('happy_cup', ['ngRoute', 'vAccordion', 'ngAnimate', 'ngSanitize', 'angular.filter', 'ngMessages', 'angularMoment']);
 		
 			//Multiselect plug in
 			// $(document).ready(function() {
