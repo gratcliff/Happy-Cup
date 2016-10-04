@@ -44,18 +44,20 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 	}
 	$scope.openMerchandiseModal = function (merch, idx) {
 		merch.idx = idx;
-		$scope.$emite('openMerchandiseModal', merch);
+		$scope.$emit('openMerchandiseModal', merch);
 	}
 
 	$scope.$on('sendToCart', function(event, product, order, idx) {
-		console.log(product.id);
+		// console.log(product.id);
 		if (product.id < $scope.products.coffee.length){
 			$scope.addCoffeeToCart(product, order, idx);
 		}
 		else if (product.id < ($scope.products.coffee.length + $scope.products.subscriptions.length)){
 			$scope.addSubscriptionsToCart(product, order, idx);
 		}
-		else{}
+		else{
+			$scope.addMerchToCart(product, order, idx);
+		}
 	});
 
 	$scope.addCoffeeToCart = function(coffee, order, idx) {
@@ -101,5 +103,35 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 			}, 1000);
 		});
 	}
+
+	$scope.addMerchToCart = function(merch, order, idx){
+		$scope.products.subscriptions[idx].addingProduct = true;
+		var data = {
+			id: merch.id,
+			qty: 1,
+			name: merch.name,
+			subtotal: merch.pricing
+		};
+		//Can be length 1 or 3
+		if (order.roast){
+			data.roast = order.roast;
+		}
+		if (order.grind){
+			data.grind = order.grind;
+		}
+		if (order.size){
+			data.size = order.size;
+		}
+
+		console.log(data);
+		shop_factory.addMerchToCart(data, function (newCart){
+
+			$timeout(function(){
+				delete $scope.products.merchandise[idx].addingProduct
+				$scope.$emit('addedToCart');
+			}, 1000);
+		});
+	}
+
 	
 })
