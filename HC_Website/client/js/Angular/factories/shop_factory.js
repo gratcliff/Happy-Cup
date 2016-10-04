@@ -86,6 +86,30 @@ happy_cup.factory('shop_factory', function(){
 		shoppingCart.totalItems += order.qty;
 		shoppingCart.totalPrice += order.subtotal;
 		callback(shoppingCart);
+	}		
+
+	factory.addMerchandiseToCart = function(order, callback) {
+		var identicalProduct = false;
+		for (idx in shoppingCart.merchandise) {
+
+			if (shoppingCart.merchandise[idx].id === order.id &&
+			shoppingCart.merchandise[idx].grind === order.grind &&
+			shoppingCart.merchandise[idx].roast === order.roast) {
+
+				shoppingCart.merchandise[idx].qty += order.qty;
+				shoppingCart.merchandise[idx].subtotal += order.subtotal;
+				identicalProduct = true;
+				break;
+			}
+
+		}
+		if (!identicalProduct) {
+			shoppingCart.merchandise.push(order);
+		}
+
+		shoppingCart.totalItems += order.qty;
+		shoppingCart.totalPrice += order.subtotal;
+		callback(shoppingCart);
 	}			
 
 	factory.updateCart = function(cart, callback){
