@@ -335,7 +335,6 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 		var key = '******'
 		$http.get('https://maps.googleapis.com/maps/api/geocode/json?&address='+address+'&key='+key+'').success(function(response){
 			if ($("#map-canvas").length>0) {
-				console.log(response.results[0]);
 				var map, myLatlng, myZoom, marker;
 				// Set the coordinates of your location
 				myLatlng = new google.maps.LatLng(response.results[0].geometry.location.lat, response.results[0].geometry.location.lng);
@@ -343,34 +342,32 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 				myDescription = response.results[0].formatted_address;
 				setMarker(myLatlng, myDescription);
 				google.maps.event.addDomListener(window, "load", initialize);
-				checkOffset();
+				// checkOffset();
 			}
 		});
 	};
 
-	function checkOffset() {
-		console.log('checkOffset is still running in locations_controller.js');
-		if ($location.url() === '/locations') {
-			var w = window.innerWidth;
-			if (w > 980) {
-				if($('#map-canvas').offset().top + $('#map-canvas').height() >= $('#footer').offset().top)
-					$('#map-canvas').css('position', 'absolute');
-				if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top)
-					$('#map-canvas').css('position', 'fixed'); // restore when you scroll up
-			} else {
-				$('#map-canvas').css('position', 'relative');
-				$('#map-canvas').css('margin-left', '5px');
-			}
-		}
-		
-	}
+	// function checkOffset() {
+	// 	if ($location.url() === '/locations') {
+	// 		var w = window.innerWidth;
+	// 		if (w > 980) {
+	// 			if($('#map-canvas').offset().top + $('#map-canvas').height() >= $('#footer').offset().top)
+	// 				$('#map-canvas').css('position', 'absolute');
+	// 			if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top)
+	// 				$('#map-canvas').css('position', 'fixed'); // restore when you scroll up
+	// 		} else {
+	// 			$('#map-canvas').css('position', 'relative');
+	// 			$('#map-canvas').css('margin-left', '5px');
+	// 		}
+	// 	}
+	// }
 
-	$(document).ready(function(){
-		checkOffset();
-	});
-	$(document).scroll(function() {
-		checkOffset();
-	});
+	// $(document).ready(function(){
+	// 	checkOffset();
+	// });
+	// $(document).scroll(function() {
+	// 	checkOffset();
+	// });
 
 
 	var map, myLatlng, myZoom, marker;
@@ -384,7 +381,7 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 			zoom: myZoom,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			center: myLatlng,
-			scrollwheel: false,
+			scrollwheel: true,
 			styles: //style goes here 
 			[
 			    {
@@ -711,12 +708,11 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 		google.maps.event.addDomListener(window, "resize", function() {
 			// map.setCenter(myLatlng);
 			setMarker(myLatlng);
-			checkOffset();
+			// checkOffset();
 		});
 	}
 
     function setMarker(position, description) {
-    	console.log('setting marker');
         //Remove previous Marker.
         if (marker != null) {
             marker.setMap(null);
@@ -733,7 +729,7 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
         var infoWindow = new google.maps.InfoWindow();
         infoWindow.setContent('<a href = "https://maps.google.com/maps?q='+description+'" target="_blank">'+description+'</a>');
         infoWindow.open(map, marker);
-        checkOffset();
+        // checkOffset();
     };
 
 });
