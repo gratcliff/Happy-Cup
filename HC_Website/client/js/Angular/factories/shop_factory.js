@@ -16,6 +16,7 @@ happy_cup.factory('shop_factory', function(){
 		review : false,
 		complete : false
 	}
+	
 	shoppingCart.countTotals = function() {
 		var totalItems = 0;
 		var totalPrice = 0;
@@ -66,7 +67,7 @@ happy_cup.factory('shop_factory', function(){
 	factory.updateCart = function(cart, callback){
 		var nonZeroQtyCheck = [];
 		for (idx in cart.coffee) {
-			if (cart.coffee[idx].qty) {
+			if (cart.coffee[idx].qty !== 0) {
 				nonZeroQtyCheck.push(cart.coffee[idx]);
 			}
 		}
@@ -75,7 +76,7 @@ happy_cup.factory('shop_factory', function(){
 		nonZeroQtyCheck = [];
 
 		for (idx in cart.merch) {
-			if (cart.merch[idx].qty) {
+			if (cart.merch[idx].qty !== 0) {
 				nonZeroQtyCheck.push(cart.merch[idx]);
 			}
 		}
@@ -106,13 +107,6 @@ happy_cup.factory('shop_factory', function(){
 		}
 		callback(shoppingCart);
 	};
-
-	factory.submitBillingInfo = function(billingInfo, shippingInfo, callback) {
-		shoppingCart.checkoutStatus.payment = true;
-		shoppingCart.billingInfo = billingInfo;
-		shoppingCart.shippingInfo = shippingInfo;
-		callback();
-	}
 
 
 	return factory;

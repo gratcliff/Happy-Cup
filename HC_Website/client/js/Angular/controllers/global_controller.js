@@ -120,10 +120,17 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 
 	$scope.$on('openCoffeeModal', function(event, coffee) {
 		$scope.coffeeModal = coffee;
-		$scope.modalOrder = {}
-		$scope.modalOrder.grind = coffee.grinds[0]
-		$scope.modalOrder.qty = coffee.pricing[0]
+		$scope.modalOrder = {};
+		$scope.modalOrder.grind = coffee.grinds[0];
+		$scope.modalOrder.qty = coffee.pricing[0];
 	});
+
+	$scope.$on('openSubscriptionModal', function(event, sub){
+		$scope.subscriptionModal = sub;
+		$scope.modalOrder = {};
+		$scope.modalOrder.grind = sub.grinds[0];
+		$scope.modalOrder.roast = sub.roasts[0];
+	})
 
 	$scope.broadcastToCart = function(coffee, order, idx) {
 		$scope.addingProduct = true;

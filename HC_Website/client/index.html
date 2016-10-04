@@ -492,6 +492,7 @@
 				</div>
 			</div>
 			<!-- User Login Modal End -->
+
 			<!--Coffee Modal -->
 			<div class="modal fade" id="coffee_modal" tabindex="-1" role="dialog" aria-labelledby="coffee_modal_label" aria-hidden="true">
 				<div class="modal-dialog">
@@ -536,6 +537,51 @@
 				</div>
 			</div>
 			<!-- End Coffee Modals -->
+
+			<!-- Subscription Modals -->
+			<!-- Six Month Sub Modal-->
+				<div class="modal fade" id="subscription_modal" tabindex="-1" role="dialog" aria-labelledby="subscription_modal_label" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							</div>
+							<div class="modal-body">
+								<div class = 'container-fluid'>
+									<div class = 'row'>
+										<div class="col-md-5 text-center">
+											<img ng-src="[[subscriptionModal.img_src]]" alt="[[subscriptionModal.name]]">
+										</div>
+										<div class = 'col-md-7'>
+											<h3>[[subscriptionModal.name]]</h3>
+											<p>[[subscriptionModal.description]]</p>
+											<form class = 'form-horizontal' role = 'form'>
+												<div class = 'form-group has-feedback'>
+													<label for ='size' class = 'col-sm-2 control-label'> Coffee:</label>
+													<div class = 'col-sm-8'> 
+													 	<select class = 'form-control' ng-options = 'roast.roast_name for roast in subscriptionModal.roasts track by roast.id' ng-model = 'modalOrder.roast'></select>
+													</div>
+												</div>
+												<div class = 'form-group has-feedback'>
+													<label for = 'grind' class = 'col-sm-2 control-label'>Grind:</label>
+													<div class = 'col-sm-8'>  
+														<select class = 'form-control' ng-options = 'grind.type for grind in subscriptionModal.grinds track by grind.id' ng-model = 'modalOrder.grind'></select>
+													</div>
+												</div>
+												<div class="form-group text-center">
+														<button type="submit" class="btn btn-group btn-default btn-animated" ng-click="broadcastToCart(subscriptionModal, modalOrder, subscriptionModal.idx)"><span ng-if="!addingProduct">Add To Cart</span><span ng-if="addingProduct">Item Added</span><i class="fa fa-shopping-cart"></i></button>
+														<button type="button" class="btn btn-group btn-dark" data-dismiss="modal">Cancel</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- End Subscription Modals -->
 
 
 			<div id="ngview-div" ng-view=''>

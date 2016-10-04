@@ -34,10 +34,18 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 	}
 
 	$scope.openCoffeeModal = function(coffee, idx) {
-		coffee.idx = idx
-		$scope.$emit('openCoffeeModal', coffee)
+		coffee.idx = idx;
+		$scope.$emit('openCoffeeModal', coffee);
 		
 	};
+	$scope.openSubscriptionModal = function (sub, idx) {
+		sub.idx =  idx;
+		$scope.$emit('openSubscriptionModal', sub);
+	}
+	$scope.openMerchandiseModal = function (merch, idx) {
+		merch.idx = idx;
+		$scope.$emite('openMerchandiseModal', merch);
+	}
 
 	$scope.$on('sendToCart', function(event, coffee, order, idx) {
 		$scope.addCoffeeToCart(coffee, order, idx);
