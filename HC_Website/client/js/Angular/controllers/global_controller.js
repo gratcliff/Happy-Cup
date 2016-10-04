@@ -115,27 +115,39 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 
 	//event listeners
 
-	$scope.$on('getShoppingCart', function(event, callback){
+	$scope.$on('getShoppingCart', function (event, callback){
 		callback($scope.shoppingCart);
 	});
 
-	$scope.$on('openCoffeeModal', function(event, coffee) {
+	$scope.$on('openCoffeeModal', function (event, coffee) {
 		$scope.coffeeModal = coffee;
 		$scope.modalOrder = {};
 		$scope.modalOrder.grind = coffee.grinds[0];
 		$scope.modalOrder.qty = coffee.pricing[0];
 	});
 
-	$scope.$on('openSubscriptionModal', function(event, sub){
+	$scope.$on('openSubscriptionModal', function (event, sub){
 		$scope.subscriptionModal = sub;
 		$scope.modalOrder = {};
 		$scope.modalOrder.grind = sub.grinds[0];
 		$scope.modalOrder.roast = sub.roasts[0];
 	})
 
-	$scope.broadcastToCart = function(coffee, order, idx) {
+	$scope.$on('openMerchandiseModal', function (event, merch){
+		$scope.merchandiseModal = merch;
+		$scope.modalOrder = {};
+		if(merch.roasts){
+			$scope.modalOrder.grind = merch.roasts[0];
+			$scope.modalOrder.grind = merch.grinds[0];
+		}
+		if (merch.size){
+			$scope.modalOrder.size = merch.size[0];
+		}		
+	})
+
+	$scope.broadcastToCart = function(product, order, idx) {
 		$scope.addingProduct = true;
-		$scope.$broadcast('sendToCart', coffee, order, idx);
+		$scope.$broadcast('sendToCart', product, order, idx);
 	}
 
 	// event listener eceived from shop_controller.addToCart()

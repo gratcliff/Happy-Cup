@@ -15,10 +15,10 @@ happy_cup.factory('content_factory', function(){
 					coffee : [
 						{
 							id : 1,
+							type: {id: 1, type: 'coffee'},
 							name : 'The Buzz',
 							roast : 'Medium Roast',
 							description : 'A sweet coffee with notes of ripe blueberries and rich dark chocolate. Pleasantly complex with a smooth silky body and a clean brisk finish.',
-							// qty_available : ['12oz', '2lbs', '5lbs'],
 							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
 							pricing : [
 								{qty: '12oz', price: 12.99},
@@ -29,10 +29,10 @@ happy_cup.factory('content_factory', function(){
 						},
 						{
 							id : 2,
+							type: {id: 1, type: 'coffee'},
 							name : 'Boom! Boom!',
 							roast : 'Dark Roast',
 							description : 'The rich, nutty, smoky, bold flavors of our Dark Roast are a classic blend for the dark coffee enthusiast.',
-							// qty_available : ['12oz', '2lbs', '5lbs'],
 							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
 							pricing : [
 								{qty: '12oz', price: 12.99},
@@ -43,10 +43,10 @@ happy_cup.factory('content_factory', function(){
 						},
 						{
 							id : 3,
+							type: {id: 1, type: 'coffee'},
 							name : 'Morning Madness',
 							roast : 'Espresso Roast',
 							description : 'A blend of Organic, Rainforest Alliance and Direct Trade coffees that combine to produce a smooth and luxurious coffee. Rich chocolate and a hint of roasted nuts lead by a touch of clean citrus.',
-							// qty_available : ['12oz', '2lbs', '5lbs'],
 							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
 							pricing : [
 								{qty: '12oz', price: 12.99},
@@ -57,10 +57,10 @@ happy_cup.factory('content_factory', function(){
 						},
 						{
 							id : 4,
+							type: {id: 1, type: 'coffee'},
 							name : 'Decaffeination',
 							roast : 'Decaf',
 							description : 'Crisp and sweet with hints of bakers chocolate and roasted nuts. A well balanced taste, not your typical decaf.',
-							// qty_available : ['12oz', '2lbs', '5lbs'],
 							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
 							pricing : [
 								{qty: '12oz', price: 12.99},
@@ -71,10 +71,10 @@ happy_cup.factory('content_factory', function(){
 						},
 						{
 							id : 5,
+							type: {id: 1, type: 'coffee'},
 							name : 'Happy Heart',
 							roast : 'Single Origin - Ethiopia',
 							description : 'Kossa Geshe is a vibrant Ethiopian natural from a single farm in the Limmu Kossa District near the Kebena Forest. A fruit-forward, creamy, full-bodied coffee. Honey-sweetness and juicy berries give way to a floral, tea-like finish.',
-							// qty_available : ['12oz', '2lbs', '5lbs'],
 							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
 							pricing : [
 								{qty: '12oz', price: 12.99},
@@ -85,10 +85,10 @@ happy_cup.factory('content_factory', function(){
 						},
 						{
 							id : 6,
+							type: {id: 1, type: 'coffee'},
 							name : 'Pondok Baru',
 							roast : 'Single Origin - Sumatra',
 							description : 'Produced in the Aceh district of northern Sumatra by a group of 80 farming families. Full bodied with a syrupy mouthfeel. Strong, rich, and earthy, with a hint of bakers chocolate.',
-							// qty_available : ['12oz', '2lbs', '5lbs'],
 							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
 							pricing : [
 								{qty: '12oz', price: 12.99},
@@ -101,26 +101,72 @@ happy_cup.factory('content_factory', function(){
 
 					subscriptions: [
 						{
-							id: 1,
+							id: 7,
+							type: {id: 2, type: 'subscription'},
 							name: 'Six Month Subscription',
 							description: 'Happy Cup sent directly to your door for six months! A six month subscription gives you a chance to try one bag each of our current coffee lineup!',
-							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
-							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
 							pricing : 105.00,
 							img_src: "resources/images/products/6mo_sub.png" 
 						},
 						{
-							id: 2,
+							id: 8,
+							type: {id: 2, type: 'subscription'},
 							name: 'Twelve Month Subscription',
 							description: 'Happy Cup sent directly to your door for an entire year! Choose your favorite roast, or switch things up every month with the roasters choice option.',
-							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
 							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
 							pricing : 200.00,
 							img_src: "resources/images/products/12mo_sub.png"
 						},
 					],
-					gift_options: [
-						{}
+					merchandise: [
+						{
+							id: 9,
+							type: {id: 3, type: 'merchandise'},
+							name: 'Mug Gift Box',
+							description: 'The perfect cup! The gift mug set includes one 18 oz. mug, a 12 oz. bag of any coffee variety, and a handwritten thank you card from our Happy Cup crew. A quick simple way to get your artisan coffee fix!',
+							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
+							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
+							pricing: 16.75,
+							img_src: 'resources/images/products/gift_mug.png'
+						},
+						{
+							id: 10,
+							type: {id: 3, type: 'merchandise'},
+							name: 'Gift Box',
+							description: 'A great gift for the coffee lover. Each gift box includes a mug, T-Shirt, and a bag of your favorite coffee. Each box is packaged and prepared by our all star people with potential, so with every purchase, you are helping to keep our amazing staff in a fulfilling job!',
+							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
+							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
+							size: [{id: 1, size: 'Small'}, {id: 2, size: 'Medium'}, {id: 3, size: 'Large'}, {id: 4, size: 'Extra-Large'}, {id: 5, size: 'XX-Large'}],
+							pricing: 27.00,
+							img_src: 'resources/images/products/gift_box.png'
+						},
+						{
+							id: 11,
+							type: {id: 3, type: 'merchandise'},
+							name: 'Three Coffee Variety',
+							description: "A gift box for the coffee lover! Each box contains 3 bags of coffee of your choosing, as well as a hand written letter of appreciation from our amazing staff. Great for those who can't make up their mind, or to spread the happiness to a new Happy Cup drinker!",
+							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
+							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
+							pricing: 36.00,
+							img_src: 'resources/images/products/3_coffee_gift_box.png'
+						},
+						{
+							id: 12,
+							type: {id: 3, type: 'merchandise'},
+							name: 'Happy Cup Mug',
+							description: 'Keep your cup half full with this large ceramic mug.',
+							pricing: 5.50,
+							img_src: 'resources/images/products/mug.png'
+						},
+						{
+							id: 13,
+							type: {id: 3, type: 'merchandise'},
+							name: 'Happy Tee',
+							description: 'Show your support with this 100% cotton Happy Cup T-shirt.',
+							size: [{id: 1, size: 'Small'}, {id: 2, size: 'Medium'}, {id: 3, size: 'Large'}, {id: 4, size: 'Extra-Large'}, {id: 5, size: 'XX-Large'}],
+							pricing: 15.00,
+							img_src: 'resources/images/products/happy_t.png'
+						}
 					],
 				}
 
@@ -182,6 +228,11 @@ happy_cup.factory('content_factory', function(){
 			content.cafe = {
 
 			};
+
+			angular.forEach(content.home.products.subscriptions, function(sub, key){
+				sub.roasts = angular.copy(content.home.products.coffee);
+				console.log(sub)
+			});
 
 			callback(content);
 		
