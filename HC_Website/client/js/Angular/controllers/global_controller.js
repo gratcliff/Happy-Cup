@@ -132,9 +132,9 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 		$scope.modalOrder.roast = sub.roasts[0];
 	})
 
-	$scope.broadcastToCart = function(coffee, order, idx) {
+	$scope.broadcastToCart = function(product, order, idx) {
 		$scope.addingProduct = true;
-		$scope.$broadcast('sendToCart', coffee, order, idx);
+		$scope.$broadcast('sendToCart', product, order, idx);
 	}
 
 	// event listener eceived from shop_controller.addToCart()
