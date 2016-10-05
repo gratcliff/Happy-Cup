@@ -316,6 +316,10 @@ fieldset legend {
 
 /* v-accordion */
 
+#MyAccordion a{
+	color: #69321f;
+}
+
 .vAccordion--default v-pane.is-expanded > v-pane-header {
 	border-bottom-color: #69321f;
 }

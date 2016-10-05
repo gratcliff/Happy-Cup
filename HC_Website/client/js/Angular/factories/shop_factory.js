@@ -111,7 +111,6 @@ happy_cup.factory('shop_factory', function(){
 			}
 
 		}
-		console.log(shoppingCart);
 		if (!identicalProduct) {
 			shoppingCart.merch.push(order);
 		}

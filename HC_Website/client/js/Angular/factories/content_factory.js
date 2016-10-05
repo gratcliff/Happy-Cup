@@ -236,7 +236,6 @@ happy_cup.factory('content_factory', function(){
 
 			angular.forEach(content.home.products.subscriptions, function(sub, key){
 				sub.roasts = angular.copy(content.home.products.coffee);
-				console.log(sub)
 			});
 			angular.forEach(content.home.products.merchandise, function(merch, key){
 

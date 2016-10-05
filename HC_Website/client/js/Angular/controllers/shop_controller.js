@@ -3,7 +3,6 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 	content_factory.getPageContent('home', function(content){
 		$scope.products = content.products;
 		$scope.coffeeModal = {}
-		console.log(content.products);
 	});
 
 // console.log($scope.products);
@@ -78,6 +77,7 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 			
 			$timeout(function(){
 				delete $scope.products.coffee[idx].addingProduct
+				$('#coffee_modal').modal('hide')
 				// emits completion event to global controller
 				$scope.$emit('addedToCart');
 			}, 1000);
@@ -100,6 +100,7 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 
 			$timeout(function(){
 				delete $scope.products.subscriptions[idx].addingProduct
+				$('#subscription_modal').modal('hide')
 				$scope.$emit('addedToCart');
 			}, 1000);
 		});
@@ -129,6 +130,7 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 
 			$timeout(function(){
 				delete $scope.products.merchandise[idx].addingProduct
+				$('#merch_modal').modal('hide')
 				$scope.$emit('addedToCart');
 			}, 1000);
 		});

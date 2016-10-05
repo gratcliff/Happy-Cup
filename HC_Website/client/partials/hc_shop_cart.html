@@ -34,7 +34,7 @@
 									<input type="number" class="form-control" ng-model="coffee.qty" ng-change="currentCart.unsavedChanges=true; coffee.subtotal = coffee.size.price * coffee.qty; currentCart.countTotals();" min="0">
 								</div>											
 							</td>
-							<td class="remove"><button class="btn btn-default" ng-show="coffee.qty" ng-click="coffee.qty = 0; removeProduct($index, 'coffee');">Remove</button></td>
+							<td class="remove"><button class="btn btn-default" ng-show="coffee.qty" ng-click="coffee.qty = 0; removeProduct($index, 'coffee');" move-to-top>Remove</button></td>
 							<td class="amount">$[[coffee.subtotal | number: 2]]</td>
 						</tr>
 						<tr ng-show="currentCart.totalItems">
@@ -46,7 +46,7 @@
 										
 										<input type="text" class="form-control" ng-model="currentCart.coupon.code" ng-disabled="currentCart.coupon.valid">
 
-										<div class="input-group-addon" id="coupon-input-addon" ng-show="currentCart.coupon.code" >
+										<div class="input-group-addon" id="coupon-input-addon" ng-show="currentCart.coupon.code">
 
 											<button class="btn btn-default" ng-click="submitCoupon()" ng-show="!currentCart.coupon.valid">Apply</button>
 											<button class="btn btn-default" ng-click="currentCart.coupon.code = undefined; currentCart.coupon.valid = false;" ng-show="currentCart.coupon.valid">Remove</button>

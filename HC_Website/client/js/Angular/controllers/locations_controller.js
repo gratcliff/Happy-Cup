@@ -10,6 +10,10 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 		myZoom = 12;
 		initialize(myLatlng, myZoom);
 		google.maps.event.addDomListener(window, "load", initialize);
+		$scope.$apply(function(){
+			$scope.mapLoaded = true;
+		});
+		
 	},function(error) {
 		alert('Unable to get location: ' + error.message);
 	}, options);
@@ -381,7 +385,7 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 			zoom: myZoom,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			center: myLatlng,
-			scrollwheel: true,
+			scrollwheel: false,
 			styles: //style goes here 
 			[
 			    {
@@ -548,7 +552,7 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 			        "elementType": "all",
 			        "stylers": [
 			            {
-			                "visibility": "off"
+			                "visibility": "on"
 			            }
 			        ]
 			    },
@@ -722,7 +726,7 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
         marker = new google.maps.Marker({
             position: position,
             map: map,
-            title: '<a href = "https://maps.google.com/maps?q='+description+'"</a>'
+            title: description
         });
  
         //Create and open InfoWindow.
@@ -730,6 +734,10 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
         infoWindow.setContent('<a href = "https://maps.google.com/maps?q='+description+'" target="_blank">'+description+'</a>');
         infoWindow.open(map, marker);
         // checkOffset();
+
+        marker.addListener('click', function(){
+        	infoWindow.open(map, marker);
+        });
     };
 
 });

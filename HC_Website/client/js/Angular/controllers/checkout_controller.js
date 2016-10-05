@@ -11,6 +11,7 @@ happy_cup.controller('checkout_controller', function ($scope, $location, $timeou
 			$scope.forms.checkoutForm = {}
 			$scope.billingInfo = {}
 			$scope.shippingInfo = {}
+			console.log(cart);
 		}
 		
 

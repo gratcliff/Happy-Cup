@@ -25,15 +25,36 @@
 						</tr>
 					</thead>
 					<tbody>
+						<tr ng-if="currentCart.coffee.length" >
+							<th colspan="5">Coffee</th>
+						</tr>
 						<tr ng-repeat="coffee in currentCart.coffee track by $index">
-							<td class="product">[[coffee.name]] ([[coffee.size.qty]])</a> <small>[[coffee.roast]] - [[coffee.grind.type]]</small></td>
-							<td class="price">[[coffee.size.price | number : 2]]</td>
+							<td class="product">[[coffee.name]] ([[coffee.size.qty]]) <small>[[coffee.roast]] - [[coffee.grind.type]]</small></td>
+							<td class="price">[[coffee.size.price | currency : symbol : fractonSize]]</td>
 							<td class="quantity">[[coffee.qty]]</td>
-							<td class="amount">[[coffee.subtotal | number: 2]] </td>
+							<td class="amount">[[coffee.subtotal | currency : symbol : fractonSize]] </td>
+						</tr>
+						<tr ng-if="currentCart.subscriptions.length">
+							<th colspan="5">Subscriptions</th>
+						</tr>
+						<tr ng-repeat="sub in currentCart.subscriptions track by $index">
+							<td class="product">[[sub.name]] <small>[[sub.roast.name]] - [[sub.grind.type]]</small></td>
+							<td class="price">[[sub.subtotal / sub.qty | currency : symbol : fractonSize]]</td>
+							<td class="quantity">[[sub.qty]]</td>
+							<td class="amount">[[sub.subtotal | currency : symbol : fractonSize]] </td>
+						</tr>
+						<tr ng-if="currentCart.merch.length">
+							<th colspan="5"">Merchandise</th>
+						</tr>
+						<tr ng-repeat="merch in currentCart.merch track by $index">
+							<td class="product">[[merch.name]] <span ng-if="merch.size">([[merch.size.size]] Shirt)</span> <small><span ng-if="merch.roast">[[merch.roast.name]] - [[merch.grind.type]]</span></td>
+							<td class="price">[[merch.subtotal / merch.qty | currency : symbol : fractonSize]]</td>
+							<td class="quantity">[[merch.qty]]</td>
+							<td class="amount">[[merch.subtotal | currency : symbol : fractonSize]] </td>
 						</tr>
 						<tr>
 							<td class="total-quantity" colspan="3">Subtotal</td>
-							<td class="amount">$[[currentCart.totalPrice | number : 2]]</td>
+							<td class="amount">[[currentCart.totalPrice | currency : symbol : fractonSize]]</td>
 						</tr>
 						<tr ng-if="currentCart.coupon.valid">										
 							<td class="total-quantity" colspan="2">Discount Coupon</td>
@@ -41,8 +62,8 @@
 							<td class="amount">[[currentCart.coupon.discount * 100 | number : 0]]%</td>
 						</tr>
 						<tr>
-							<td class="total-quantity" colspan="3">Total [[currentCart.totalItems]] Items</td>
-							<td class="total-amount">$[[currentCart.totalPrice * (1 - currentCart.coupon.discount) | number : 2]]</td>
+							<td class="total-quantity" colspan="3">Total [[currentCart.totalItems]] Item<span ng-hide="currentCart.totalItems === 1">s</span></td>
+							<td class="total-amount">[[currentCart.totalPrice * (1 - currentCart.coupon.discount) | currency : symbol : fractonSize]]</td>
 						</tr>
 					</tbody>
 				</table>

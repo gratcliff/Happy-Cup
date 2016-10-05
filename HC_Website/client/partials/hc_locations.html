@@ -1,13 +1,18 @@
-<div ng-controller = 'locations_controller' >
+<div ng-controller = 'locations_controller'>
 			<!-- main-container start -->
 			<br>
 			<div class="banner" >
 				<!-- google map start -->
 				<!-- ================ -->
-				<div id="map-canvas"></div>
+				<div id="map-canvas">
+					<div class="text-center" ng-if="!mapLoaded">
+					<i class="fa fa-spinner fa-spin fa-5x"></i>
+					<h3>Loading Google Maps</h3>
+					</div>
+				</div>
 				<!-- google maps end -->
 			</div>
-			<section class="main-container">
+			<section class="main-container" ng-show="mapLoaded">
 
 				<div class="container">
 
@@ -33,7 +38,7 @@
 
 											<v-pane-content>
 												<div class = "row" ng-repeat = "x in location">
-													<p class="col-md-9 col-xs-7 col-sm-8"><a class = "scrollToMap" role = "button" ng-click="updateMap([[x.address]])"><i class="fa fa-coffee pr-10"></i></a> [[x.address]]</p>
+													<p class="col-md-9 col-xs-7 col-sm-8 scrollToMap" ng-click="updateMap([[x.address]])"><a role = "button" class="text-dark"><i class="fa fa-coffee pr-10"></i> [[x.address]]</a></p>
 													<p class="col-md-3 col-xs-5 col-sm-4"><i class="fa fa-phone pr-10"></i> [[x.number]]</p>
 												</div>
 											</v-pane-content>
