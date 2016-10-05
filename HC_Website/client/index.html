@@ -294,6 +294,10 @@
 															<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" ng-style="currentView === 'cart' ? {'background-color' : '#69321f', 'color' : 'white'} : null"><i class="icon-basket-1"></i><span ng-if="currentView != 'cart' && shoppingCart.totalItems > 0" class="cart-count default-bg">[[shoppingCart.totalItems]]</span></button>
 															<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
 																<li>
+																	<div class="panel-body text-right" ng-show="shoppingCart.totalItems">
+																		<a href="#/cart" class="btn btn-group btn-brown btn-sm pull-left" data-dismiss="dropdown">View Cart</a>
+																		<a href="#/cart/checkout" class="btn btn-group btn-brown btn-sm" data-dismiss="dropdown">Checkout</a>
+																	</div>
 																	<table class="table table-hover">
 																		<thead>
 																			<tr>
@@ -312,7 +316,7 @@
 																				<td class="quantity">[[coffee.qty]] x</td>
 																				<td class="product"><a href="shop-product.html">[[coffee.name]]</a><span class="small">[[coffee.roast]]</span></td>
 																				<td>[[coffee.size.qty]]</td>
-																				<td class="amount">$[[coffee.subtotal | number: 2 ]]</td>
+																				<td class="amount">[[coffee.subtotal | currency: symbol : fractionSize ]]</td>
 																			</tr>
 
 																			<!-- Subscriptions in Cart -->
@@ -322,29 +326,26 @@
 																				<td class ='quantity'>[[subscription.qty]]</td>
 																				<td class = 'product'><a href="shop-product.html">[[subscription.name]]</a><span class = 'small'>[[subscription.roast.roast_name]]</span></td>
 																				<td></td>
-																				<td class = 'amount'>$[[subscription.subtotal | number: 2]]</td>
+																				<td class = 'amount'>[[subscription.subtotal | currency: symbol : fractionSize ]]</td>
 																			</tr>
 
 																			<!-- Merch in Cart -->
 																			<tr ng-if="shoppingCart.merch.length">
-																			<th colspan="4">Merchandise</th>
+																			<th colspan="4" class="text-center">Merchandise</th>
 																			</tr>
 																			<tr ng-repeat="merch in shoppingCart.merch | orderBy: ['-qty','name']">
 																				<td class="quantity">[[merch.qty]] x</td>
 																				<td class="product"><a href="shop-product.html">[[merch.name]]</a></td>
 																				<td></td>
-																				<td class="amount">$[[merch.subtotal | number: 2 ]]</td>
+																				<td class="amount">[[merch.subtotal | currency: symbol : fractionSize ]]</td>
 																			</tr>
 																			<tr>
 																				<td class="total-quantity" colspan="3">Total [[shoppingCart.totalItems]] Items</td>
-																				<td class="total-amount">$[[shoppingCart.totalPrice | number : 2]]</td>
+																				<td class="total-amount">[[shoppingCart.totalPrice | currency : symbol : fractionSize ]]</td>
 																			</tr>
 																		</tbody>
 																	</table>
-																	<div class="panel-body text-right" ng-show="shoppingCart.totalItems">
-																		<a href="#/cart" class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">View Cart</a>
-																		<a href="#/cart/checkout" class="btn btn-group btn-gray btn-sm" data-dismiss="dropdown">Checkout</a>
-																	</div>
+																	
 																</li>
 															</ul>
 														</div>
@@ -577,13 +578,13 @@
 												<div class = 'form-group has-feedback'>
 													<label for ='size' class = 'col-sm-2 control-label'> Coffee:</label>
 													<div class = 'col-sm-8'> 
-													 	<select class = 'form-control' ng-options = 'roast.roast_name for roast in subscriptionModal.roasts track by roast.id' ng-model = 'modalOrder.roast'></select>
+													 	<select class = 'form-control' ng-options = 'roast.name for roast in subscriptionModal.roasts track by roast.id' ng-model = 'modalOrder.roast'></select>
 													</div>
 												</div>
 												<div class = 'form-group has-feedback'>
 													<label for = 'grind' class = 'col-sm-2 control-label'>Grind:</label>
 													<div class = 'col-sm-8'>  
-														<select class = 'form-control' ng-options = 'grind.type for grind in subscriptionModal.grinds track by grind.id' ng-model = 'modalOrder.grind'></select>
+														<select class = 'form-control' ng-options = 'grind.type for grind in modalOrder.roast.grinds track by grind.id' ng-model = 'modalOrder.grind'></select>
 													</div>
 												</div>
 												<div class="form-group text-center">
@@ -621,13 +622,13 @@
 												<div ng-if = 'merchandiseModal.roasts' class = 'form-group has-feedback'>
 													<label for ='size' class = 'col-sm-3 control-label'>Coffee:</label>
 													<div class = 'col-sm-8'> 
-													 	<select class = 'form-control' ng-options = 'roast.roast_name for roast in merchandiseModal.roasts track by roast.id' ng-model = 'modalOrder.roast'></select>
+													 	<select class = 'form-control' ng-options = 'roast.name for roast in merchandiseModal.roasts track by roast.id' ng-model = 'modalOrder.roast'></select>
 													</div>
 												</div>
 												<div ng-if = 'merchandiseModal.roasts' class = 'form-group has-feedback'>
 													<label for = 'grind' class = 'col-sm-3 control-label'>Grind:</label>
 													<div class = 'col-sm-8'>  
-														<select class = 'form-control' ng-options = 'grind.type for grind in merchandiseModal.grinds track by grind.id' ng-model = 'modalOrder.grind'></select>
+														<select class = 'form-control' ng-options = 'grind.type for grind in modalOrder.roast.grinds track by grind.id' ng-model = 'modalOrder.grind'></select>
 													</div>
 												</div>
 												<div ng-if = 'merchandiseModal.size' class = 'form-group has-feedback'>

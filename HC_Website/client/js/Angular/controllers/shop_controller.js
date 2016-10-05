@@ -106,7 +106,7 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 	}
 
 	$scope.addMerchToCart = function(merch, order, idx){
-		$scope.products.subscriptions[idx].addingProduct = true;
+		$scope.products.merchandise[idx].addingProduct = true;
 		var data = {
 			id: merch.id,
 			qty: 1,

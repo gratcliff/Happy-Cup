@@ -129,16 +129,17 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 	$scope.$on('openSubscriptionModal', function (event, sub){
 		$scope.subscriptionModal = sub;
 		$scope.modalOrder = {};
-		$scope.modalOrder.grind = sub.grinds[0];
 		$scope.modalOrder.roast = sub.roasts[0];
+		$scope.modalOrder.grind = $scope.modalOrder.roast.grinds[0];
+		
 	})
 
 	$scope.$on('openMerchandiseModal', function (event, merch){
 		$scope.merchandiseModal = merch;
 		$scope.modalOrder = {};
 		if(merch.roasts){
-			$scope.modalOrder.grind = merch.roasts[0];
-			$scope.modalOrder.grind = merch.grinds[0];
+			$scope.modalOrder.roast = merch.roasts[0];
+			$scope.modalOrder.grind = $scope.modalOrder.roast.grinds[0];
 		}
 		if (merch.size){
 			$scope.modalOrder.size = merch.size[0];

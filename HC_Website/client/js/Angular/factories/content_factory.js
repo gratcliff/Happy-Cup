@@ -14,6 +14,12 @@ happy_cup.factory('content_factory', function(){
 				products : {
 					coffee : [
 						{
+							id : 0,
+							type: {id: 1, type: 'coffee'},
+							name : 'Roaster\'s Choice',
+							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}]			
+						},
+						{
 							id : 1,
 							type: {id: 1, type: 'coffee'},
 							name : 'The Buzz',
@@ -123,9 +129,8 @@ happy_cup.factory('content_factory', function(){
 							id: 9,
 							type: {id: 3, type: 'merchandise'},
 							name: 'Mug Gift Box',
+							hasCoffee: true,
 							description: 'The perfect cup! The gift mug set includes one 18 oz. mug, a 12 oz. bag of any coffee variety, and a handwritten thank you card from our Happy Cup crew. A quick simple way to get your artisan coffee fix!',
-							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
-							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
 							pricing: 16.75,
 							img_src: 'resources/images/products/gift_mug.png'
 						},
@@ -133,9 +138,8 @@ happy_cup.factory('content_factory', function(){
 							id: 10,
 							type: {id: 3, type: 'merchandise'},
 							name: 'Gift Box',
+							hasCoffee: true,
 							description: 'A great gift for the coffee lover. Each gift box includes a mug, T-Shirt, and a bag of your favorite coffee. Each box is packaged and prepared by our all star people with potential, so with every purchase, you are helping to keep our amazing staff in a fulfilling job!',
-							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
-							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
 							size: [{id: 1, size: 'Small'}, {id: 2, size: 'Medium'}, {id: 3, size: 'Large'}, {id: 4, size: 'Extra-Large'}, {id: 5, size: 'XX-Large'}],
 							pricing: 27.00,
 							img_src: 'resources/images/products/gift_box.png'
@@ -144,9 +148,8 @@ happy_cup.factory('content_factory', function(){
 							id: 11,
 							type: {id: 3, type: 'merchandise'},
 							name: 'Three Coffee Variety',
+							hasCoffee: true,
 							description: "A gift box for the coffee lover! Each box contains 3 bags of coffee of your choosing, as well as a hand written letter of appreciation from our amazing staff. Great for those who can't make up their mind, or to spread the happiness to a new Happy Cup drinker!",
-							roasts: [{id: 1, roast_name: "Roaster's Choice"}, {id: 2, roast_name: "The Buzz"}, {id: 3, roast_name: "Boom Boom"}, {id: 4, roast_name: "Morning Madness"}, {id: 5, roast_name: "Decaffeination"}, {id: 6, roast_name: "Happy Heart"}, {id: 7, roast_name: "Pondok Baru"}],
-							grinds : [{id : 1, type: 'Whole Bean'}, {id : 2, type:'Espresso'}, {id : 3, type:'Cone Drip Filter'}, {id : 4, type:'Flat Bottom Drip Filter'}, {id : 5, type:'Chemex'}, {id : 6, type:'French Press'}],
 							pricing: 36.00,
 							img_src: 'resources/images/products/3_coffee_gift_box.png'
 						},
@@ -154,6 +157,7 @@ happy_cup.factory('content_factory', function(){
 							id: 12,
 							type: {id: 3, type: 'merchandise'},
 							name: 'Happy Cup Mug',
+							hasCoffee: false,
 							description: 'Keep your cup half full with this large ceramic mug.',
 							pricing: 5.50,
 							img_src: 'resources/images/products/mug.png'
@@ -162,6 +166,7 @@ happy_cup.factory('content_factory', function(){
 							id: 13,
 							type: {id: 3, type: 'merchandise'},
 							name: 'Happy Tee',
+							hasCoffee: false,
 							description: 'Show your support with this 100% cotton Happy Cup T-shirt.',
 							size: [{id: 1, size: 'Small'}, {id: 2, size: 'Medium'}, {id: 3, size: 'Large'}, {id: 4, size: 'Extra-Large'}, {id: 5, size: 'XX-Large'}],
 							pricing: 15.00,
@@ -232,6 +237,13 @@ happy_cup.factory('content_factory', function(){
 			angular.forEach(content.home.products.subscriptions, function(sub, key){
 				sub.roasts = angular.copy(content.home.products.coffee);
 				console.log(sub)
+			});
+			angular.forEach(content.home.products.merchandise, function(merch, key){
+
+				if (merch.hasCoffee) {
+					merch.roasts = angular.copy(content.home.products.coffee)
+				}
+
 			});
 
 			callback(content);
