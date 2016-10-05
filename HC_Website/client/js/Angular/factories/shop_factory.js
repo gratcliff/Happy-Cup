@@ -93,19 +93,30 @@ happy_cup.factory('shop_factory', function(){
 		var identicalProduct = false;
 		for (idx in shoppingCart.merch) {
 
-			//coffee
-			if (shoppingCart.merch[idx].id === order.id &&
-			shoppingCart.merch[idx].grind === order.grind &&
-			shoppingCart.merch[idx].roast === order.roast || 
-			//Overall gift
-			shoppingCart.merch[idx].id === order.id &&
-			shoppingCart.merch[idx].grind === order.grind &&
-			shoppingCart.merch[idx].roast === order.roast && 
-			shoppingCart.merch[idx].size === order.size   ||
-			//Shirt
-			shoppingCart.merch[idx].id === order.id &&
-			shoppingCart.merch[idx].size === order.size) {
+			for (key in order) {
 
+				if (key === 'qty') {
+					continue;
+				}
+
+				if (!shoppingCart.merch[idx][key]) {
+					identicalProduct = false;
+					break;
+				}
+
+				if (shoppingCart.merch[idx][key] !== order[key]) {
+					identicalProduct = false;
+					break;
+				}
+
+				// loop did not break, so values are equal
+				identicalProduct = true;
+
+
+			}
+
+			// only true if all key:values (excluding qty) are defined and equal
+			if (identicalProduct) {
 				shoppingCart.merch[idx].qty += order.qty;
 				shoppingCart.merch[idx].subtotal += order.subtotal;
 				identicalProduct = true;
