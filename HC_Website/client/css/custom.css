@@ -272,6 +272,10 @@ fieldset legend {
 	vertical-align: middle;
 }
 
+#three_cup_gift_table input[type="number"] {
+	width: 30px;
+}
+
 .product_background{
 	background-color: #e2dccd;
 }

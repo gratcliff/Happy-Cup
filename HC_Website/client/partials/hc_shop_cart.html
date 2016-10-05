@@ -60,10 +60,16 @@
 
 						<!-- Merch -->
 						<tr ng-if = 'currentCart.merch.length'>
-							<th colspan = "4"><h3>Merchandise</h3></th>
+							<th colspan = "5"><h3>Merchandise</h3></th>
 						</tr>
 						<tr ng-repeat="merch in currentCart.merch track by $index">
-							<td class="product">[[merch.name]]<small><span ng-if = 'merch.roast'>Coffee: [[merch.roast.roast_name]]</span> <span ng-if = 'merch.size'>- T-Shirt: [[merch.size.size]]</span></small></td>
+							<td class="product">[[merch.name]]
+								<small>
+									<span ng-if = '!merch.roast.length'>Coffee: [[merch.roast.name]]</span>
+									<span ng-if = 'merch.roast.length'>Coffee: <br><span ng-repeat="roast in merch.roast | unique: 'id' ">&nbsp;&nbsp;[[roast.qty]]x [[roast.name]]<br></span></span>
+									<span ng-if = 'merch.size'>- T-Shirt: [[merch.size.size]]</span>
+								</small>
+							</td>
 							<td class="price">$[[merch.price| number : 2]]</td>
 							<td class="quantity">
 								<div class="form-group">

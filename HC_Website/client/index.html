@@ -622,16 +622,37 @@
 											<form class = 'form-horizontal' role = 'form'>
 												<div ng-if = 'merchandiseModal.roasts' class = 'form-group has-feedback'>
 													<label for ='size' class = 'col-sm-3 control-label'>Coffee:</label>
-													<div ng-if = '[[merchandiseModal.name]] != "Three Coffee Variety"' class = 'col-sm-8'> 
-													 	<select class = 'form-control' ng-options = 'roast.roast_name for roast in merchandiseModal.roasts track by roast.id' ng-model = 'modalOrder.roast'></select>
+													<div ng-if = 'merchandiseModal.hasCoffee === 1' class = 'col-sm-8'> 
+													 	<select class = 'form-control' ng-options = 'roast.name for roast in merchandiseModal.roasts track by roast.id' ng-model = 'modalOrder.roast'></select>
 													</div>
-													<div ng-if = '[[merchandiseModal.name]] === "Three Coffee Variety"' class = 'col-sm-8'> 
-													 	<select class = 'form-control' ng-model = 'modalOrder.roast'>
-													 		<option ng-repeat = 'roast.name for roast in merchandiseModal.roasts track by roast.id'><input></input></option>
-													 	</select>
+													<div ng-if = 'merchandiseModal.hasCoffee > 1' class = 'col-sm-8'> 
+													 	<div class = 'dropdown has-feedback' ng-class="{'has-error': giftBoxError}"> 
+													 		<button id="three_coffee_select_btn" class="form-control dropdown-toggle text-left" data-toggle="dropdown" >&nbsp;&nbsp;[[modalOrder.roast.length]] Selected <span class="text-danger" ng-if="giftBoxError">* Must choose 3</span>
+													 		</button>
+													 		<ul id="three_cup_gift_options" class="dropdown-menu col-xs-12">
+															 	<li>
+																 	<table id="three_cup_gift_table" class="table">
+																		<tbody>
+																			<tr ng-repeat="roast in merchandiseModal.roasts track by $index" ng-show="roast.name !== 'Roaster\'s Choice'">
+																				<td>
+																				<input type="number" min="0" ng-model="roast.qty" ng-change="updateVarietyBox(merchandiseModal.roasts, merchandiseModal.hasCoffee)">
+																				 [[roast.name]]
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+															 	</li>
+															</ul>
+													 	</div>
 													</div>
 												</div>
-												<div ng-if = 'merchandiseModal.roasts' class = 'form-group has-feedback'>
+												<div ng-if = 'merchandiseModal.hasCoffee > 1' class = 'form-group has-feedback'>
+													<label for = 'grind' class = 'col-sm-3 control-label'>Grind:</label>
+													<div class = 'col-sm-8'>  
+														<select class = 'form-control' ng-options = 'grind.type for grind in modalOrder.roast[0].grinds track by grind.id' ng-model = 'modalOrder.grind'></select>
+													</div>
+												</div>
+												<div ng-if = 'merchandiseModal.hasCoffee === 1' class = 'form-group has-feedback'>
 													<label for = 'grind' class = 'col-sm-3 control-label'>Grind:</label>
 													<div class = 'col-sm-8'>  
 														<select class = 'form-control' ng-options = 'grind.type for grind in modalOrder.roast.grinds track by grind.id' ng-model = 'modalOrder.grind'></select>

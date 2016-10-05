@@ -10,7 +10,7 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 
 	content_factory.getContent(function(content){
 			$scope.globalContent = content.global;
-			$scope.forms = {}
+			$scope.forms = {};
 	});
 
 	user_factory.getCurrentUser(function(currentUser){
@@ -138,8 +138,17 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 		$scope.merchandiseModal = merch;
 		$scope.modalOrder = {};
 		if(merch.roasts){
-			$scope.modalOrder.roast = merch.roasts[0];
-			$scope.modalOrder.grind = $scope.modalOrder.roast.grinds[0];
+			if (merch.hasCoffee > 1) {
+				$scope.modalOrder.roast = [];
+				$scope.merchandiseModal.roasts = angular.copy(merch.roasts);
+				// reset qty to 0 for each option
+				angular.forEach($scope.merchandiseModal.roasts, function(roast, key){
+					roast.qty = 0;
+				});
+			} else {
+				$scope.modalOrder.roast = merch.roasts[0];
+				$scope.modalOrder.grind = $scope.modalOrder.roast.grinds[0];
+			}
 		}
 		if (merch.size){
 			$scope.modalOrder.size = merch.size[0];
@@ -147,8 +156,17 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 	})
 
 	$scope.broadcastToCart = function(product, order, idx) {
+		if (product.hasCoffee > 1) {
+
+			if (order.roast.length !== product.hasCoffee) {
+				$scope.giftBoxError = true;
+				return
+			}
+
+		}
 		$scope.addingProduct = true;
 		$scope.$broadcast('sendToCart', product, order, idx);
+
 	}
 
 	// event listener eceived from shop_controller.addToCart()
@@ -170,6 +188,31 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 
 
 	// end of event listeners
+
+	$scope.updateVarietyBox = function(choices, qtyLimit) {
+		$scope.giftBoxError = false;
+
+		var newChoices = [];
+		var qtyAdded = 0;
+		for (idx in choices) {
+			qtyAdded = 0;
+			if (choices[idx].qty > 0) {
+				for (var i=0; i < choices[idx].qty; i++) {
+					if (newChoices.length < qtyLimit) {
+						newChoices.push(choices[idx]);
+						qtyAdded++;
+					} else {
+						choices[idx].qty = qtyAdded;
+						break;
+					}
+				}
+			}
+		}
+		$scope.modalOrder.roast = newChoices;
+		$scope.modalOrder.grind = newChoices[0].grinds[0];
+
+
+	}
 
 	
 

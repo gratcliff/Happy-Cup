@@ -89,8 +89,10 @@ happy_cup.factory('shop_factory', function(){
 	}		
 
 	factory.addMerchandiseToCart = function(order, callback) {
+
 		var identicalProduct = false;
 		for (idx in shoppingCart.merch) {
+
 			//coffee
 			if (shoppingCart.merch[idx].id === order.id &&
 			shoppingCart.merch[idx].grind === order.grind &&
@@ -117,6 +119,7 @@ happy_cup.factory('shop_factory', function(){
 
 		shoppingCart.totalItems += order.qty;
 		shoppingCart.totalPrice += order.subtotal;
+		console.log(shoppingCart);
 		callback(shoppingCart);
 	}			
 
