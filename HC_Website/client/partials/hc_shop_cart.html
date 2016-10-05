@@ -26,6 +26,10 @@
 						</tr>
 					</thead>
 					<tbody>
+						<!-- Coffee -->
+						<tr ng-if = 'currentCart.coffee.length'>
+							<th colspan = "4"><h3>Coffee</h3></th>
+						</tr>
 						<tr ng-repeat="coffee in currentCart.coffee track by $index">
 							<td class="product">[[coffee.name]] ([[coffee.size.qty]])<small>[[coffee.roast]] - [[coffee.grind.type]]</small></td>
 							<td class="price">$[[coffee.size.price | number : 2]]</td>
@@ -37,6 +41,40 @@
 							<td class="remove"><button class="btn btn-default" ng-show="coffee.qty" ng-click="coffee.qty = 0; removeProduct($index, 'coffee');">Remove</button></td>
 							<td class="amount">$[[coffee.subtotal | number: 2]]</td>
 						</tr>
+
+						<!--Subscriptions -->
+						<tr ng-if = 'currentCart.subscriptions.length'>
+							<th colspan = "4"><h3>Subscriptions</h3></th>
+						</tr>
+						<tr ng-repeat="sub in currentCart.subscriptions track by $index">
+							<td class="product">[[sub.name]] <small>[[sub.roast.roast_name]]</small></td>
+							<td class="price">$[[sub.price | number : 2]]</td>
+							<td class="quantity">
+								<div class="form-group">
+									<input type="number" class="form-control" ng-model="sub.qty" ng-change="currentCart.unsavedChanges=true; sub.subtotal = sub.price * sub.qty; currentCart.countTotals();" min="0">
+								</div>											
+							</td>
+							<td class="remove"><button class="btn btn-default" ng-show="sub.qty" ng-click="sub.qty = 0; removeProduct($index, 'subscriptions');">Remove</button></td>
+							<td class="amount">$[[sub.subtotal | number: 2]]</td>
+						</tr>
+
+						<!-- Merch -->
+						<tr ng-if = 'currentCart.merch.length'>
+							<th colspan = "4"><h3>Merchandise</h3></th>
+						</tr>
+						<tr ng-repeat="merch in currentCart.merch track by $index">
+							<td class="product">[[merch.name]]<small><span ng-if = 'merch.roast'>Coffee: [[merch.roast.roast_name]]</span> <span ng-if = 'merch.size'>- T-Shirt: [[merch.size.size]]</span></small></td>
+							<td class="price">$[[merch.price| number : 2]]</td>
+							<td class="quantity">
+								<div class="form-group">
+									<input type="number" class="form-control" ng-model="merch.qty" ng-change="currentCart.unsavedChanges=true; merch.subtotal = merch.price * merch.qty; currentCart.countTotals();" min="0">
+								</div>											
+							</td>
+							<td class="remove"><button class="btn btn-default" ng-show="merch.qty" ng-click="merch.qty = 0; removeProduct($index, 'merch');">Remove</button></td>
+							<td class="amount">$[[merch.subtotal | number: 2]]</td>
+						</tr>
+
+						<!-- Total-->
 						<tr ng-show="currentCart.totalItems">
 							<td colspan="2">Discount Coupon <span ng-if="currentCart.coupon.valid">submitted and will be applied on Checkout</span><span class="pull-right" ng-if="invalidCoupon">Invalid Discount Coupon</span></td>
 							

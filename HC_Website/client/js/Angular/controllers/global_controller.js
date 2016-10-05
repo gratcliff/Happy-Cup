@@ -136,7 +136,7 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 		$scope.merchandiseModal = merch;
 		$scope.modalOrder = {};
 		if(merch.roasts){
-			$scope.modalOrder.grind = merch.roasts[0];
+			$scope.modalOrder.roast = merch.roasts[0];
 			$scope.modalOrder.grind = merch.grinds[0];
 		}
 		if (merch.size){

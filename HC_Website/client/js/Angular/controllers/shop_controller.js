@@ -92,6 +92,7 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 			name: sub.name,
 			roast: order.roast,
 			grind: order.grind,
+			price: sub.pricing,
 			subtotal: sub.pricing
 		};
 		// console.log(data);
@@ -110,6 +111,7 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 			id: merch.id,
 			qty: 1,
 			name: merch.name,
+			price: merch.pricing,
 			subtotal: merch.pricing
 		};
 		//Can be length 1 or 3
