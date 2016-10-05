@@ -1989,10 +1989,10 @@
 
 		// Full Width Image Overlay
 		//-----------------------------------------------
-		if ($(".full-image-overlay").length>0) {
-			overlayHeight = $(".full-image-overlay").outerHeight();
-			$(".full-image-overlay").css("marginTop",-overlayHeight/2);
-		};
+		// if ($(".full-image-overlay").length>0) {
+		// 	overlayHeight = $(".full-image-overlay").outerHeight();
+		// 	$(".full-image-overlay").css("marginTop",-overlayHeight/2);
+		// };
 
 		//This will prevent the event from bubbling up and close the dropdown when you type/click on text boxes (Header Top).
 		//-----------------------------------------------
