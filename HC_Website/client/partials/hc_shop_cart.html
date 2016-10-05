@@ -47,7 +47,7 @@
 							<th colspan = "4"><h3>Subscriptions</h3></th>
 						</tr>
 						<tr ng-repeat="sub in currentCart.subscriptions track by $index">
-							<td class="product">[[sub.name]] <small>[[sub.roast.roast_name]]</small></td>
+							<td class="product">[[sub.name]] <small>[[sub.roast.name]]</small></td>
 							<td class="price">$[[sub.price | number : 2]]</td>
 							<td class="quantity">
 								<div class="form-group">
