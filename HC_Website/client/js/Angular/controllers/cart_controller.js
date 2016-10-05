@@ -12,6 +12,8 @@ happy_cup.controller('cart_controller', function ($scope, $location, $timeout, u
 	// 	$scope.currentCart.unsavedChanges = false;
 	// });
 
+	
+
 	$scope.updateCart = function() {
 
 		shop_factory.updateCart($scope.currentCart, function(newCart){
@@ -20,23 +22,28 @@ happy_cup.controller('cart_controller', function ($scope, $location, $timeout, u
 			$scope.cartSavedMessage = true;
 			$timeout(function(){
 				$scope.cartSavedMessage = false;
-			}, 1000)
+			}, 1500)
 		});
 	}
 
 	$scope.removeProduct = function(idx, arrayName) {
-		
 		$timeout(function(){
 			shop_factory.removeProduct(idx, arrayName,  function(newCart) {
 				$scope.currentCart = newCart;
 				$scope.currentCart.unsavedChanges = false;
 				$scope.cartSavedMessage = true;
+
+				if ($scope.currentCart.coffee.length === 0 && 
+					$scope.currentCart.subscriptions.length === 0 && 
+					$scope.currentCart.merch.length === 0){
+					$location.path('/');
+				}
 			})
 		}, 100);
 
 		$timeout(function(){
 			$scope.cartSavedMessage = false;
-		}, 1000);
+		}, 1500);
 	};
 
 	$scope.submitCoupon = function() {

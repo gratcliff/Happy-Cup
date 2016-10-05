@@ -327,11 +327,11 @@
 
 																			<!-- Merch in Cart -->
 																			<tr ng-if="shoppingCart.merch.length">
-																			<th colspan="4" class="text-center">Merchandise</th>
+																			<th colspan="4" class= 'text-center'>Merchandise</th>
 																			</tr>
 																			<tr ng-repeat="merch in shoppingCart.merch | orderBy: ['-qty','name']">
 																				<td class="quantity">[[merch.qty]] x</td>
-																				<td class="product"><a href="shop-product.html">[[merch.name]]</a></td>
+																				<td class="product"><a href="shop-product.html">[[merch.name]]</a><span class ='small'>[[merch.roast.roast_name]]</span></td>
 																				<td></td>
 																				<td class="amount">[[merch.subtotal | currency: symbol : fractionSize ]]</td>
 																			</tr>
@@ -516,11 +516,10 @@
 
 			<!--Coffee Modal -->
 			<div class="modal fade" id="coffee_modal" tabindex="-1" role="dialog" aria-labelledby="coffee_modal_label" aria-hidden="true">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-							<h4 id="coffee_modal_label" class="modal-title">[[coffeeModal.name]] - [[coffeeModal.roast]]</h4>
 						</div>
 						<div class="modal-body">
 							<div class = 'container-fluid'>
@@ -529,6 +528,7 @@
 										<img ng-src="[[coffeeModal.img_src]]" alt="[[coffeeModal.name]]">
 									</div>
 									<div class = 'col-xs-12 col-md-7'>
+										<h3>[[coffeeModal.name]]</h3>
 										<p>[[coffeeModal.description]]</p>
 										<form class = 'form-horizontal' role = 'form'>
 											<div class = 'form-group has-feedback'>
@@ -572,7 +572,7 @@
 										<div class="col-md-5 text-center">
 											<img ng-src="[[subscriptionModal.img_src]]" alt="[[subscriptionModal.name]]">
 										</div>
-										<div class = 'col-md-7'>
+										<div class = 'col-xs-12 col-md-7'>
 											<h3>[[subscriptionModal.name]]</h3>
 											<p>[[subscriptionModal.description]]</p>
 											<form class = 'form-horizontal' role = 'form'>
@@ -616,14 +616,19 @@
 										<div class="col-md-5 text-center">
 											<img ng-src="[[merchandiseModal.img_src]]" alt="[[merchandiseModal.name]]">
 										</div>
-										<div class = 'col-md-7'>
+										<div class = 'col-xs-12 col-md-7'>
 											<h3>[[merchandiseModal.name]]</h3>
 											<p>[[merchandiseModal.description]]</p>
 											<form class = 'form-horizontal' role = 'form'>
 												<div ng-if = 'merchandiseModal.roasts' class = 'form-group has-feedback'>
 													<label for ='size' class = 'col-sm-3 control-label'>Coffee:</label>
-													<div class = 'col-sm-8'> 
-													 	<select class = 'form-control' ng-options = 'roast.name for roast in merchandiseModal.roasts track by roast.id' ng-model = 'modalOrder.roast'></select>
+													<div ng-if = '[[merchandiseModal.name]] != "Three Coffee Variety"' class = 'col-sm-8'> 
+													 	<select class = 'form-control' ng-options = 'roast.roast_name for roast in merchandiseModal.roasts track by roast.id' ng-model = 'modalOrder.roast'></select>
+													</div>
+													<div ng-if = '[[merchandiseModal.name]] === "Three Coffee Variety"' class = 'col-sm-8'> 
+													 	<select class = 'form-control' ng-model = 'modalOrder.roast'>
+													 		<option ng-repeat = 'roast.name for roast in merchandiseModal.roasts track by roast.id'><input></input></option>
+													 	</select>
 													</div>
 												</div>
 												<div ng-if = 'merchandiseModal.roasts' class = 'form-group has-feedback'>
@@ -734,7 +739,7 @@
 		<!-- Contact form -->
 		<script src="plugins/jquery.validate.js"></script>
 		<!-- Google Maps javascript -->
-		<script type="text/javascript" src = "https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key="></script>
+		<script type="text/javascript" src = "https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=****"></script>
 		<script type="text/javascript" src=""></script>
 		<!-- Background Video -->
 		<script src="plugins/vide/jquery.vide.js"></script>
