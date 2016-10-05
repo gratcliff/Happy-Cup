@@ -28,7 +28,7 @@
 					<tbody>
 						<!-- Coffee -->
 						<tr ng-if = 'currentCart.coffee.length'>
-							<th colspan = "4"><h3>Coffee</h3></th>
+							<th colspan = "5"><h3>Coffee</h3></th>
 						</tr>
 						<tr ng-repeat="coffee in currentCart.coffee track by $index">
 							<td class="product">[[coffee.name]] ([[coffee.size.qty]])<small>[[coffee.roast]] - [[coffee.grind.type]]</small></td>
@@ -44,10 +44,10 @@
 
 						<!--Subscriptions -->
 						<tr ng-if = 'currentCart.subscriptions.length'>
-							<th colspan = "4"><h3>Subscriptions</h3></th>
+							<th colspan = "5"><h3>Subscriptions</h3></th>
 						</tr>
 						<tr ng-repeat="sub in currentCart.subscriptions track by $index">
-							<td class="product">[[sub.name]] <small>[[sub.roast.roast_name]]</small></td>
+							<td class="product">[[sub.name]] <small>[[sub.roast.name]] - [[sub.grind.type]]</small></td>
 							<td class="price">$[[sub.price | number : 2]]</td>
 							<td class="quantity">
 								<div class="form-group">
@@ -65,8 +65,8 @@
 						<tr ng-repeat="merch in currentCart.merch track by $index">
 							<td class="product">[[merch.name]]
 								<small>
-									<span ng-if = '!merch.roast.length'>Coffee: [[merch.roast.name]]</span>
-									<span ng-if = 'merch.roast.length'>Coffee: <br><span ng-repeat="roast in merch.roast | unique: 'id' ">&nbsp;&nbsp;[[roast.qty]]x [[roast.name]]<br></span></span>
+									<span ng-if = '!merch.roast.length'>Coffee: [[merch.roast.name]] - [[merch.grind.type]]</span>
+									<span ng-if = 'merch.roast.length'>Coffee: <br><span ng-repeat="roast in merch.roast | unique: 'id' ">&nbsp;&nbsp;[[roast.qty]]x [[roast.name]] - [[roast.grind.type]]<br></span></span>
 									<span ng-if = 'merch.size'>- T-Shirt: [[merch.size.size]]</span>
 								</small>
 							</td>
