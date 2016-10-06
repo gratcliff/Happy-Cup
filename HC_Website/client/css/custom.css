@@ -350,10 +350,15 @@ fieldset legend {
 .overlay-box img {
 	width: 100%;
 	overflow: hidden;
+	opacity: 0;
 }
 
 #carousel-blog-post .carousel-inner {
 	height: 300px;
+}
+
+.parallax{
+	margin-bottom: 50px;
 }
 
 .carousel-title {
@@ -371,7 +376,7 @@ fieldset legend {
 
 .carousel-title h3 {
 	color: white;
-	font-size: 32px;
+	font-size: 40px;
 }
 
 .image-overlay {
@@ -409,8 +414,7 @@ fieldset legend {
 .blog_images_container{
 	width: 100%;
 	overflow: hidden;
-	height: 300px;
-    padding:0px 0px 0px 0px;
+	height: 400px;
     font-weight:bold;
 }
 
