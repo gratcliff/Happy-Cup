@@ -626,22 +626,17 @@
 													 	<select class = 'form-control' ng-options = 'roast.name for roast in merchandiseModal.roasts track by roast.id' ng-model = 'modalOrder.roast'></select>
 													</div>
 													<div ng-if = 'merchandiseModal.hasCoffee > 1' class = 'col-sm-8'> 
-													 	<div class = 'dropdown has-feedback' ng-class="{'has-error': giftBoxError}"> 
-													 		<button id="three_coffee_select_btn" class="form-control dropdown-toggle text-left" data-toggle="dropdown" >&nbsp;&nbsp;[[modalOrder.roast.length]] Selected <span class="text-danger" ng-if="giftBoxError">* Must choose 3</span>
+													 	<div class = 'dropdown' > 
+													 		<button id="three_coffee_select_btn" class="form-control dropdown-toggle text-left has-feedback" data-toggle="dropdown" ng-click="stopDefaultAction('#three_cup_gift_options')" ng-class="{'has-error': giftBoxError}">&nbsp;&nbsp;[[modalOrder.roast.length]] Selected <span class="text-danger" ng-if="giftBoxError">* Must choose 3</span>
 													 		</button>
+
 													 		<ul id="three_cup_gift_options" class="dropdown-menu col-xs-12">
-															 	<li>
-																 	<table id="three_cup_gift_table" class="table">
-																		<tbody>
-																			<tr ng-repeat="roast in merchandiseModal.roasts track by $index" ng-show="roast.name !== 'Roaster\'s Choice'">
-																				<td>
-																				<input type="number" min="0" ng-model="roast.qty" ng-change="updateVarietyBox(merchandiseModal.roasts, merchandiseModal.hasCoffee)">
-																				 [[roast.name]]
-																				</td>
-																			</tr>
-																		</tbody>
-																	</table>
+													 			
+															 	<li class="three_cup_gift_table" ng-repeat="roast in merchandiseModal.roasts track by $index" ng-show="roast.name !== 'Roaster\'s Choice'">
+																	<input type="number" min="0" ng-model="roast.qty" ng-change="updateVarietyBox(merchandiseModal.roasts, merchandiseModal.hasCoffee)">
+																	[[roast.name]]
 															 	</li>
+
 															</ul>
 													 	</div>
 													</div>
@@ -773,5 +768,6 @@
 		<script type="text/javascript" src="js/template.js"></script>
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="js/custom.js"></script>
+
 	</body>
 </html>

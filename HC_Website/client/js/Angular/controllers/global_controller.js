@@ -144,6 +144,8 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 				// reset qty to 0 for each option
 				angular.forEach($scope.merchandiseModal.roasts, function(roast, key){
 					roast.qty = 0;
+
+
 				});
 			} else {
 				$scope.modalOrder.roast = merch.roasts[0];
@@ -213,7 +215,9 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 			}
 		}
 		$scope.modalOrder.roast = newChoices;
-		$scope.modalOrder.grind = newChoices[0].grinds[0];
+		if ($scope.modalOrder.roast.length) {
+			$scope.modalOrder.grind = newChoices[0].grinds[0];
+		}
 
 
 	}
@@ -227,6 +231,20 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 			$('#btn-toggle-navbar').trigger('click');
 		}
 
+	}
+
+	$scope.stopDefaultAction = function(element) {
+		// prevents a dropdown menu from closing when clicked on
+		console.log(element);
+		try {
+			$(element).off('click');
+		} catch(err) {
+
+		}
+		
+		$(element).click(function(e){
+			e.stopPropagation();
+		})
 	}
 
 	

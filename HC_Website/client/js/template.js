@@ -49,7 +49,6 @@
 		//-----------------------------------------------
 		if (Modernizr.mq('only all and (max-width: 767px)') || Modernizr.touch || $(".main-navigation.onclick").length>0 ) {
 			$('.main-navigation [data-toggle=dropdown], .header-top [data-toggle=dropdown]').on('click', function(event) {
-				console.log('why?')
 			// Avoid following the href location when clicking
 			// event.preventDefault();
 			// Avoid having the menu to close when clicking

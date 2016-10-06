@@ -353,7 +353,6 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 				setMarker(myLatlng, myDescription);
 				google.maps.event.addDomListener(window, "load", initialize);
 				// checkOffset();
-				map.setCenter(myLatlng);
 			}
 		});
 	};
