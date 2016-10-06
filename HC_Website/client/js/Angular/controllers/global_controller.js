@@ -156,6 +156,11 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 	})
 
 	$scope.broadcastToCart = function(product, order, idx) {
+		// disables button mashing
+		if ($scope.addingProduct) {
+			return
+		}
+
 		if (product.hasCoffee > 1) {
 
 			if (order.roast.length !== product.hasCoffee) {
@@ -182,7 +187,6 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 	});
 
 	$scope.$on('changePageTitle', function(event, title){
-		console.log('title');
 		$scope.pageTitle = title;
 	})
 

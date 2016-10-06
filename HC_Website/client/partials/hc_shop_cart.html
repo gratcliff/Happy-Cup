@@ -66,7 +66,7 @@
 							<td class="product">[[merch.name]]
 								<small>
 									<span ng-if = '!merch.roast.length'>Coffee: [[merch.roast.name]] - [[merch.grind.type]]</span>
-									<span ng-if = 'merch.roast.length'>Coffee: <br><span ng-repeat="roast in merch.roast | unique: 'id' ">&nbsp;&nbsp;[[roast.qty]]x [[roast.name]] - [[roast.grind.type]]<br></span></span>
+									<span ng-if = 'merch.roast.length'>Coffee: <br><span ng-repeat="roast in merch.roast | unique: 'id' ">&nbsp;&nbsp;[[roast.qty]]x [[roast.name]] - [[merch.roast.grind.type]]<br></span></span>
 									<span ng-if = 'merch.size'>- T-Shirt: [[merch.size.size]]</span>
 								</small>
 							</td>

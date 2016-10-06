@@ -95,10 +95,10 @@ happy_cup.factory('shop_factory', function(){
 
 			for (key in order) {
 
-				if (key === 'qty') {
+				if (key === 'qty' || key === 'subtotal') {
 					continue;
 				}
-
+				console.log(key);
 				if (!shoppingCart.merch[idx][key]) {
 					identicalProduct = false;
 					break;
