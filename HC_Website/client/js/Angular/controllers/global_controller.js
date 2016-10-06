@@ -218,6 +218,17 @@ happy_cup.controller('global_controller', function ($scope, $location, $timeout,
 
 	}
 
+	$scope.navbarCollapse = function() {
+		var checkIfCollapsed = $('#btn-toggle-navbar').hasClass('collapsed');
+		var mobileCheck = $('#btn-toggle-navbar').css('display') === 'block';
+
+		// if menu is open and screen is mobile, collapse the menu
+		if (!checkIfCollapsed && mobileCheck) {
+			$('#btn-toggle-navbar').trigger('click');
+		}
+
+	}
+
 	
 
 	function getCurrentView(){

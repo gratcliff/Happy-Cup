@@ -49,16 +49,17 @@
 		//-----------------------------------------------
 		if (Modernizr.mq('only all and (max-width: 767px)') || Modernizr.touch || $(".main-navigation.onclick").length>0 ) {
 			$('.main-navigation [data-toggle=dropdown], .header-top [data-toggle=dropdown]').on('click', function(event) {
+				console.log('why?')
 			// Avoid following the href location when clicking
-			event.preventDefault();
+			// event.preventDefault();
 			// Avoid having the menu to close when clicking
-			event.stopPropagation();
+			// event.stopPropagation();
 			// close all the siblings
-			$(this).parent().siblings().removeClass('open');
+			// $(this).parent().siblings().removeClass('open');
 			// close all the submenus of siblings
-			$(this).parent().siblings().find('[data-toggle=dropdown]').parent().removeClass('open');
+			// $(this).parent().siblings().find('[data-toggle=dropdown]').parent().removeClass('open');
 			// opening the one you clicked on
-			$(this).parent().toggleClass('open');
+			// $(this).parent().toggleClass('open');
 			});
 		};
 

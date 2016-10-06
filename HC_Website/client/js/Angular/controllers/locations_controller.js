@@ -3,6 +3,12 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 	$scope.expanded;
 	$scope.mapLoaded = false;
 
+	var map, myLatlng, myZoom, marker;
+	// Set the coordinates of your location
+	var options = {
+                enableHighAccuracy: true,					
+            };
+
 
 
 	navigator.geolocation.getCurrentPosition(function(position) {
@@ -339,7 +345,7 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 		var key = ''
 		$http.get('https://maps.googleapis.com/maps/api/geocode/json?&address='+address+'&key='+key+'').success(function(response){
 			if ($("#map-canvas").length>0) {
-				var map, myLatlng, myZoom, marker;
+				var myLatlng, myZoom, marker;
 				// Set the coordinates of your location
 				myLatlng = new google.maps.LatLng(response.results[0].geometry.location.lat, response.results[0].geometry.location.lng);
 				myZoom = 12;
@@ -347,6 +353,7 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 				setMarker(myLatlng, myDescription);
 				google.maps.event.addDomListener(window, "load", initialize);
 				// checkOffset();
+				map.setCenter(myLatlng);
 			}
 		});
 	};
@@ -374,11 +381,7 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 	// });
 
 
-	var map, myLatlng, myZoom, marker;
-	// Set the coordinates of your location
-	var options = {
-                enableHighAccuracy: true,					
-            };
+
 
 	function initialize(myLatlng, myZoom) {
 		var mapOptions = {
@@ -710,8 +713,8 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 			position: myLatlng
 		});
 		google.maps.event.addDomListener(window, "resize", function() {
-			// map.setCenter(myLatlng);
-			setMarker(myLatlng);
+			var center = marker.position
+			map.setCenter(center)
 			// checkOffset();
 		});
 	}
