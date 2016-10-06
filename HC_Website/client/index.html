@@ -252,7 +252,7 @@
 												<!-- Collect the nav links, forms, and other content for toggling -->
 												<div class="collapse navbar-collapse" id="navbar-collapse-1">
 													<!-- main-menu -->
-													<ul class="nav navbar-nav " data-toggle="collapse" data-target="#navbar-collapse-1">
+													<ul class="nav navbar-nav ">
 														<li>
 															<a href="#/" ng-style="currentView === 'home' ? {'color' : '#914E38'} : null ">Home</a>
 														</li>
@@ -310,7 +310,7 @@
 																			</tr>
 																			<tr ng-repeat="coffee in shoppingCart.coffee | orderBy: ['-qty','name']">
 																				<td class="quantity">[[coffee.qty]] x</td>
-																				<td class="product"><a href="shop-product.html">[[coffee.name]]</a><span class="small">[[coffee.roast]]</span></td>
+																				<td class="product">[[coffee.name]]<span class="small">[[coffee.roast]]</span></td>
 																				<td>[[coffee.size.qty]]</td>
 																				<td class="amount">[[coffee.subtotal | currency: symbol : fractionSize ]]</td>
 																			</tr>
@@ -319,8 +319,8 @@
 																			<tr ng-if = 'shoppingCart.subscriptions.length'>
 																				<th colspan = "4" class="text-center">Subscriptions</th></tr>
 																			<tr ng-repeat = 'subscription in shoppingCart.subscriptions | orderBy: ["-qty", "name"]'>
-																				<td class ='quantity'>[[subscription.qty]]</td>
-																				<td class = 'product' colspan="2"><a href="shop-product.html">[[subscription.name]]</a><span class = 'small'>[[subscription.roast.name]]</span></td>
+																				<td class ='quantity'>[[subscription.qty]] x</td>
+																				<td class = 'product' colspan="2">[[subscription.name]]<span class = 'small'>[[subscription.roast.name]]</span></td>
 																				
 																				<td class = 'amount'>[[subscription.subtotal | currency: symbol : fractionSize ]]</td>
 																			</tr>
@@ -331,7 +331,7 @@
 																			</tr>
 																			<tr ng-repeat="merch in shoppingCart.merch | orderBy: ['-qty','name']">
 																				<td class="quantity">[[merch.qty]] x</td>
-																				<td class="product"><a href="shop-product.html">[[merch.name]]</a><span class ='small'>[[merch.roast.roast_name]]</span></td>
+																				<td class="product">[[merch.name]]<span class ='small'>[[merch.roast.roast_name]]</span></td>
 																				<td></td>
 																				<td class="amount">[[merch.subtotal | currency: symbol : fractionSize ]]</td>
 																			</tr>
@@ -569,7 +569,7 @@
 							<div class="modal-body">
 								<div class = 'container-fluid'>
 									<div class = 'row'>
-										<div class="col-md-5 text-center">
+										<div class="col-xs-8 col-md-5 col-xs-offset-2 col-sm-offset-2 col-md-offset-0 text-center">
 											<img ng-src="[[subscriptionModal.img_src]]" alt="[[subscriptionModal.name]]">
 										</div>
 										<div class = 'col-xs-12 col-md-7'>
@@ -613,7 +613,7 @@
 							<div class="modal-body">
 								<div class = 'container-fluid'>
 									<div class = 'row'>
-										<div class="col-md-5 text-center">
+										<div class="col-xs-8 col-md-5 col-xs-offset-2 col-sm-offset-2 col-md-offset-0 text-center">
 											<img ng-src="[[merchandiseModal.img_src]]" alt="[[merchandiseModal.name]]">
 										</div>
 										<div class = 'col-xs-12 col-md-7'>
