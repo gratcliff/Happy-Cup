@@ -23,26 +23,22 @@
 							<div class="post-info">
 								<span class="post-date">
 									<i class="icon-calendar"></i>
-									<!-- <span class="day">21</span>
-									<span class="month">January 2016</span> -->
-									<span>[[post[0].created_at]]</span>
+									<span>[[post[0].created_at | date: mediumDate]]</span>
 								</span>
-								<!-- <span class="submitted"><i class="icon-user-1"></i> by <a href="#">John Doe</a></span> -->
-								<span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
 							</div>
 						</header>
 						<div class="blogpost-content">
 							<img src="[[post[0].img_url]]" alt="" id="blog_post_img">
 							<br>
 							<div ng-bind-html="[[post[0].text]]"></div>
+
 						</div>
 						<footer class="clearfix">
 							<div class="link pull-right">
 								<ul class="social-links circle small colored clearfix margin-clear text-right animated-effect-1">
-									<li class="twitter"><a class="twitter-share-button" data-show-count="false" href="https://twitter.com/share" data-size="large"><i class="fa fa-twitter"></i></a></li>
-									<!-- <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a> -->
-									<li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-									<li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+									<li class="twitter"><a class="twitter" href="https://twitter.com/intent/tweet?text=[[post[0].title]]&amp;hashtags=happycupcoffee&amp;via=HappyCupCoffee&amp;url=[[post[0].url]]"><i class="fa fa-twitter"></i></a></li>
+									<li class="facebook"><a href='' ng-click="fbShare([[post[0].url]], [[post[0].title]], [[post[0].description]], [[post[0].img_url]], 520, 350)"><i class="fa fa-facebook"></i></a></li>
+									<li class="linkedin"><a href="" ng-click="lkShare([[post[0].url]], [[post[0].title]], [[post[0].description]], [[post[0].img_url]], 520, 350)" target="_blank""><i class="fa fa-linkedin"></i></a></li>
 								</ul>
 							</div>
 						</footer>
@@ -75,19 +71,12 @@
 							</div>
 							<div class="media-body">
 								<h6 class="media-heading"><a href="#/blog/[[post.id]]">[[post.title]]</a></h6>
-								<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>[[post.created_at]]</p>
+								<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>[[post.created_at | date: mediumDate]]</p>
 							</div>
 							<hr>
 						</div>
-						<!-- <div class="text-right space-top">
-							<a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>More</a>	
-						</div> -->
-					</div>
-					<div class="block clearfix">
-						<h3 class="title">Happy Cup Coffee</h3>
-						<div class="separator-2"></div>
-						<p class="margin-clear">Based in Portland, Happy Cup is a unique cafe and coffee roaster using ethicially traded coffee sourced from all over the world. The humanitarian, community oriented company offers employment to adults with disabilities and donates a percentage of their profits to vocational and recreational programming for the disabled community. <a href="#/about">Learn more</a></p>
-					</div>							
+						<div class="link pull-right"><i class="link-dark"></i><a href="#/blog">Read More</a></div>
+					</div>					
 				</div>
 				</aside>
 				<!-- sidebar end -->
@@ -102,4 +91,6 @@
 <script type="text/javascript">
 	$.getScript('js/template.js');
 </script>
+
+
 
