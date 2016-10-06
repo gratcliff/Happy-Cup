@@ -18,6 +18,8 @@
     "angular-messages": "^1.5.8",
     "ngSanitize": "^0.0.2",
     "angular-sanitize": "^1.5.8"
+  },
+  "resolutions": {
+    "angular": "^1.5.8"
   }
-
 }
