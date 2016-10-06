@@ -731,6 +731,7 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
             map: map,
             title: description
         });
+        map.setCenter(position);
  
         //Create and open InfoWindow.
         var infoWindow = new google.maps.InfoWindow();
