@@ -27,11 +27,5 @@ happy_cup.controller('blogpost_controller', function($scope, $http, $location, $
         window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
     }
 
-	$scope.$on("$routeChangeSuccess", function(event) {
-		$scope.currentView = getCurrentView();
-		$anchorScroll('page-top');
-		$scope.pageTitle = 'Happy Cup Coffee Company - Portland, OR - Coffee Roasted by People with Potential'
-	});
-
 
 });
