@@ -155,18 +155,18 @@
 				<table class = 'table table-hover brown-border'>
 					<thead>
 						<tr>
+							<td>Description</td>
 							<td class="hidden-xs"></td>
 							<td>Product</td>
 							<td>Price</td>
-							<td></td>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat = 'merch in products.merchandise track by merch.id'>
+							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#merch_modal' ng-click = 'openMerchandiseModal(merch, $index)'>+</a></td>
 							<td class="hidden-xs"><img class = 'table_image' src = '[[merch.img_src]]'></td>
 							<td>[[merch.name]]</td>
 							<td>[[merch.pricing | currency : symbol : fractionSize]]</td>
-							<td><a class = 'margin-clear btn btn-brown' data-toggle = 'modal' data-target = '#merch_modal' ng-click = 'openMerchandiseModal(merch, $index)'>More Info</a></td>
 						</tr>
 					</tbody>
 				</table>
