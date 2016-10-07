@@ -30,26 +30,23 @@ happy_cup.controller('global_controller', function ($window, $scope, $location, 
 		if ($scope.forms.userRegForm.$valid) {
 			
 			user_factory.registerUser($scope.userReg, function(userData){
-				
-				$scope.forms.userRegForm.$setUntouched();
-				$scope.forms.userRegForm.$setPristine();
-				$scope.userReg = {};
-				
+
 
 				//dismiss modal
 				$timeout(function() {
+					$scope.forms.userRegForm.$setUntouched();
+					$scope.forms.userRegForm.$setPristine();
+					$scope.userReg = {};
+					$scope.dismissMobileModal();
 					$('#user-reg-modal').modal('hide')
 					$scope.userRegAlert = true;
 					$scope.currentUser = userData;
-					console.log($scope.currentUser)
 				}, 250);
 
 				//dismiss flash alert
 				$timeout(function() {
 					$scope.userRegAlert = false;
 				}, 2000);
-
-
 				
 			});
 
@@ -70,10 +67,11 @@ happy_cup.controller('global_controller', function ($window, $scope, $location, 
 						$scope.forms.userLoginForm.$setUntouched();
 						$scope.forms.userLoginForm.$setPristine();
 						$scope.userLogin = {};
+						$scope.dismissMobileModal();
 						$('#user-login-modal').modal('hide')
 						$scope.userRegAlert = true;
 						$scope.currentUser = userData;
-						console.log($scope.currentUser)
+						
 					}, 250);
 
 					//dismiss flash alert
