@@ -47,7 +47,13 @@
 							<th colspan="5"">Merchandise</th>
 						</tr>
 						<tr ng-repeat="merch in currentCart.merch track by $index">
-							<td class="product">[[merch.name]] <span ng-if="merch.size">([[merch.size.size]] Shirt)</span> <small><span ng-if="merch.roast">[[merch.roast.name]] - [[merch.grind.type]]</span></td>
+							<td class="product">[[merch.name]]
+								<small>
+									<span ng-if = '!merch.roast.length'>Coffee: [[merch.roast.name]] - [[merch.grind.type]]</span>
+									<span ng-if = 'merch.roast.length'>Coffee: <br><span ng-repeat="roast in merch.roast | unique: 'id' ">&nbsp;&nbsp;[[roast.qty]]x [[roast.name]] - [[merch.grind.type]]<br></span></span>
+									<span ng-if = 'merch.size'>- T-Shirt: [[merch.size.size]]</span>
+								</small>
+							</td>
 							<td class="price">[[merch.subtotal / merch.qty | currency : symbol : fractonSize]]</td>
 							<td class="quantity">[[merch.qty]]</td>
 							<td class="amount">[[merch.subtotal | currency : symbol : fractonSize]] </td>

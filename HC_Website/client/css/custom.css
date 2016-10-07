@@ -16,14 +16,11 @@ File Description: Place here your custom CSS styles
 
 .banner.video-background-banner {
   min-height: 450px;
+  padding-top: 140px;
 }
 
-#video-banner-features-row {
-	margin-bottom: -30px;
-}
-
-#video-banner-feature-1 {
-	margin-left: 12.5%;
+.feature-box-2 {
+	margin-bottom: 0;
 }
 
 
@@ -460,15 +457,9 @@ fieldset legend {
 
 /* media queries  */
 
-@media (max-width: 768px) {
-  #video-banner-feature-1 {
-  	margin-left: inherit;
-  }
-}
-
 @media (max-width: 992px) {
-  #video-banner-feature-1 {
-  	margin-left: 0px;
+  .banner.video-background-banner {
+  	padding-top: 100px;
   }
 }
 
