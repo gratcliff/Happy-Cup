@@ -292,13 +292,13 @@
 
 
 														<li class="hidden-xs" ng-if="currentUser === 'None' && mobileAndTabletCheck">
-															<a href="" ng-click="mobileModal('#user-reg-modal')">Sign Up</a>
+															<a ng-click="mobileModal('#user-reg-modal')">Sign Up</a>
 														</li>
 														<li class="hidden-xs" ng-if="currentUser === 'None' && mobileAndTabletCheck">
-															<a href="" ng-click="mobileModal('#user-login-modal')">Login</a>
+															<a ng-click="mobileModal('#user-login-modal')">Login</a>
 														</li>
 														<li class="hidden-xs" ng-if="currentUser !== 'None' && mobileAndTabletCheck">
-															<a href=""  ng-click="logout()">Logout</a>
+															<a  ng-click="logout()">Logout</a>
 														</li>
 													</ul>
 													<!-- main-menu end -->

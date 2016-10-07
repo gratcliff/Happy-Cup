@@ -452,15 +452,21 @@ fieldset legend {
 	top: -100%;
 }
 
-
-
-
 /* media queries  */
 
 @media (max-width: 992px) {
   .banner.video-background-banner {
   	padding-top: 100px;
   }
+  #full-width-header {
+  	width: 750px;
+  }
+}
+
+@media (max-width: 768px) {
+	#full-width-header {
+		width: inherit;
+	}
 }
 
 @media only screen and (min-width: 768px) {
