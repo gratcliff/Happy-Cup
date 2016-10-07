@@ -52,44 +52,7 @@ File Description: Place here your custom CSS styles
 	background-color: transparent;
 	border-color: #914E38 !important;
 }
-.animate-show.ng-enter {
-	opacity: 1;
-}
 
-.animate-show.ng-leave {
-	transition: all linear 0.5s;
-	opacity: 1;
-}
-
-.animate-show.ng-leave.ng-leave-active {
-	opacity: 0;
-}
-
-.animate-if.ng-enter, .animate-if.ng-leave {
-	-webkit-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    position: absolute;
-    z-index: 10000;
-}
-
-.animate-if.ng-enter {
-	top: -100%;
-}
-
-.animate-if.ng-enter.animate-if.ng-enter-active {
-	top: 0;
-}
-
-.animate-if.ng-leave {
-	top: 0;
-}
-
-.animate-if.ng-leave.animate-if.ng-leave-active {
-	top: -100%;
-}
 
 .header_text {
 	display: inline-block;
@@ -445,15 +408,59 @@ fieldset legend {
   margin: 0 auto;
 }
 
+.animate-show.ng-enter {
+	opacity: 1;
+}
+
+.animate-show.ng-leave {
+	transition: all linear 0.5s;
+	opacity: 1;
+}
+
+.animate-show.ng-leave.ng-leave-active {
+	opacity: 0;
+}
+
+.animate-if .modal-dialog {
+	margin: 0px;
+	max-width: 100vw;
+	width: 100vw;
+	/*height: 100vh;*/
+
+}
+
+.animate-if.ng-enter, .animate-if.ng-leave {
+	-webkit-transition: 250ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 250ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 250ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 250ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 250ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: absolute;
+    z-index: 10000;
+}
+
+.animate-if.ng-enter {
+	top: -100%;
+}
+
+.animate-if.ng-enter.animate-if.ng-enter-active {
+	top: 0;
+}
+
+.animate-if.ng-leave {
+	top: 0;
+}
+
+.animate-if.ng-leave.animate-if.ng-leave-active {
+	top: -100%;
+}
+
 
 
 
 /* media queries  */
 
 @media (max-width: 768px) {
-	.modal-dialog {
-    width: 96%;
-  }
   #video-banner-feature-1 {
   	margin-left: inherit;
   }

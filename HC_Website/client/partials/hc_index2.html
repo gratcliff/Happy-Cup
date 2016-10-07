@@ -82,7 +82,7 @@
 						<tbody>
 							<tr ng-repeat="coffee in products.coffee track by coffee.id" ng-if="coffee.name !== 'Roaster\'s Choice'">
 								<td ng-if="!mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#coffee_modal' ng-click="openCoffeeModal(coffee, $index)">+</a></td>
-								<td ng-if="mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' ng-click="openCoffeeModal(coffee, $index)" move-to-top>+</a></td>
+								<td ng-if="mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' ng-click="openCoffeeModal(coffee, $index)">+</a></td>
 								<td>[[coffee.name]]</td>
 								<td>[[coffee.roast]]</td>
 								<td class="hidden-xs">[[order.qty.price | currency : symbol : fractionSize]]</td>
@@ -128,7 +128,7 @@
 					<tbody>
 						<tr ng-repeat = 'subscription in products.subscriptions track by subscription.id'>
 							<td ng-if="!mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#subscription_modal' ng-click="openSubscriptionModal(subscription, $index)">+</a></td>
-							<td ng-if="mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' ng-click="openSubscriptionModal(subscription, $index)" move-to-top>+</a></td>
+							<td ng-if="mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' ng-click="openSubscriptionModal(subscription, $index)">+</a></td>
 							<td class="hidden-xs"><img class = 'table_image' ng-src ='[[subscription.img_src]]'></td>
 							<td class = 'visible-xs'>[[subscription.name]]</td>
 
