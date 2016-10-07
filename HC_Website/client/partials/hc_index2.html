@@ -81,7 +81,8 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="coffee in products.coffee track by coffee.id" ng-if="coffee.name !== 'Roaster\'s Choice'">
-								<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#coffee_modal' ng-click="openCoffeeModal(coffee, $index)">+</a></td>
+								<td ng-if="!mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#coffee_modal' ng-click="openCoffeeModal(coffee, $index)">+</a></td>
+								<td ng-if="mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' ng-click="openCoffeeModal(coffee, $index)" move-to-top>+</a></td>
 								<td>[[coffee.name]]</td>
 								<td>[[coffee.roast]]</td>
 								<td class="hidden-xs">[[order.qty.price | currency : symbol : fractionSize]]</td>
@@ -126,8 +127,9 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat = 'subscription in products.subscriptions track by subscription.id'>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#subscription_modal' ng-click="openSubscriptionModal(subscription, $index)">+</a></td>
-							<td class="hidden-xs"><img class = 'table_image' src ='[[subscription.img_src]]'></td>
+							<td ng-if="!mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#subscription_modal' ng-click="openSubscriptionModal(subscription, $index)">+</a></td>
+							<td ng-if="mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' ng-click="openSubscriptionModal(subscription, $index)" move-to-top>+</a></td>
+							<td class="hidden-xs"><img class = 'table_image' ng-src ='[[subscription.img_src]]'></td>
 							<td class = 'visible-xs'>[[subscription.name]]</td>
 
 							<td class = 'hidden-xs'><select class = 'form-control' ng-init = 'order.roast=subscription.roasts[0]'
@@ -163,8 +165,9 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat = 'merch in products.merchandise track by merch.id'>
-							<td><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#merch_modal' ng-click = 'openMerchandiseModal(merch, $index)'>+</a></td>
-							<td class="hidden-xs"><img class = 'table_image' src = '[[merch.img_src]]'></td>
+							<td ng-if="!mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#merch_modal' ng-click = 'openMerchandiseModal(merch, $index)'>+</a></td>
+							<td ng-if="mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' ng-click = 'openMerchandiseModal(merch, $index)'>+</a></td>
+							<td class="hidden-xs"><img class = 'table_image' ng-src = '[[merch.img_src]]'></td>
 							<td>[[merch.name]]</td>
 							<td>[[merch.pricing | currency : symbol : fractionSize]]</td>
 						</tr>
