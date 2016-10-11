@@ -8,6 +8,7 @@ happy_cup.controller('global_controller', function ($window, $scope, $location, 
 	$scope.globalContent = {};
 	$scope.userReg = {};
 	$scope.userLogin = {};
+	$scope.contact_marker = false;
 	// $scope.userRegAlert = true;
 
 	content_factory.getContent(function(content){
@@ -200,6 +201,12 @@ happy_cup.controller('global_controller', function ($window, $scope, $location, 
 		$scope.pageTitle = title;
 	})
 
+	$scope.$on('contactController_designate', function (event){
+		$scope.contact_marker = true;
+	})
+	$scope.$on('show_social', function (event){
+		$scope.contact_marker = false;
+	})
 
 	// end of event listeners
 
