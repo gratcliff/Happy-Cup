@@ -2,7 +2,7 @@ happy_cup.controller('shop_controller', function ($scope, $timeout, content_fact
 
 	content_factory.getPageContent('home', function(content){
 		$scope.products = content.products;
-		$scope.coffeeModal = {}
+		
 	});
 
 // console.log($scope.products);

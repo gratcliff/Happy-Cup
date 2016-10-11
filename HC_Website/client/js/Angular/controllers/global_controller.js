@@ -125,17 +125,21 @@ happy_cup.controller('global_controller', function ($window, $scope, $location, 
 
 	$scope.$on('openCoffeeModal', function (event, coffee) {
 		$scope.coffeeModal = coffee;
-		$scope.modalOrder = {};
-		$scope.modalOrder.grind = coffee.grinds[0];
-		$scope.modalOrder.qty = coffee.pricing[0];
+		$scope.coffeeOrder = {};
+		$scope.coffeeOrder.qty = coffee.pricing[0];
+		$scope.coffeeOrder.grind = coffee.grinds[0];
 		$scope.mobileModal('#coffee_modal');
+	
+		
+		
 	});
 
 	$scope.$on('openSubscriptionModal', function (event, sub){
+
 		$scope.subscriptionModal = sub;
 		$scope.modalOrder = {};
 		$scope.modalOrder.roast = sub.roasts[0];
-		$scope.modalOrder.grind = $scope.modalOrder.roast.grinds[0];
+		$scope.modalOrder.grind = sub.roasts[0].grinds[0];
 		$scope.mobileModal('#subscription_modal');
 		
 	})
@@ -155,7 +159,7 @@ happy_cup.controller('global_controller', function ($window, $scope, $location, 
 				});
 			} else {
 				$scope.modalOrder.roast = merch.roasts[0];
-				$scope.modalOrder.grind = $scope.modalOrder.roast.grinds[0];
+				$scope.modalOrder.grind = merch.roasts[0].grinds[0];
 			}
 		}
 		if (merch.size){

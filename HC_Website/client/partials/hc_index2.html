@@ -76,8 +76,8 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="coffee in products.coffee track by coffee.id" ng-if="coffee.name !== 'Roaster\'s Choice'">
-								<td ng-if="!mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target = '#coffee_modal' ng-click="openCoffeeModal(coffee, $index)">+</a></td>
+							<tr ng-repeat="coffee in products.coffee track by $index" ng-if="coffee.name !== 'Roaster\'s Choice'">
+								<td ng-if="!mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' data-toggle = 'modal' data-target ="#coffee_modal" ng-click="openCoffeeModal(coffee, $index)">+</a></td>
 								<td ng-if="mobileAndTabletCheck"><a class = 'margin-clear btn btn-group btn-brown' ng-click="openCoffeeModal(coffee, $index)">+</a></td>
 								<td>[[coffee.name]]</td>
 								<td>[[coffee.roast]]</td>
