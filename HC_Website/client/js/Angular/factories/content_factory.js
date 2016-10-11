@@ -178,7 +178,74 @@ happy_cup.factory('content_factory', function(){
 
 			};
 			content.about = {
+				staff : [
+					{
+						id: 1,
+						first_name: 'First',
+						last_name: 'Last',
+						position: 'Position',
+						description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.',
+						img_url: 'resources/images/team_member1.jpg',
 
+					},
+					{
+						id: 2,
+						first_name: 'First',
+						last_name: 'Last',
+						position: 'Position',
+						description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.',
+						img_url: 'resources/images/team_member2.jpg',
+						
+					},
+					{
+						id: 3,
+						first_name: 'First',
+						last_name: 'Last',
+						position: 'Position',
+						description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.',
+						img_url: 'resources/images/team_member3.jpg',
+						
+					},
+										{
+						id: 4,
+						first_name: 'First',
+						last_name: 'Last',
+						position: 'Position',
+						description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.',
+						img_url: 'resources/images/team_member4.jpg',
+						
+					},
+										{
+						id: 5,
+						first_name: 'First',
+						last_name: 'Last',
+						position: 'Position',
+						description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.',
+						img_url: 'resources/images/team_member5.jpg',
+						
+					},
+										{
+						id: 6,
+						first_name: 'First',
+						last_name: 'Last',
+						position: 'Position',
+						description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.',
+						img_url: 'resources/images/team_member6.jpg',
+						
+					},
+										{
+						id: 7,
+						first_name: 'First',
+						last_name: 'Last',
+						position: 'Position',
+						description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.',
+						img_url: 'resources/images/team_member7.jpg',
+						
+					},
+
+				]
+
+				
 			};			
 			content.blog = [
 				{

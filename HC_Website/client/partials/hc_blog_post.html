@@ -28,7 +28,7 @@
 							</div>
 						</header>
 						<div class="blogpost-content">
-							<img src="[[post[0].img_url]]" alt="" id="blog_post_img">
+							<img ng-src="[[post[0].img_url]]" alt="" id="blog_post_img">
 							<br>
 							<div ng-bind-html="[[post[0].text]]"></div>
 
@@ -65,7 +65,7 @@
 						<div class="media margin-clear" ng-repeat = "post in other_posts | limitTo: 5">
 							<div class="media-left">
 								<div class="overlay-container">
-									<img class="media-object" src="[[post.img_url]]" alt="blog-thumb">
+									<img class="media-object" ng-src="[[post.img_url]]" alt="blog-thumb">
 									<a href="#/blog/[[post.id]]" class="overlay-link small"><i class="fa fa-link"></i></a>
 								</div>
 							</div>
