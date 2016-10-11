@@ -298,3 +298,12 @@
 		</div>
 	</div>
 <!-- End Merch Modals -->
+
+<script type="text/javascript">
+		$('.modal').on('show.bs.modal', function(){
+		$('.video-background-banner video')[0].pause();
+	});
+	$('.modal').on('hide.bs.modal', function(){
+		$('.video-background-banner video')[0].play();
+	})
+</script>
