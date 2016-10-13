@@ -4391,6 +4391,12 @@ fieldset[disabled] .form-control {
   height: 100px;
   line-height: 97px;
 }
+.icon.exlarge {
+  font-size: 54px;
+  width: 150px;
+  height: 150px;
+  line-height: 145px;
+}
 
 .icon.small {
   font-size: 18px;
@@ -6829,6 +6835,15 @@ header.full-width .animated.main-navigation .dropdown-menu .open .dropdown-menu.
 
 .social-links.large li a i {
   line-height: 60px;
+}
+
+.social-links.exlarge li a {
+  width: 90px;
+  height: 90px;
+  font-size: 36px;
+}
+.social-links.exlarge li a i {
+  line-height: 90px;
 }
 
 .social-links.square li a,
