@@ -301,9 +301,14 @@
 
 <script type="text/javascript">
 		$('.modal').on('show.bs.modal', function(){
-		$('.video-background-banner video')[0].pause();
+			if ($('.video-background-banner video')[0]) {
+				$('.video-background-banner video')[0].pause();
+			}
+		
 	});
 	$('.modal').on('hide.bs.modal', function(){
-		$('.video-background-banner video')[0].play();
+		if ($('.video-background-banner video')[0]) {
+				$('.video-background-banner video')[0].play();
+			}
 	})
 </script>
