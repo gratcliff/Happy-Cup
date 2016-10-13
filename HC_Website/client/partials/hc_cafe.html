@@ -1,20 +1,34 @@
 <div class="container clearfix">
+	<script>
+	$(document).ready(function(){
+		$('.cafe_slideshow').slick({
+			accessibility: false,
+			autoplay: true,
+			autoplaySpeed: 5000,
+			arrows: false,
+			fade: true,
+			mobileFirst: true,
+			speed: 1000
+		});
+	});
+		
+	</script>
 	<div class = 'row'>
-		<div class = 'owl-carousel content-slider'>
-			<div class ='owl-item'>
-				<img src = 'resources/images/cafe/cafe1.jpg' style = 'height:85%; width:85%;'>
+		<div class = 'cafe_slideshow col-sm-10'>
+			<div>
+				<img src = 'resources/images/cafe/cafe1.jpg'>
 			</div>
-			<div class ='owl-item'>
-				<img src = 'resources/images/cafe/cafe2.jpg' style = 'height:85%; width:85%;'>
+			<div>
+				<img src = 'resources/images/cafe/cafe2.jpg'>
 			</div>
-			<div class ='owl-item'>
-				<img src = 'resources/images/cafe/cafe3.jpg' style = 'height:85%; width:85%;'>
+			<div>
+				<img src = 'resources/images/cafe/cafe3.jpg'>
 			</div>
-			<div class ='owl-item'>
-				<img src = 'resources/images/cafe/cafe4.jpg' style = 'height:85%; width:85%;'>
+			<div>
+				<img src = 'resources/images/cafe/cafe4.jpg'>
 			</div>
-			<div class ='owl-item'>
-				<img src = 'resources/images/cafe/cafe5.jpg' style = 'height:85%; width:85%;'>
+			<div>
+				<img src = 'resources/images/cafe/cafe5.jpg'>
 			</div>
 		</div>
 	</div>
