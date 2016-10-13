@@ -303,13 +303,21 @@ fieldset legend {
 	background-color: #69321f;
 }
 
+.v-pane-header h4, .v-pane-header img {
+	display: inline;
+}
+
+.v-pane-header img {
+	margin-top: -6px;
+}
+
 /* end v-accordion */
 
 
 /* Google Maps */
 
 #map-canvas {
-  height: 450px;
+  height: 600px;
 }
 
 #collapseMap.in {
@@ -465,6 +473,9 @@ fieldset legend {
 @media (max-width: 768px) {
 	#full-width-header {
 		width: inherit;
+	}
+	#map-canvas {
+		height: 250px;
 	}
 }
 
