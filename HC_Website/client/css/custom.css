@@ -309,7 +309,7 @@ fieldset legend {
 /* Google Maps */
 
 #map-canvas {
-  height: 450px;
+  height: 600px;
 }
 
 #collapseMap.in {
