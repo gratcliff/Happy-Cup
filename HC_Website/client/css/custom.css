@@ -303,6 +303,14 @@ fieldset legend {
 	background-color: #69321f;
 }
 
+.v-pane-header h4, .v-pane-header img {
+	display: inline;
+}
+
+.v-pane-header img {
+	margin-top: -6px;
+}
+
 /* end v-accordion */
 
 

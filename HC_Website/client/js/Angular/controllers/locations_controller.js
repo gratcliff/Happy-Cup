@@ -5,6 +5,7 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 
 	var radius = 10000;
 	var map, myLatlng, myZoom, marker, radius_circle;
+	var markers = [];
 	// Set the coordinates of your location
 	var options = {
                 enableHighAccuracy: true,					
@@ -429,15 +430,35 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 
 
 	$scope.locations = locations;
-	$scope.updateMap = function(location){
+	var groupByStore = {}
+	var markerColors = ['ltblue', 'orange', 'yellow', 'green', 'blue', 'pink', 'purple']
 
-		var myLatlng, myZoom, marker;
+	angular.forEach($scope.locations, function(location, idx){
+		if (!groupByStore[location.type]) {
+			groupByStore[location.type] = '';
+		}
+
+	});
+
+	var colorIdx = 0;
+
+	for (key in groupByStore) {
+		groupByStore[key] = markerColors[colorIdx % markerColors.length]
+
+		colorIdx++;
+	}
+
+	$scope.storeGroup = groupByStore;
+
+	$scope.updateMap = function(location){
+		var myLatlng, myZoom, marker, markerColor;
 		// Set the coordinates of your location
-		myLatlng = new google.maps.LatLng(location[0][0].lat, location[0][0].lng);
+		myLatlng = new google.maps.LatLng(location.lat, location.lng);
 		myZoom = 12;
-		myDescription = location[0][0].address;
-		myName = location[0][0].name;
-		setMarker(myLatlng, myDescription, myName);
+		myDescription = location.address;
+		myName = location.name;
+		markerColor = 'https://maps.google.com/intl/en_us/mapfiles/ms/micons/'+groupByStore[location.type]+'-dot.png';
+		setMarker(myLatlng, myDescription, myName, location.type, markerColor);
 		google.maps.event.addDomListener(window, "load", initialize);
 
 	};
@@ -771,6 +792,9 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 			animation: google.maps.Animation.DROP,
 			position: myLatlng
 		});
+
+		markers.push(marker);
+
 		google.maps.event.addDomListener(window, "resize", function() {
 			var center = marker.position;
 			map.setCenter(center);
@@ -780,25 +804,30 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 		showCloseLocations(map, myLatlng);
 	}
 
-    function setMarker(position, description, name) {
-        //Remove previous Marker.
-        if (marker != null) {
-            marker.setMap(null);
+    function setMarker(position, description, name, type, color) {
+        //Remove previous Markers.
+        if (markers.length != null) {
+            for (idx in markers) {
+            	markers[idx].setMap(null);
+            }
         }
+        markers = [];
  
         //Set Marker on Map.
         marker = new google.maps.Marker({
             position: position,
             map: map,
             description: description,
-            name: name
+            name: name,
+            icon: color
         });
+        markers.push(marker);
         map.setCenter(position);
  
         //Create and open InfoWindow.
         if(description){
 	        var infoWindow = new google.maps.InfoWindow();
-	        infoWindow.setContent('<p>'+name+'</p><p><a href = "https://maps.google.com/maps?q='+description+'" target="_blank">'+description+'</a></p>');
+	        infoWindow.setContent('<p>'+type+' - '+name+'</p><p><a href = "https://maps.google.com/maps?q='+description+'" target="_blank">'+description+'</a></p>');
 	        infoWindow.open(map, marker);	
         }
 
@@ -865,21 +894,23 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 			var marker_lat_lng = new google.maps.LatLng(locations[x].lat, locations[x].lng);
 			var distance_from_location = google.maps.geometry.spherical.computeDistanceBetween(myLatlng, marker_lat_lng);
 			if (distance_from_location <= radius) {
-				createMarker(marker_lat_lng, locations[x].address, locations[x].name);
+				var markerColor = 'https://maps.google.com/intl/en_us/mapfiles/ms/micons/'+groupByStore[locations[x].type]+'-dot.png';
+				markers.push(createMarker(marker_lat_lng, locations[x].address, locations[x].name, locations[x].type, markerColor));
   			}
 		}	
 
 	}
 
-	function createMarker(pos, description, name) {
+	function createMarker(pos, description, name, type, color) {
 	    var marker = new google.maps.Marker({       
 	        position: pos, 
 	        map: map,
 	        description: description,
-	        name: name
+	        name: name,
+	        icon: color
 	    }); 
 	    google.maps.event.addListener(marker, 'click', function() { 
-		    infowindow.setContent('<p>'+marker.name+'</p><p><a href = "https://maps.google.com/maps?q='+marker.description+'" target="_blank">'+marker.description+'</a></p>');
+		    infowindow.setContent('<p>'+type+' - '+marker.name+'</p><p><a href = "https://maps.google.com/maps?q='+marker.description+'" target="_blank">'+marker.description+'</a></p>');
 		    infowindow.open(map, marker);
 	    }); 
 	    return marker;  
