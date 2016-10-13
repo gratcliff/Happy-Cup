@@ -474,6 +474,9 @@ fieldset legend {
 	#full-width-header {
 		width: inherit;
 	}
+	#map-canvas {
+		height: 250px;
+	}
 }
 
 @media only screen and (min-width: 768px) {

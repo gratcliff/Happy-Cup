@@ -1,4 +1,4 @@
-happy_cup.controller('locations_controller', function($scope, $http, $location){
+happy_cup.controller('locations_controller', function($scope, $http, $location, $timeout){
 
 	$scope.expanded;
 	$scope.mapLoaded = false;
@@ -24,6 +24,13 @@ happy_cup.controller('locations_controller', function($scope, $http, $location){
 	},function(error) {
 		alert('Unable to get location: ' + error.message);
 	}, options);
+
+	$timeout(function(){
+		if (!$scope.mapLoaded) {
+			$scope.mapLoadingError = true;
+			$scope.mapLoaded = true;
+		}
+	}, 10000);
 	
 	var locations = [{
 				name: 'Arbor Lodge',

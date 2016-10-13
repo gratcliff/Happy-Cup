@@ -4,11 +4,14 @@
 			<div class="banner" >
 				<!-- google map start -->
 				<!-- ================ -->
-				<div id="map-canvas">
-					<div class="text-center" ng-if="!mapLoaded">
-					<i class="fa fa-spinner fa-spin fa-5x"></i>
-					<h3>Loading Google Maps</h3>
+				<div id="map-canvas" ng-hide="mapLoaded && mapLoadingError">
+					<div class="text-center" ng-if="!mapLoaded && !mapLoadingError">
+						<i class="fa fa-spinner fa-spin fa-5x"></i>
+						<h3>Loading Google Maps</h3>
 					</div>
+				</div>
+				<div class="text-center" ng-if="mapLoaded && mapLoadingError">
+					<h3>Unable to load Google Maps</h3>
 				</div>
 				<!-- google maps end -->
 			</div>
