@@ -491,7 +491,7 @@ fieldset legend {
 
 @media (max-width: 1199px) {
 	#social-links-overlay {
-		left: 92%;
+		left: 92.3%;
 		bottom: 10%;
 	}
 
@@ -508,7 +508,7 @@ fieldset legend {
   	width: 750px;
   }
   #social-links-overlay {
-		left: 93%;
+		left: 94%;
 		bottom: 10%;
 		padding: 0;
 	}
