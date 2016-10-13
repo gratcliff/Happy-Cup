@@ -22,23 +22,6 @@ File Description: Place here your custom CSS styles
 .feature-box-2 {
 	margin-bottom: 0;
 }
-/* Contact Page */
-@media (min-width: 992px) {
-	.social_box {
-		height: auto;
-		width: 150px;
-		margin-left: -3%;
-		margin-top: 10%;
-	}
-	.social_box ul li a {
-		margin-top: 10%;
-	}
-	.social_box_image {
-		height: 85%;
-		width: 85%;
-		margin-right: -3%;
-	}
-}
 
 #user-reg-alert, #user-logout-alert {
 	position: fixed;
@@ -475,15 +458,63 @@ fieldset legend {
 	top: -100%;
 }
 
+#social-links-overlay-container {
+	overflow: visible;
+}
+
+#social-links-overlay {
+	background-color: transparent;
+	left: 94%;
+	bottom: 17%;
+	overflow: visible;
+}
+
 /* media queries  */
 
-@media (max-width: 992px) {
+/* Contact Page */
+@media (min-width: 992px) {
+	.social_box {
+		/*height: auto;*/
+		/*width: 150px;*/
+		/*margin-left: -5%;*/
+		/*margin-top: 10%;*/
+	}
+	.social_box ul li a {
+		/*margin-top: 10%;*/
+	}
+	.social_box_image {
+		/*height: 85%;*/
+		/*width: 85%;*/
+		/*margin-right: -3%;*/
+	}
+}
+
+@media (max-width: 1199px) {
+	#social-links-overlay {
+		left: 92%;
+		bottom: 10%;
+	}
+
+	.contact-box {
+		margin-left: 4.116%;
+	}
+}
+
+@media (max-width: 991px) {
   .banner.video-background-banner {
   	padding-top: 100px;
   }
   #full-width-header {
   	width: 750px;
   }
+  #social-links-overlay {
+		left: 93%;
+		bottom: 10%;
+		padding: 0;
+	}
+	.contact-box {
+		margin-left: 0;
+	}
 }
 
 @media (max-width: 768px) {
