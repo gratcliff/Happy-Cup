@@ -22,7 +22,23 @@ File Description: Place here your custom CSS styles
 .feature-box-2 {
 	margin-bottom: 0;
 }
-
+/* Contact Page */
+@media (min-width: 992px) {
+	.social_box {
+		height: auto;
+		width: 150px;
+		margin-left: -3%;
+		margin-top: 10%;
+	}
+	.social_box ul li a {
+		margin-top: 10%;
+	}
+	.social_box_image {
+		height: 85%;
+		width: 85%;
+		margin-right: -3%;
+	}
+}
 
 #user-reg-alert, #user-logout-alert {
 	position: fixed;
